@@ -1,0 +1,20 @@
+<?php
+class blitz_plus extends Blitz
+{
+
+    function __construct($tpl_file) {
+        parent::Blitz($tpl_file);
+    }
+
+    function block_array($context, $data_array) 
+    {
+		reset($data_array);
+		while (list($key, $item) = each($data_array) ) {
+			$this->block($context, $item);
+		}
+    }
+	
+	function include_js_file($js_path) {
+	    $this->set(array('js_file'=>'<script src="' . $js_path . '"></script>'));
+	}
+}
