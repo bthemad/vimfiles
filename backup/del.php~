@@ -1,8 +1,0 @@
-<?php
-
-$path_from = '/home/pepyaka/tmp/php_doc/out';
-$path_to   = '/home/pepyaka/.vim/doc';
-
-$file_list = scandir($path_from);
-
-print_r($file_list);

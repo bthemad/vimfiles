@@ -117,3 +117,7 @@ au BufReadPost *.odt silent %!odt2txt "%"
 
 " Set sudo write for w!! Very useful =)
 command Wsudo set buftype=nowrite | silent execute ':%w !sudo tee %' | set buftype= | e! %
+
+" Color scheme
+set t_Co=256
+colorscheme railscasts2 

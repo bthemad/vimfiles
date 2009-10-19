@@ -1,3 +1,0 @@
-<?php
-
-$sphinx = new SphinxClient();

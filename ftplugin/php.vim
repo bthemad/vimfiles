@@ -1,3 +1,5 @@
+set keywordprg=$HOME/.vim/bin/php_doc
+
 " Map ; to "add ; to the end of the line, when missing"
 noremap <buffer> ; :s/\([^;]\)$/\1;/<cr>
 
