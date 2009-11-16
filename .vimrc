@@ -13,6 +13,7 @@ set whichwrap=l,h,<,>,[,]       " Let me travel left and right out of string
 set fileencodings=utf-8,cp1251  " List of encoding to parse through
 set hidden                      " Make hidden buffers possible
 set nowrap                      " Don't wrap lines by default
+set spellsuggest=10             " Show only 10 options for spelling check
 
 " Set tabs to spaces
 set tabstop=4                   " Number of spaces in tab
