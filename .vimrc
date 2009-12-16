@@ -16,7 +16,7 @@ set nowrap                      " Don't wrap lines by default
 set spellsuggest=10             " Show only 10 options for spelling check
 
 " Set tabs to spaces
-set tabstop=4                   " Number of spaces in tab
+set tabstop=4                   " Number of spaces in tab yes
 set shiftwidth=4                " Number of spaces to indent
 set expandtab                   " Tabs as spaces
 set smarttab                    " Let's see, how smart are they
