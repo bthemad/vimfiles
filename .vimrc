@@ -41,6 +41,7 @@ set backupdir=~/.vim/backup     " Set backup dir
 set directory=~/.vim/tmp        " Set tmp directory
 
 syntax on                       " Show me syntax highlighting
+filetype on
 filetype plugin on
 filetype indent on
 
