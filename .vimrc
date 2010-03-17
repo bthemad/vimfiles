@@ -69,7 +69,7 @@ let Tlist_Close_On_Select = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_File_Fold_Auto_Close = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
-" let Tlist_Ctags_Cmd = '/home/pepyaka/.vim/bin/mctags'
+let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 map <silent> ,tl :TlistToggle<CR>
 
 " ## NerdTree
@@ -111,11 +111,6 @@ let g:syntastic_auto_loc_list=1
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-" Let's read some pdf, doc and odt documents
-au BufReadPost *.pdf silent %!pdftotext -nopgbrk "%" - |fmt -csw78
-au BufReadPost *.doc silent %!antiword "%"
-au BufReadPost *.odt silent %!odt2txt "%"
 
 " Set sudo write for w!! Very useful =)
 command Wsudo set buftype=nowrite | silent execute ':%w !sudo tee %' | set buftype= | e! %
