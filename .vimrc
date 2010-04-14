@@ -39,6 +39,7 @@ set showmatch                   " Some magic on parenthesis and braces, I might 
 set backup                      " Don't keep a backup file
 set backupdir=~/.vim/backup     " Set backup dir
 set directory=~/.vim/tmp        " Set tmp directory
+set backupskip=/tmp/*,/private/tmp/*
 
 syntax on                       " Show me syntax highlighting
 filetype on
