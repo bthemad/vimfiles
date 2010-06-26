@@ -14,7 +14,6 @@
 # Git binary files (vim-git)
 
 ###   Helpers   ###
-# ShowMarks (showmarks)
 # SnipMate (snipmate)
 # Fuzzy Finder (fuzzy_finder)
 # The NERD Commenter (nerdcommenter)
@@ -98,16 +97,6 @@
   plugin_type: plugin
   dir: fugitive
 
-- names: [showmarks.vim]
-  authors: [Anthony Kruize]
-  urls:
-    - http://www.vim.org/scripts/script.php?script_id=152
-  description: 'Visually shows the location of marks'
-  plugin_type: plugin
-  vim_org_id: 3342 # showmarks.vim 	2.2 	2004-08-16 	6.0
-  file_type: vim
-  dir: showmarks
-
 - names: [snipMate]
   authors: [Michael Sanders]
   urls:
@@ -178,6 +167,16 @@
   comment:
   plugin_type: plugin
   dir: syntastic
+
+#- names: [showmarks.vim]
+  #authors: [Anthony Kruize]
+  #urls:
+    #- http://www.vim.org/scripts/script.php?script_id=152
+  #description: 'Visually shows the location of marks'
+  #plugin_type: plugin
+  #vim_org_id: 3342 # showmarks.vim 	2.2 	2004-08-16 	6.0
+  #file_type: vim
+  #dir: showmarks
 
 #- names: [delimitMate]
   #authors: [Israel Chauca Fuentes]
