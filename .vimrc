@@ -1,4 +1,9 @@
 " ### Settings ###
+" Pathogen load
+filetype off 
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
 " Some clear vim settings
 set nocompatible                " For more sugar
 set number                      " Show line numbers

@@ -21,6 +21,7 @@
 # Surround (surround)
 # CSApprox (csapprox)
 # Repeat (repeat)
+# Syntastic (syntastic)
 ---
 - names: ['The NERD tree']
   authors: [Marty Grenfell]
@@ -167,6 +168,16 @@
   comment:
   plugin_type: plugin
   dir: repeat
+
+- names: [Syntastic]
+  authors: [Marty Grenfell]
+  urls:
+    - http://www.vim.org/scripts/script.php?script_id=2736
+  repo: git://github.com/scrooloose/syntastic.git
+  description: 'Syntax checker for many languages'
+  comment:
+  plugin_type: plugin
+  dir: syntastic
 
 #- names: [delimitMate]
   #authors: [Israel Chauca Fuentes]
