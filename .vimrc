@@ -11,9 +11,13 @@ set autochdir                   " Automatically change dir to the fileDir
 set backspace=indent,eol,start  " I want to delete more with backSpace
 set whichwrap=l,h,<,>,[,]       " Let me travel left and right out of string
 set fileencodings=utf-8,cp1251  " List of encoding to parse through
-set hidden                      " Make hidden buffers possible
+set hidden                      " Make unsaved hidden buffers possible
 set nowrap                      " Don't wrap lines by default
 set spellsuggest=10             " Show only 10 options for spelling check
+set synmaxcol=2048              " Syntax color max line width
+set wildmenu                    " Enhanced command-line completion
+set fillchars=""                " Get rid of | in window separators
+set diffopt+=iwhite             " Ignore whitespaces on diff
 
 " Set tabs to spaces
 set tabstop=4                   " Number of spaces in tab yes
@@ -22,6 +26,7 @@ set expandtab                   " Tabs as spaces
 set smarttab                    " Let's see, how smart are they
 set autoindent                  " Indent by text please, make it on the same level as prv one
 set smartindent                 " Try to make smart indents
+set scrolloff=8                 " 8 lines from top and down when scrolling
 
 " Command line and status line
 set showcmd                     " I wanna see, what I'm typing
@@ -31,7 +36,7 @@ set laststatus=2                " Previous nightmare was copypasted. It all show
 
 " Searhc params
 set incsearch                   " Incremental search
-set ignorecase                  " Ignore case while searching
+set smartcase                   " Ignore case while searching
 set nohlsearch                  " Don't highlight my search results
 set showmatch                   " Some magic on parenthesis and braces, I might disable it later
 
@@ -46,6 +51,10 @@ filetype on
 filetype plugin on
 filetype indent on
 
+" Commands, that open folds
+set foldopen=block,insert,jump,hor,mark,percent,quickfix,search,tag,undo
+
+"" Useful stuff "" map <silent> ,cd :lcd %:h<CR> 
 " Autocomplition options
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -56,13 +65,41 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 
 " ### Mappings ###
+" ## Edit .vimrc ##
+map ,v :vsp $MYVIMRC<CR>
+map ,V :source $MYVIMRC<CR>
+
+" ## Buffers ##
+map ,bn :bnext<CR>
+map ,bp :bprev<CR>
+map ,bt :b#<CR>
+map ,bd :bd<CR>
+
+" ## Windows ##
+map ,wl <C-W>l
+map ,wh <C-W>h
+map ,wj <C-W>j
+map ,wk <C-W>k
+
+map ,wL <C-W>L
+map ,wH <C-W>H
+map ,wJ <C-W>J
+map ,wK <C-W>K
+
+map ,ws <C-W>s
+map ,wo <C-W>o
+map ,wv <C-W>v
+map ,wc <C-W>c
+map ,wp <C-W>p
+
+" ## Misc ##
+" Toggle paste mode
+set pastetoggle=,p
+nmap ,wr :set invwrap<CR>:set wrap?<CR>
+
 " I want travel up and down faster
 nmap <C-J> 5j
 nmap <C-K> 5k
-map tl :tabnext<CR>
-map th :tabprev<CR>
-map tn :tabnew<CR>
-map tc :tabclose<CR>
 
 " ### Plugins ###
 " ## Taglist
@@ -86,22 +123,13 @@ let php_baselib = 1
 let php_smart_members = 1
 let php_highlight_quotes = 1
 
-" ## PHPDoc
-inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
-nnoremap <C-P> :call PhpDocSingle()<CR>
-vnoremap <C-P> :call PhpDocRange()<CR>
-
-" ## SuperTab
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+" Maps autocomplete to tab
+imap <Tab> <C-P>
 
 " ## BufExplorer
 " CTRL+b opens the buffer list
 "map <C-b> <esc>:BufExplorer<cr>
 map <silent> ,tb :BufExplorer<CR>
-map gz :bdelete<cr>
-map gb :bnext<cr>
-map gB :bprev<cr>
 
 " ## MarksBrowser
 map <silent> ,tm :MarksBrowser<CR>
@@ -114,8 +142,19 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " Set sudo write for w!! Very useful =)
-command Wsudo set buftype=nowrite | silent execute ':%w !sudo tee %' | set buftype= | e! %
+command! Wsudo set buftype=nowrite | silent execute ':%w !sudo tee %' | set buftype= | e! %
+command! ST !icalBuddy uncompletedTasks
 
 " Color scheme
 set t_Co=256
-colorscheme railscasts2 
+colorscheme railscasts2
+
+" Set an orange cursor in insert mode, and a red cursor otherwise.
+" Works at least for xterm and rxvt terminals.
+" Does not work for gnome terminal, konsole, xfce4-terminal.
+if &term =~ "xterm\\|rxvt"
+    :silent !echo -ne "\033]12;red\007"
+    let &t_SI = "\033]12;orange\007"
+    let &t_EI = "\033]12;red\007"
+    autocmd VimLeave * :!echo -ne "\033]12;red\007"
+endif
