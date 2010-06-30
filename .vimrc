@@ -128,6 +128,9 @@ let php_baselib = 1
 let php_smart_members = 1
 let php_highlight_quotes = 1
 
+" ## SnipMate
+let snips_author = 'Alex Kudryashov'
+
 " Maps autocomplete to tab
 imap <Tab> <C-P>
 
@@ -152,7 +155,7 @@ command! ST !icalBuddy uncompletedTasks
 
 " Color scheme
 set t_Co=256
-colorscheme railscasts2
+colorscheme railscasts
 
 " Set an orange cursor in insert mode, and a red cursor otherwise.
 " Works at least for xterm and rxvt terminals.
