@@ -122,3 +122,8 @@ hi link htmlEndTag           xmlEndTag
 hi xmlTag                    guifg=#E8BF6A
 hi xmlTagName                guifg=#E8BF6A
 hi xmlEndTag                 guifg=#E8BF6A
+
+" Non-text symbols
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
+
