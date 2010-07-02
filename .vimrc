@@ -1,6 +1,6 @@
 " ### Settings ###
 " Pathogen load
-filetype off 
+filetype off
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
@@ -12,7 +12,7 @@ set lazyredraw                  " Don't redraw while doing macros
 set noerrorbells                " Don't beep please
 set visualbell                  " Show me something
 set t_vb=                       " No, don't show
-set autochdir                   " Automatically change dir to the fileDir
+" set autochdir                   " Automatically change dir to the fileDir
 set backspace=indent,eol,start  " I want to delete more with backSpace
 set whichwrap=l,h,<,>,[,]       " Let me travel left and right out of string
 set fileencodings=utf-8,cp1251  " List of encoding to parse through
@@ -25,13 +25,15 @@ set fillchars=""                " Get rid of | in window separators
 set diffopt+=iwhite             " Ignore whitespaces on diff
 
 " Set tabs to spaces
-set tabstop=4                   " Number of spaces in tab yes
-set shiftwidth=4                " Number of spaces to indent
+set tabstop=4                   " Number of spaces in tab
 set expandtab                   " Tabs as spaces
+set softtabstop=4               " Number of spaces to indent
+set shiftwidth=4                " Number of spaces to delete by backspace
 set smarttab                    " Let's see, how smart are they
 set autoindent                  " Indent by text please, make it on the same level as prv one
 set smartindent                 " Try to make smart indents
 set scrolloff=8                 " 8 lines from top and down when scrolling
+set listchars=tab:▸\ ,eol:¬     " Show invisible symbols in TextMate way
 
 " Command line and status line
 set showcmd                     " I wanna see, what I'm typing
@@ -41,7 +43,8 @@ set laststatus=2                " Previous nightmare was copypasted. It all show
 
 " Searhc params
 set incsearch                   " Incremental search
-set smartcase                   " Ignore case while searching
+set ignorecase                  " Ignore case while searching
+set smartcase                   " Turn ignore case off if any capital letters are presented
 set nohlsearch                  " Don't highlight my search results
 set showmatch                   " Some magic on parenthesis and braces, I might disable it later
 
@@ -59,8 +62,8 @@ filetype indent on
 " Commands, that open folds
 set foldopen=block,insert,jump,hor,mark,percent,quickfix,search,tag,undo
 
-"" Useful stuff "" map <silent> ,cd :lcd %:h<CR> 
-" Autocomplition options
+"" Working with filetypes
+" Tune autocompletion
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -68,6 +71,13 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
+
+" Tune fileTypes
+" Treat rss files as xml
+autocmd BufNewFile,BufRead *.rss setfiletype xml
+" Clear whitespaces on write to php and js files
+autocmd BufWritePre *.php,*.js,*.htm*,*.py :call <SID>StripTrailingWhitespaces()
+"autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab " Example of customizining tabs for exact filetype
 
 " ### Mappings ###
 " ## Edit .vimrc ##
@@ -97,10 +107,24 @@ map ,wv <C-W>v
 map ,wc <C-W>c
 map ,wp <C-W>p
 
+" ## Tabs ##
+map ,wT <C-W>T
+
+" Indentation like in TextMate (works only under MacVim)
+nmap <D-[> <<
+nmap <D-]> >>
+vmap <D-[> <gv
+vmap <D-]> >gv
+
 " ## Misc ##
 " Toggle paste mode
 set pastetoggle=,p
+" Toggle wrap mode
 nmap ,wr :set invwrap<CR>:set wrap?<CR>
+" Change directory to current file's directory
+map <silent> ,cd :lcd %:h<CR>
+" Strip trailing spaces
+nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 
 " I want travel up and down faster
 nmap <C-J> 5j
@@ -166,3 +190,30 @@ if &term =~ "xterm\\|rxvt"
     let &t_EI = "\033]12;red\007"
     autocmd VimLeave * :!echo -ne "\033]12;red\007"
 endif
+
+"" Help Functions ""
+" Strip trailing spaces
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+" Preserve state of cursor after executing a command
+function! Preserve(command)
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  execute a:command
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
