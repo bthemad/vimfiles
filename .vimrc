@@ -4,7 +4,7 @@ filetype off
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
-" Some clear vim settings
+" Some clear Vim settings
 set nocompatible                " For more sugar
 set number                      " Show line numbers
 set ttyfast                     " Like fast=true in Oracle =)
@@ -18,6 +18,7 @@ set whichwrap=l,h,<,>,[,]       " Let me travel left and right out of string
 set fileencodings=utf-8,cp1251  " List of encoding to parse through
 set hidden                      " Make unsaved hidden buffers possible
 set nowrap                      " Don't wrap lines by default
+set linebreak                   " If wrap is on, it will be word-wrap
 set spellsuggest=10             " Show only 10 options for spelling check
 set synmaxcol=2048              " Syntax color max line width
 set wildmenu                    " Enhanced command-line completion
@@ -32,21 +33,26 @@ set shiftwidth=4                " Number of spaces to delete by backspace
 set smarttab                    " Let's see, how smart are they
 set autoindent                  " Indent by text please, make it on the same level as prv one
 set smartindent                 " Try to make smart indents
-set scrolloff=8                 " 8 lines from top and down when scrolling
 set listchars=tab:▸\ ,eol:¬     " Show invisible symbols in TextMate way
 
 " Command line and status line
 set showcmd                     " I wanna see, what I'm typing
 set scrolloff=3                 " Keep 3 lines when scrolling
-set statusline=%<%y%f%h%m%r%=format=%{&fileformat}\ file=%{&fileencoding}\ enc=%{&encoding}\ %l,%c%V\ %P
+set statusline=%<%y%f%h%m%r%{fugitive#statusline()}%=format=%{&fileformat}\ file=%{&fileencoding}\ enc=%{&encoding}\ %l,%c%V\ %P
 set laststatus=2                " Previous nightmare was copypasted. It all shows the status
 
-" Searhc params
+" Search params
 set incsearch                   " Incremental search
 set ignorecase                  " Ignore case while searching
 set smartcase                   " Turn ignore case off if any capital letters are presented
 set nohlsearch                  " Don't highlight my search results
 set showmatch                   " Some magic on parenthesis and braces, I might disable it later
+
+" Make it russian
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=0
+highlight lCursor guifg=NONE guibg=Cyan
 
 " Backup and tmp folders
 set backup                      " Don't keep a backup file
@@ -77,11 +83,13 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd BufNewFile,BufRead *.rss setfiletype xml
 " Clear whitespaces on write to php and js files
 autocmd BufWritePre *.php,*.js,*.htm*,*.py :call <SID>StripTrailingWhitespaces()
-"autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab " Example of customizining tabs for exact filetype
+" Example of customizing tabs for exact filetype
+"autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " ### Mappings ###
 " ## Edit .vimrc ##
-map ,v :vsp $MYVIMRC<CR>
+map ,vv :vsp $MYVIMRC<CR>
+map ,vc :vsp ~/.vim/config/plugins.yml<CR>
 map ,V :source $MYVIMRC<CR>
 
 " ## Buffers ##
@@ -107,9 +115,6 @@ map ,wv <C-W>v
 map ,wc <C-W>c
 map ,wp <C-W>p
 
-" ## Tabs ##
-map ,wT <C-W>T
-
 " Indentation like in TextMate (works only under MacVim)
 nmap <D-[> <<
 nmap <D-]> >>
@@ -120,15 +125,24 @@ vmap <D-]> >gv
 " Toggle paste mode
 set pastetoggle=,p
 " Toggle wrap mode
-nmap ,wr :set invwrap<CR>:set wrap?<CR>
+nmap <silent> ,wr  :set wrap!<CR>
+" Toggle spelling
+nmap <silent> ,sp :set spell!<CR>
 " Change directory to current file's directory
 map <silent> ,cd :lcd %:h<CR>
 " Strip trailing spaces
 nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
+" Swap ` and ' for navigation
+nnoremap ' `
+nnoremap ` '
+" A bit more convinient way to start and end of line
+map H ^
+map L $
 
 " I want travel up and down faster
 nmap <C-J> 5j
 nmap <C-K> 5k
+
 
 " ### Plugins ###
 " ## Taglist
@@ -138,6 +152,7 @@ let Tlist_File_Fold_Auto_Close = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 map <silent> ,tl :TlistToggle<CR>
+set tags+=`pwd`/tags
 
 " ## NerdTree
 map <silent> ,tt :NERDTreeToggle<CR>
@@ -155,16 +170,15 @@ let php_highlight_quotes = 1
 " ## SnipMate
 let snips_author = 'Alex Kudryashov'
 
-" Maps autocomplete to tab
-imap <Tab> <C-P>
-
 " ## BufExplorer
 " CTRL+b opens the buffer list
 "map <C-b> <esc>:BufExplorer<cr>
 map <silent> ,tb :BufExplorer<CR>
+map <silent> ,be :BufExplorer<CR>
 
 " ## MarksBrowser
 map <silent> ,tm :MarksBrowser<CR>
+map <silent> ,me :MarksBrowser<CR>
 
 " ## Syntastic
 let g:syntastic_enable_signs=1
@@ -172,6 +186,28 @@ let g:syntastic_auto_loc_list=1
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+" ## Command-T
+map <silent> ,tf :CommandT<CR>
+
+" ## Fugitive
+map <silent> ,gs :Gstatus<CR>
+map <silent> ,gc :Gcommit<CR>
+map <silent> ,gw :Gwrite<CR>
+map <silent> ,gb :Gblame<CR>
+
+" ## Conque
+map <silent> ,trm :ConqueTermSplit bash<CR>
+
+" ## FuzzyFinder
+nnoremap <silent> ,ff :FufFile<CR>
+nnoremap <silent> ,fb :FufBuffer<CR>
+nnoremap <silent> ,fd :FufDir<CR>
+nnoremap <silent> ,ft :FufTag<CR>
+
+" ## SuperTab
+let g:SuperTabDefaultCompletionType = "context"
+
 
 " Set sudo write for w!! Very useful =)
 command! Wsudo set buftype=nowrite | silent execute ':%w !sudo tee %' | set buftype= | e! %

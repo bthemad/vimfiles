@@ -16,11 +16,15 @@
 ###   Helpers   ###
 # SnipMate (snipmate)
 # Fuzzy Finder (fuzzy_finder)
+# Command-T
 # The NERD Commenter (nerdcommenter)
 # Surround (surround)
 # CSApprox (csapprox)
 # Repeat (repeat)
 # Syntastic (syntastic)
+# MatchIt (matchit)
+# Conque Terminal (conque)
+# SuperTab
 ---
 - names: ['The NERD tree']
   authors: [Marty Grenfell]
@@ -118,6 +122,16 @@
   file_type: zip
   dir: fuzzy_finder
 
+- names: [Command-T]
+  authors: [Wincent Colaiuta]
+  urls:
+    - https://wincent.com/products/command-t/
+  repo: git://github.com/wincent/Command-T.git
+  description: 'TextMate like navigation through files'
+  comment:
+  plugin_type: plugin
+  dir: command_t
+
 - names: ['The NERD Commenter']
   authors: [Marty Grenfell]
   urls:
@@ -167,6 +181,37 @@
   comment:
   plugin_type: plugin
   dir: syntastic
+
+- names: [matchit]
+  authors: [Benji Fisher]
+  urls:
+    - http://www.vim.org/scripts/script.php?script_id=39
+  description: 'extended % matching for HTML, LaTeX, and many other languages'
+  comment:
+  plugin_type: plugin
+  vim_org_id: 8196
+  file_type: zip
+  dir: matchit
+
+- names: ['Conque Terminal']
+  authors: [nicoraffo]
+  urls:
+    - http://www.vim.org/scripts/script.php?script_id=2771
+  repo: git://github.com/ornicar/vim-conque.git
+  description: 'Terminal inside vim'
+  comment: 'This is actually a fork, because the original is not compatible with pathogen'
+  plugin_type: plugin
+  dir: conque
+
+- names: ['SuperTab']
+  authors: [Eric Van Dewoestine]
+  urls:
+    - http://www.vim.org/scripts/script.php?script_id=1643
+  repo: git://github.com/tsaleh/vim-supertab.git
+  description: 'Tab to autocomplete'
+  comment:
+  plugin_type: plugin
+  dir: supertab
 
 #- names: [showmarks.vim]
   #authors: [Anthony Kruize]
@@ -268,17 +313,6 @@
   #description: 'Load filetype templates for new files'
   #plugin_type: plugin
   #dir: templates
-
-#- names: [matchit]
-  #authors: [Benji Fisher]
-  #urls:
-    #- http://www.vim.org/scripts/script.php?script_id=39
-  #description: 'extended % matching for HTML, LaTeX, and many other languages'
-  #comment:
-  #plugin_type: plugin
-  #vim_org_id: 8196
-  #file_type: zip
-  #dir: matchit
 
 #- names: [IndexedSearch]
   #authors: [Yakov Lerner]
