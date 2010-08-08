@@ -126,4 +126,4 @@ hi xmlEndTag                 guifg=#E8BF6A
 " Non-text symbols
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
-
+:hi ColorColumn guibg=#2D2D2D

@@ -6,12 +6,21 @@
 # Tag Explorer (taglist) 
 # Marks Explorer (marksbrowser)
 
+
 ###   Language plugins   ###
+##  JavaScript  ##
 # jQuery (jquery)
+
+##    Python    ##
+# Python syntax file
+# PyFlakes
+# PyDoc
+
 
 ###   Version Control System   ###
 # Fugitive (fugitive)
 # Git binary files (vim-git)
+
 
 ###   Helpers   ###
 # SnipMate (snipmate)
@@ -25,6 +34,7 @@
 # MatchIt (matchit)
 # Conque Terminal (conque)
 # SuperTab
+# DelimMate
 ---
 - names: ['The NERD tree']
   authors: [Marty Grenfell]
@@ -78,6 +88,39 @@
   vim_org_id: 12107 # 0.4, 2010-02-02, 6.0
   file_type: vim
   dir: jquery
+
+- names: [Python]
+  authors: [Dmitry Vasiliev]
+  urls:
+    - http://www.vim.org/scripts/script.php?script_id=790
+  description: 'Enhaced python syntax file'
+  comment:
+  plugin_type: syntax
+  vim_org_id: 12804 # 2.6.6 2010.04.09
+  file_type: vim
+  dir: python
+
+- names: [PyFlakes]
+  authors: [Kevin Watters]
+  urls:
+    - http://www.vim.org/scripts/script.php?script_id=2441
+  description: 'Python lint tool'
+  comment:
+  plugin_type: ftplugin
+  vim_org_id: 12804 # 2.6.6 2010.04.09
+  file_type: zip
+  dir: pyflakes
+
+- names: [PyDoc]
+  authors: [Andre Kelpe]
+  urls:
+    - http://www.vim.org/scripts/script.php?script_id=910
+  description: 'Inline docs for Python'
+  comment:
+  plugin_type: plugin
+  vim_org_id: 13092 # 1.3.2 2010-06-02
+  file_type: vim
+  dir: pydoc
 
 - names: [vim-git]
   authors: [Tim Pope]
@@ -213,6 +256,16 @@
   plugin_type: plugin
   dir: supertab
 
+- names: [delimitMate]
+  authors: [Israel Chauca Fuentes]
+  urls:
+    - http://www.vim.org/scripts/script.php?script_id=2754
+  repo: git://github.com/Raimondi/delimitMate.git
+  description: 'Provides auto-balancing and some expansions for parens, quotes, etc.'
+  comment:
+  plugin_type: plugin
+  dir: delimitmate
+
 #- names: [showmarks.vim]
   #authors: [Anthony Kruize]
   #urls:
@@ -222,16 +275,6 @@
   #vim_org_id: 3342 # showmarks.vim 	2.2 	2004-08-16 	6.0
   #file_type: vim
   #dir: showmarks
-
-#- names: [delimitMate]
-  #authors: [Israel Chauca Fuentes]
-  #urls:
-    #- http://www.vim.org/scripts/script.php?script_id=2754
-  #repo: git://github.com/Raimondi/delimitMate.git
-  #description: 'Provides auto-balancing and some expansions for parens, quotes, etc.'
-  #comment:
-  #plugin_type: plugin
-  #dir: delimitmate
 
 #- names: [AutoComplPop, acp]
   #authors: [Takeshi Nishida]

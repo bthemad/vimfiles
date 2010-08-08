@@ -64,19 +64,20 @@ syntax on                       " Show me syntax highlighting
 filetype on
 filetype plugin on
 filetype indent on
+set cc=80
 
 " Commands, that open folds
 set foldopen=block,insert,jump,hor,mark,percent,quickfix,search,tag,undo
 
 "" Working with filetypes
 " Tune autocompletion
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType c set omnifunc=ccomplete#Complete
+"autocmd FileType python set omnifunc=pythoncomplete#Complete
+"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+"autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+"autocmd FileType c set omnifunc=ccomplete#Complete
 
 " Tune fileTypes
 " Treat rss files as xml
@@ -87,10 +88,12 @@ autocmd BufWritePre *.php,*.js,*.htm*,*.py :call <SID>StripTrailingWhitespaces()
 "autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " ### Mappings ###
+let mapleader = ","
 " ## Edit .vimrc ##
 map ,vv :vsp $MYVIMRC<CR>
 map ,vc :vsp ~/.vim/config/plugins.yml<CR>
 map ,V :source $MYVIMRC<CR>
+"autocmd BufWritePost .vimrc source $MYVIMRC
 
 " ## Buffers ##
 map ,bn :bnext<CR>
@@ -136,13 +139,15 @@ nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 nnoremap ' `
 nnoremap ` '
 " A bit more convinient way to start and end of line
-map H ^
-map L $
+" nmap H ^
+" nmap L $
 
 " I want travel up and down faster
 nmap <C-J> 5j
 nmap <C-K> 5k
 
+" Run current file as python script
+map ,rp :!python %
 
 " ### Plugins ###
 " ## Taglist
