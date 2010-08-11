@@ -124,6 +124,12 @@ nmap <D-]> >>
 vmap <D-[> <gv
 vmap <D-]> >gv
 
+" Let's try to move in insert mode just like in emacs
+imap <C-L> <right>
+imap <C-H> <left>
+imap <C-J> <down>
+imap <C-K> <up>
+
 " ## Misc ##
 " Toggle paste mode
 set pastetoggle=,p
@@ -212,6 +218,9 @@ nnoremap <silent> ,ft :FufTag<CR>
 
 " ## SuperTab
 let g:SuperTabDefaultCompletionType = "context"
+
+" ## DelimMate
+let delimitMate_expand_cr = 1
 
 
 " Set sudo write for w!! Very useful =)

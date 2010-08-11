@@ -107,7 +107,7 @@
   description: 'Python lint tool'
   comment:
   plugin_type: ftplugin
-  vim_org_id: 12804 # 2.6.6 2010.04.09
+  vim_org_id: 13378 # 2.0 2010-07-21
   file_type: zip
   dir: pyflakes
 
