@@ -137,6 +137,8 @@ set pastetoggle=,p
 nmap <silent> ,wr  :set wrap!<CR>
 " Toggle spelling
 nmap <silent> ,sp :set spell!<CR>
+" Insert first dictionary occurrence
+nmap <silent> ,sr 1z=
 " Change directory to current file's directory
 map <silent> ,cd :lcd %:h<CR>
 " Strip trailing spaces
