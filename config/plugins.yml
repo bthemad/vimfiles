@@ -98,7 +98,7 @@
   authors: [Shawn Biddle]
   urls:
     - http://www.vim.org/scripts/script.php?script_id=3171
-  repo: git://github.com/shawncplus/phpcomplete.vim
+  repo: git://github.com/shawncplus/phpcomplete.vim.git
   description: 'Better php omnicomplete'
   comment:
   plugin_type: plugin
@@ -277,10 +277,11 @@
   authors: [nicoraffo]
   urls:
     - http://www.vim.org/scripts/script.php?script_id=2771
-  repo: git://github.com/ornicar/vim-conque.git
   description: 'Terminal inside vim'
-  comment: 'This is actually a fork, because the original is not compatible with pathogen'
+  comment:
   plugin_type: plugin
+  vim_org_id: 13070
+  file_type: tar.gz
   dir: conque
 
 - names: ['SuperTab']
