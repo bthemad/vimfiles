@@ -11,6 +11,11 @@
 ##  JavaScript  ##
 # jQuery (jquery)
 
+##      PHP     ##
+# PHP Complete
+# PHP Folding
+# PHP Indent
+
 ##    Python    ##
 # Python syntax file
 # PyFlakes
@@ -88,6 +93,38 @@
   vim_org_id: 12107 # 0.4, 2010-02-02, 6.0
   file_type: vim
   dir: jquery
+
+- names: [PHP Complete]
+  authors: [Shawn Biddle]
+  urls:
+    - http://www.vim.org/scripts/script.php?script_id=3171
+  repo: git://github.com/shawncplus/phpcomplete.vim
+  description: 'Better php omnicomplete'
+  comment:
+  plugin_type: plugin
+  dir: php_complete
+
+- names: [PHP Folding]
+  authors: [Ray Burgemeestre]
+  urls:
+    - http://www.vim.org/scripts/script.php?script_id=1623
+  description: 'Better php folding support'
+  comment:
+  plugin_type: plugin
+  vim_org_id: 12114 # 1.7, 2010-01-16
+  file_type: vim
+  dir: php_folding
+
+- names: [PHP Indent]
+  authors: [John Wellesz]
+  urls:
+    - http://www.vim.org/scripts/script.php?script_id=1120
+  description: 'Better php indent support'
+  comment:
+  plugin_type: indent
+  vim_org_id: 13443 # 1.33 2010-07-30
+  file_type: vim
+  dir: php_folding
 
 - names: [Python]
   authors: [Dmitry Vasiliev]

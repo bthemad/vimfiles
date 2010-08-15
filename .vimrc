@@ -39,7 +39,7 @@ set listchars=tab:▸\ ,eol:¬     " Show invisible symbols in TextMate way
 set showcmd                     " I wanna see, what I'm typing
 set scrolloff=3                 " Keep 3 lines when scrolling
 set statusline=%<%y%f%h%m%r%{fugitive#statusline()}%=format=%{&fileformat}\ file=%{&fileencoding}\ enc=%{&encoding}\ %l,%c%V\ %P
-set laststatus=2                " Previous nightmare was copypasted. It all shows the status
+set laststatus=2                " Previous nightmare was copy pasted. It all shows the status
 
 " Search params
 set incsearch                   " Incremental search
@@ -47,6 +47,7 @@ set ignorecase                  " Ignore case while searching
 set smartcase                   " Turn ignore case off if any capital letters are presented
 set nohlsearch                  " Don't highlight my search results
 set showmatch                   " Some magic on parenthesis and braces, I might disable it later
+set mat=5                       " Blink on matching brackets
 
 " Make it russian
 set keymap=russian-jcukenwin
@@ -146,7 +147,7 @@ nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 " Swap ` and ' for navigation
 nnoremap ' `
 nnoremap ` '
-" A bit more convinient way to start and end of line
+" A bit more convenient way to start and end of line
 " nmap H ^
 " nmap L $
 
@@ -172,6 +173,8 @@ map <silent> ,tt :NERDTreeToggle<CR>
 
 " ## PHP Indent
 let PHP_BracesAtCodeLevel = 1
+" We got our own PHPFolding stuff
+let php_folding = 0
 
 " ## PHP HighLight
 let php_sql_query = 1
