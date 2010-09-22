@@ -41,6 +41,7 @@
 # SuperTab
 # DelimMate
 # AutoTag
+# YankRing
 ---
 - names: ['The NERD tree']
   authors: [Marty Grenfell]
@@ -77,7 +78,7 @@
   authors: [Stephen Bach]
   urls:
     - http://www.vim.org/scripts/script.php?script_id=2050
-  description:
+  description: 'Easy buffer navigation'
   comment:
   plugin_type: plugin
   vim_org_id: 13094 # 1.1.4 2010-06-03
@@ -89,7 +90,7 @@
   urls:
     - http://www.vim.org/scripts/script.php?script_id=1890
   description:
-  comment:
+  comment: 'Fuzzy explorer for buffers, filesystem and buffers grep'
   plugin_type: plugin
   vim_org_id: 13373 # 3.1.1 2010-07-21
   file_type: vim
@@ -99,7 +100,7 @@
   authors: [Bruno Michel]
   urls:
     - http://www.vim.org/scripts/script.php?script_id=2416
-  description: 'some colorations for jQuery keywords and for CSS selectors'
+  description: 'Some colorations for jQuery keywords and for CSS selectors'
   comment:
   plugin_type: syntax
   vim_org_id: 12107 # 0.4, 2010-02-02, 6.0
@@ -315,6 +316,17 @@
   vim_org_id: 12473 # 1.10 2010-02-23
   file_type: vim
   dir: autotag
+
+- names: [YankRing]
+  authors: [David Fishburn]
+  urls:
+    - http://www.vim.org/scripts/script.php?script_id=1234
+  description: 'Yank buffer with menu'
+  comment:
+  plugin_type: plugin
+  vim_org_id: 13554
+  file_type: zip
+  dir: yank_ring
 
 # - names: [FuzzyFinder, fuf]
   # authors: [Takeshi Nishida]

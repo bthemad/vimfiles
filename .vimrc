@@ -28,6 +28,7 @@ set fillchars=""                " Get rid of | in window separators
 set diffopt+=iwhite             " Ignore whitespaces on diff
 set scrolloff=3                 " Keep 3 lines when scrolling
 set cursorline                  " Highlight cursor line
+set mouse=a                     " Let's use a mouse, just for split moving
 
 " Set tabs to spaces
 set tabstop=4                   " Number of spaces in tab
@@ -165,11 +166,19 @@ nmap <C-K> 5k
 inoremap jj <ESC>
 cnoremap jj <C-C>
 
+" I want to navigate wrapped lines
+nnoremap k gk
+nnoremap j gj
+nnoremap gk k
+nnoremap gj j
+
 " Show me tasks from my Today list
 " nmap <silent> ,ic %!icv<CR>
 
 " Run current file as python script
 map ,rp :!python %
+
+"" ### Plugin configs ###
 
 " ## TagList
 let Tlist_Close_On_Select = 1
@@ -203,9 +212,9 @@ let snips_author = 'Alex Kudryashov'
 
 " ## BufExplorer
 " CTRL+b opens the buffer list
-"map <C-b> <esc>:BufExplorer<cr>
-map <silent> ,tb :BufExplorer<CR>
-map <silent> ,be :BufExplorer<CR>
+" map <C-b> <esc>:BufExplorer<cr>
+" map <silent> ,tb :BufExplorer<CR>
+" map <silent> ,be :BufExplorer<CR>
 
 " ## MarksBrowser
 map <silent> ,tm :MarksBrowser<CR>
@@ -231,10 +240,10 @@ map <silent> ,gb :Gblame<CR>
 map <silent> ,trm :ConqueTermSplit bash<CR>
 
 " ## FuzzyFinder
-nnoremap <silent> ,ff :FufFile<CR>
-nnoremap <silent> ,fb :FufBuffer<CR>
-nnoremap <silent> ,fd :FufDir<CR>
-nnoremap <silent> ,ft :FufTag<CR>
+" nnoremap <silent> ,ff :FufFile<CR>
+" nnoremap <silent> ,fb :FufBuffer<CR>
+" nnoremap <silent> ,fd :FufDir<CR>
+" nnoremap <silent> ,ft :FufTag<CR>
 
 " ## SuperTab
 let g:SuperTabDefaultCompletionType = "context"
@@ -247,6 +256,9 @@ au FileType vim let b:delimitMate_quotes = "'"
 " ## Project
 nmap <silent> ,tp <Plug>ToggleProject
 nmap <silent> ,to :Project .vimprojects<CR>
+
+" ## YankRing
+nnoremap <silent> ,rr :YRShow<CR>
 
 " Set sudo write for w!! Very useful =)
 command! Wsudo set buftype=nowrite | silent execute ':%w !sudo tee %' | set buftype= | e! %
