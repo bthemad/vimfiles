@@ -1,12 +1,14 @@
 " ### Settings ###
+let mapleader = ","
+let maplocalleader = ","
 " Pathogen load
 filetype off
-call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
 " Some clear Vim settings
 set nocompatible                " For more sugar
-set number                      " Show line numbers
+set relativenumber              " Show relative line numbers
 set ttyfast                     " Like fast=true in Oracle =)
 set lazyredraw                  " Don't redraw while doing macros
 set noerrorbells                " Don't beep please
@@ -24,30 +26,33 @@ set synmaxcol=2048              " Syntax color max line width
 set wildmenu                    " Enhanced command-line completion
 set fillchars=""                " Get rid of | in window separators
 set diffopt+=iwhite             " Ignore whitespaces on diff
+set scrolloff=3                 " Keep 3 lines when scrolling
+set cursorline                  " Highlight cursor line
 
 " Set tabs to spaces
 set tabstop=4                   " Number of spaces in tab
-set expandtab                   " Tabs as spaces
 set softtabstop=4               " Number of spaces to indent
 set shiftwidth=4                " Number of spaces to delete by backspace
+set expandtab                   " Tabs as spaces
 set smarttab                    " Let's see, how smart are they
 set autoindent                  " Indent by text please, make it on the same level as prv one
 set smartindent                 " Try to make smart indents
+set list                        " Show invisible symbols
 set listchars=tab:▸\ ,eol:¬     " Show invisible symbols in TextMate way
 
 " Command line and status line
 set showcmd                     " I wanna see, what I'm typing
-set scrolloff=3                 " Keep 3 lines when scrolling
 set statusline=%<%y%f%h%m%r%{fugitive#statusline()}%=format=%{&fileformat}\ file=%{&fileencoding}\ enc=%{&encoding}\ %l,%c%V\ %P
 set laststatus=2                " Previous nightmare was copy pasted. It all shows the status
 
 " Search params
+set hlsearch                    " Highlight search results
 set incsearch                   " Incremental search
 set ignorecase                  " Ignore case while searching
 set smartcase                   " Turn ignore case off if any capital letters are presented
-set nohlsearch                  " Don't highlight my search results
 set showmatch                   " Some magic on parenthesis and braces, I might disable it later
 set mat=5                       " Blink on matching brackets
+set gdefault                    " Global substitution by default
 
 " Make it russian
 set keymap=russian-jcukenwin
@@ -65,7 +70,7 @@ syntax on                       " Show me syntax highlighting
 filetype on
 filetype plugin on
 filetype indent on
-set cc=80
+set colorcolumn=80
 
 " Commands, that open folds
 set foldopen=block,insert,jump,hor,mark,percent,quickfix,search,tag,undo
@@ -88,8 +93,6 @@ autocmd BufWritePre *.php,*.js,*.htm*,*.py :call <SID>StripTrailingWhitespaces()
 " Example of customizing tabs for exact filetype
 "autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
-" ### Mappings ###
-let mapleader = ","
 " ## Edit .vimrc ##
 map ,vv :vsp $MYVIMRC<CR>
 map ,vc :vsp ~/.vim/config/plugins.yml<CR>
@@ -151,15 +154,24 @@ nnoremap ` '
 " nmap H ^
 " nmap L $
 
+" Clear search highlight results
+nnoremap <leader><space> :noh<cr>
+
 " I want travel up and down faster
 nmap <C-J> 5j
 nmap <C-K> 5k
 
+" Let's try once again with jj
+inoremap jj <ESC>
+cnoremap jj <C-C>
+
+" Show me tasks from my Today list
+" nmap <silent> ,ic %!icv<CR>
+
 " Run current file as python script
 map ,rp :!python %
 
-" ### Plugins ###
-" ## Taglist
+" ## TagList
 let Tlist_Close_On_Select = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_File_Fold_Auto_Close = 1
@@ -170,6 +182,9 @@ set tags+=`pwd`/tags
 
 " ## NerdTree
 map <silent> ,tt :NERDTreeToggle<CR>
+
+" ## NerdCommenter
+let NERDSpaceDelims = 1
 
 " ## PHP Indent
 let PHP_BracesAtCodeLevel = 1
@@ -224,9 +239,14 @@ nnoremap <silent> ,ft :FufTag<CR>
 " ## SuperTab
 let g:SuperTabDefaultCompletionType = "context"
 
-" ## DelimMate
+" ## DelimitMate
 let delimitMate_expand_cr = 1
+au FileType vim let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
+au FileType vim let b:delimitMate_quotes = "'"
 
+" ## Project
+nmap <silent> ,tp <Plug>ToggleProject
+nmap <silent> ,to :Project .vimprojects<CR>
 
 " Set sudo write for w!! Very useful =)
 command! Wsudo set buftype=nowrite | silent execute ':%w !sudo tee %' | set buftype= | e! %
@@ -272,3 +292,7 @@ function! Preserve(command)
   let @/=_s
   call cursor(l, c)
 endfunction
+
+
+"" Spelling corrections and abbreviations ""
+iabbr pirnt print

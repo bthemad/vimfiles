@@ -1,11 +1,10 @@
-#####   Plugins List   #####
-
+#####   Plugins List   ##### 
 ###   Explorer plugins   ###
 # The NERD tree (nerdtree)
-# Buffer Explorer (bufexplorer)
 # Tag Explorer (taglist) 
 # Marks Explorer (marksbrowser)
-
+# Lusty Explorer
+# Lusty Buffer
 
 ###   Language plugins   ###
 ##  JavaScript  ##
@@ -31,7 +30,6 @@
 
 ###   Helpers   ###
 # SnipMate (snipmate)
-# Fuzzy Finder (fuzzy_finder)
 # Command-T
 # The NERD Commenter (nerdcommenter)
 # Surround (surround)
@@ -54,17 +52,6 @@
   plugin_type: plugin
   dir: nerdtree
 
-- names: [bufexplorer]
-  authors: [jeff lanzarotta]
-  urls:
-    - http://www.vim.org/scripts/script.php?script_id=42
-  description:
-  comment:
-  plugin_type: plugin
-  vim_org_id: 12363
-  file_type: zip
-  dir: bufexplorer
-
 - names: [taglist.vim]
   authors: [Yegappan Lakshmanan]
   urls:
@@ -85,6 +72,28 @@
   vim_org_id: 6408 # 0.9, 2006-11-13, 7.0
   file_type: vim
   dir: marksbrowser
+
+- names: [Lusty Juggler]
+  authors: [Stephen Bach]
+  urls:
+    - http://www.vim.org/scripts/script.php?script_id=2050
+  description:
+  comment:
+  plugin_type: plugin
+  vim_org_id: 13094 # 1.1.4 2010-06-03
+  file_type: vim
+  dir: lusty_juggler
+
+- names: [Lusty Explorer]
+  authors: [Stephen Bach]
+  urls:
+    - http://www.vim.org/scripts/script.php?script_id=1890
+  description:
+  comment:
+  plugin_type: plugin
+  vim_org_id: 13373 # 3.1.1 2010-07-21
+  file_type: vim
+  dir: lusty_explorer
 
 - names: [jQuery]
   authors: [Bruno Michel]
@@ -193,17 +202,6 @@
   comment:
   plugin_type: plugin
   dir: snipmate
-
-- names: [FuzzyFinder, fuf]
-  authors: [Takeshi Nishida]
-  urls:
-    - http://www.vim.org/scripts/script.php?script_id=1984
-  description: 'buffer/file/command/tag/etc explorer with fuzzy matching'
-  comment:
-  plugin_type: plugin
-  vim_org_id: 11852 # 3.5, 2009-12-03, 7.0
-  file_type: zip
-  dir: fuzzy_finder
 
 - names: [Command-T]
   authors: [Wincent Colaiuta]
@@ -318,142 +316,164 @@
   file_type: vim
   dir: autotag
 
-#- names: [showmarks.vim]
-  #authors: [Anthony Kruize]
-  #urls:
-    #- http://www.vim.org/scripts/script.php?script_id=152
-  #description: 'Visually shows the location of marks'
-  #plugin_type: plugin
-  #vim_org_id: 3342 # showmarks.vim 	2.2 	2004-08-16 	6.0
-  #file_type: vim
-  #dir: showmarks
+# - names: [FuzzyFinder, fuf]
+  # authors: [Takeshi Nishida]
+  # urls:
+    # - http://www.vim.org/scripts/script.php?script_id=1984
+  # description: 'buffer/file/command/tag/etc explorer with fuzzy matching'
+  # comment:
+  # plugin_type: plugin
+  # vim_org_id: 11852 # 3.5, 2009-12-03, 7.0
+  # file_type: zip
+  # dir: fuzzy_finder
 
-#- names: [AutoComplPop, acp]
-  #authors: [Takeshi Nishida]
-  #urls:
-    #- http://www.vim.org/scripts/script.php?script_id=1879
-  #description: 'automatically opens popup menu for completions'
-  #comment:
-  #plugin_type: plugin
-  #vim_org_id: 11894   # 2.14.1, 2009-12-12, 7.0, zip
-  #file_type: zip
-  #dir: auto_compl_pop
+# - names: [bufexplorer]
+  # authors: [jeff lanzarotta]
+  # urls:
+    # - http://www.vim.org/scripts/script.php?script_id=42
+  # description:
+  # comment:
+  # plugin_type: plugin
+  # vim_org_id: 12363
+  # file_type: zip
+  # dir: bufexplorer
 
-#- names: [ruby.vim]
-  #authors: [Tim Pope]
-  #urls:
-    #- http://vim-ruby.rubyforge.org/
-  #repo: git://github.com/vim-ruby/vim-ruby.git
-  #description: 'Ruby on Rails: easy file navigation, enhanced syntax highlighting, and more'
-  #plugin_type: plugin
-  #dir: ruby
+# - names: [showmarks.vim]
+  # authors: [Anthony Kruize]
+  # urls:
+    # - http://www.vim.org/scripts/script.php?script_id=152
+  # description: 'Visually shows the location of marks'
+  # plugin_type: plugin
+  # vim_org_id: 3342 # showmarks.vim 	2.2 	2004-08-16 	6.0
+  # file_type: vim
+  # dir: showmarks
 
-#- names: [rails.vim]
-  #authors: [Tim Pope]
-  #urls:
-    #- http://www.vim.org/scripts/script.php?script_id=1567
-  #repo: git://github.com/tpope/vim-rails.git
-  #description: 'Ruby on Rails: easy file navigation, enhanced syntax highlighting, and more'
-  #comment:
-  #plugin_type: plugin
-  #dir: rails
+# - names: [AutoComplPop, acp]
+  # authors: [Takeshi Nishida]
+  # urls:
+    # - http://www.vim.org/scripts/script.php?script_id=1879
+  # description: 'automatically opens popup menu for completions'
+  # comment:
+  # plugin_type: plugin
+  # vim_org_id: 11894   # 2.14.1, 2009-12-12, 7.0, zip
+  # file_type: zip
+  # dir: auto_compl_pop
 
-#- names: [ragtag.vim]
-  #authors: [Tim Pope]
-  #urls:
-    #- http://www.vim.org/scripts/script.php?script_id=1896
-  #repo: git://github.com/tpope/vim-ragtag.git
-  #description: 'A set of mappings for HTML, XML, PHP, ASP, eRuby, JSP, and more (formerly allml)'
-  #comment:
-  #plugin_type: plugin
-  #dir: ragtag
+# - names: [ruby.vim]
+  # authors: [Tim Pope]
+  # urls:
+    # - http://vim-ruby.rubyforge.org/
+  # repo: git://github.com/vim-ruby/vim-ruby.git
+  # description: 'Ruby on Rails: easy file navigation, enhanced syntax highlighting, and more'
+  # plugin_type: plugin
+  # dir: ruby
 
-#- names: [ack.vim]
-  #authors: [Miles Sterrett]
-  #urls:
-    #- http://www.vim.org/scripts/script.php?script_id=2572
-  ## repo: git://github.com/mileszs/ack.vim.git
-  #description: "Plugin for the Perl module / CLI script 'ack'"
-  #comment:
-  #plugin_type: plugin
-  #vim_org_id: 10433
-  #file_type: tar.gz
-  #dir: ack
+# - names: [rails.vim]
+  # authors: [Tim Pope]
+  # urls:
+    # - http://www.vim.org/scripts/script.php?script_id=1567
+  # repo: git://github.com/tpope/vim-rails.git
+  # description: 'Ruby on Rails: easy file navigation, enhanced syntax highlighting, and more'
+  # comment:
+  # plugin_type: plugin
+  # dir: rails
 
-#- names: [Align]
-  #authors: [Charles Campbell]
-  #urls:
-    #- http://www.vim.org/scripts/script.php?script_id=294
-  #repo: git://github.com/tsaleh/vim-align.git
-  #description: 'Align: Help folks to align text, eqns, declarations, tables, etc'
-  #comment: 'Look this examples: http://mysite.verizon.net/astronaut/vim/align.html#Examples'
-  #plugin_type: plugin
-  #dir: align
+# - names: [ragtag.vim]
+  # authors: [Tim Pope]
+  # urls:
+    # - http://www.vim.org/scripts/script.php?script_id=1896
+  # repo: git://github.com/tpope/vim-ragtag.git
+  # description: 'A set of mappings for HTML, XML, PHP, ASP, eRuby, JSP, and more (formerly allml)'
+  # comment:
+  # plugin_type: plugin
+  # dir: ragtag
 
-#- names: [gardener]
-  #authors: [Maestro Entheon, Hariton Mizgir]
-  #urls:
-    #- http://www.vim.org/scripts/script.php?script_id=294
-  #repo: git://github.com/hariton/gardener.git
-  #description: 'Dark and colorful forrest khaki theme works with 256 color xterms'
-  #comment:
-  #plugin_type: colors
-  #dir: gardener
+# - names: [ack.vim]
+  # authors: [Miles Sterrett]
+  # urls:
+    # - http://www.vim.org/scripts/script.php?script_id=2572
+  # # repo: git://github.com/mileszs/ack.vim.git
+  # description: "Plugin for the Perl module / CLI script 'ack'"
+  # comment:
+  # plugin_type: plugin
+  # vim_org_id: 10433
+  # file_type: tar.gz
+  # dir: ack
 
-#- names: [templates]
-  #authors: [Aristotle Pagaltzis, Hariton Mizgir]
-  #urls:
-    #- http://www.vim.org/scripts/script.php?script_id=1172
-  #repo: git://github.com/hariton/simple-vim-templates.git
-  #description: 'Load filetype templates for new files'
-  #plugin_type: plugin
-  #dir: templates
+# - names: [Align]
+  # authors: [Charles Campbell]
+  # urls:
+    # - http://www.vim.org/scripts/script.php?script_id=294
+  # repo: git://github.com/tsaleh/vim-align.git
+  # description: 'Align: Help folks to align text, eqns, declarations, tables, etc'
+  # comment: 'Look this examples: http://mysite.verizon.net/astronaut/vim/align.html#Examples'
+  # plugin_type: plugin
+  # dir: align
 
-#- names: [IndexedSearch]
-  #authors: [Yakov Lerner]
-  #urls:
-    #- http://www.vim.org/scripts/script.php?script_id=1682
-  #description: "shows  'Nth match out of M'  at every search (index of match+total # matches)"
-  #comment:
-  #plugin_type: plugin
-  #vim_org_id: 7062 # 070503, 2007-05-03, 6.0
-  #file_type: vim
-  #dir: indexed_search
+# - names: [gardener]
+  # authors: [Maestro Entheon, Hariton Mizgir]
+  # urls:
+    # - http://www.vim.org/scripts/script.php?script_id=294
+  # repo: git://github.com/hariton/gardener.git
+  # description: 'Dark and colorful forrest khaki theme works with 256 color xterms'
+  # comment:
+  # plugin_type: colors
+  # dir: gardener
 
-#- names: [Scratch]
-  #authors: [Yegappan Lakshmanan]
-  #urls:
-    #- http://www.vim.org/scripts/script.php?script_id=664
-  #plugin_type: plugin
-  #vim_org_id: 2050 # 1.0, 2003-06-08, 6.0
-  #file_type: vim
-  #dir: scratch
+# - names: [templates]
+  # authors: [Aristotle Pagaltzis, Hariton Mizgir]
+  # urls:
+    # - http://www.vim.org/scripts/script.php?script_id=1172
+  # repo: git://github.com/hariton/simple-vim-templates.git
+  # description: 'Load filetype templates for new files'
+  # plugin_type: plugin
+  # dir: templates
 
-#- names: [dbext.vim]
-  #authors: [Peter Bagyinszki]
-  #urls:
-    #- http://www.vim.org/scripts/script.php?script_id=356
-  #description: 'Provides database access to many dbms'
-  #plugin_type: plugin
-  #vim_org_id: 11341 # 11.01, 2009-09-08, 7.0
-  #file_type: zip
-  #dir: dbext
+# - names: [IndexedSearch]
+  # authors: [Yakov Lerner]
+  # urls:
+    # - http://www.vim.org/scripts/script.php?script_id=1682
+  # description: "shows  'Nth match out of M'  at every search (index of match+total # matches)"
+  # comment:
+  # plugin_type: plugin
+  # vim_org_id: 7062 # 070503, 2007-05-03, 6.0
+  # file_type: vim
+  # dir: indexed_search
 
-#- names: [gist] #authors: [Yasuhiro Matsumoto]
-  #urls:
-    #- http://www.vim.org/scripts/script.php?script_id=2423
-  #plugin_type: plugin
-  #vim_org_id: 12732 # 3.5, 2010-03-29, 7.0
-  #file_type: vim
-  #dir: gist
+# - names: [Scratch]
+  # authors: [Yegappan Lakshmanan]
+  # urls:
+    # - http://www.vim.org/scripts/script.php?script_id=664
+  # plugin_type: plugin
+  # vim_org_id: 2050 # 1.0, 2003-06-08, 6.0
+  # file_type: vim
+  # dir: scratch
 
-#- names: [YankRing]
-  #authors: [David Fishburn]
-  #urls:
-    #- http://www.vim.org/scripts/script.php?script_id=1234
-  #description: 'Maintains a history of previous yanks, changes and deletes'
-  #comment:
-  #plugin_type: plugin
-  #vim_org_id: 12258
-  #file_type: zip
-  #dir: yankring
+# - names: [dbext.vim]
+  # authors: [Peter Bagyinszki]
+  # urls:
+    # - http://www.vim.org/scripts/script.php?script_id=356
+  # description: 'Provides database access to many dbms'
+  # plugin_type: plugin
+  # vim_org_id: 11341 # 11.01, 2009-09-08, 7.0
+  # file_type: zip
+  # dir: dbext
+
+# - names: [gist] #authors: [Yasuhiro Matsumoto]
+  # urls:
+    # - http://www.vim.org/scripts/script.php?script_id=2423
+  # plugin_type: plugin
+  # vim_org_id: 12732 # 3.5, 2010-03-29, 7.0
+  # file_type: vim
+  # dir: gist
+
+# - names: [YankRing]
+  # authors: [David Fishburn]
+  # urls:
+    # - http://www.vim.org/scripts/script.php?script_id=1234
+  # description: 'Maintains a history of previous yanks, changes and deletes'
+  # comment:
+  # plugin_type: plugin
+  # vim_org_id: 12258
+  # file_type: zip
+  # dir: yankring
