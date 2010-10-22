@@ -236,8 +236,8 @@ map <silent> ,gc :Gcommit<CR>
 map <silent> ,gw :Gwrite<CR>
 map <silent> ,gb :Gblame<CR>
 
-" ## Conque
-map <silent> ,trm :ConqueTermSplit bash<CR>
+" " ## Conque
+" map <silent> ,trm :ConqueTermSplit bash<CR>
 
 " ## FuzzyFinder
 " nnoremap <silent> ,ff :FufFile<CR>
@@ -254,8 +254,8 @@ au FileType vim let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 au FileType vim let b:delimitMate_quotes = "'"
 
 " ## Project
-nmap <silent> ,tp <Plug>ToggleProject
-nmap <silent> ,to :Project .vimprojects<CR>
+" nmap <silent> ,tp <Plug>ToggleProject
+" nmap <silent> ,to :Project .vimprojects<CR>
 
 " ## YankRing
 nnoremap <silent> ,rr :YRShow<CR>
