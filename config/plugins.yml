@@ -66,7 +66,7 @@
   description: 'Easy buffer navigation'
   comment:
   plugin_type: plugin
-  vim_org_id: 13094 # 1.1.4 2010-06-03
+  vim_org_id: 14536 # 1.2 2010-12-17
   file_type: vim
   dir: lusty_juggler
 
@@ -77,7 +77,7 @@
   description:
   comment: 'Fuzzy explorer for buffers, filesystem and buffers grep'
   plugin_type: plugin
-  vim_org_id: 13373 # 3.1.1 2010-07-21
+  vim_org_id: 14546 # 4.0 2010-12-17
   file_type: vim
   dir: lusty_explorer
 
@@ -120,7 +120,7 @@
   description: 'Better php indent support'
   comment:
   plugin_type: indent
-  vim_org_id: 13443 # 1.33 2010-07-30
+  vim_org_id: 13998 # 1.33_fixed 2010-10-05
   file_type: vim
   dir: php_folding
 
@@ -265,7 +265,7 @@
   description: 'Yank buffer with menu'
   comment:
   plugin_type: plugin
-  vim_org_id: 13554
+  vim_org_id: 13554 # 11.0
   file_type: zip
   dir: yank_ring
 

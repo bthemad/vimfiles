@@ -124,6 +124,10 @@ hi xmlTagName                guifg=#E8BF6A
 hi xmlEndTag                 guifg=#E8BF6A
 
 " Non-text symbols
-highlight NonText guifg=#4a4a59
-highlight SpecialKey guifg=#4a4a59
-:hi ColorColumn guibg=#2D2D2D
+" highlight NonText guifg=#4a4a59
+" highlight SpecialKey guifg=#4a4a59
+" :hi ColorColumn guibg=#2D2D2D
+
+highlight NonText guifg=#5E5E5E
+highlight SpecialKey guifg=#5E5E5E
+:hi ColorColumn guibg=#303030

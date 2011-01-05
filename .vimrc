@@ -178,6 +178,11 @@ nnoremap gj j
 " Run current file as python script
 map ,rp :!python %
 
+inoremap <D-Enter> <C-O>o
+inoremap <C-Enter> <C-O>o
+inoremap <S-Enter> <C-O>o
+inoremap <M-Enter> <C-O>o
+
 "" ### Plugin configs ###
 
 " ## TagList
