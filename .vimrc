@@ -41,7 +41,7 @@ set smartindent                 " Try to make smart indents
 set list                        " Show invisible symbols
 
 if $PLATFORM == 'darwin'
-    set listchars=tab:▸\, eol:¬     " Show invisible symbols in TextMate way
+    set listchars=tab:▸\ ,eol:¬     " Show invisible symbols in TextMate way
 endif
 
 " Command line and status line
