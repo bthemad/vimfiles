@@ -1,3 +1,4 @@
+scriptencoding utf-8
 " ### Settings ###
 let mapleader = ","
 let maplocalleader = ","
@@ -17,6 +18,7 @@ set t_vb=                       " No, don't show
 " set autochdir                   " Automatically change dir to the fileDir
 set backspace=indent,eol,start  " I want to delete more with backSpace
 set whichwrap=l,h,<,>,[,]       " Let me travel left and right out of string
+set encoding=utf-8              " Force endcoding to utf-8
 set fileencodings=utf-8,cp1251  " List of encoding to parse through
 set hidden                      " Make unsaved hidden buffers possible
 set nowrap                      " Don't wrap lines by default
@@ -40,9 +42,7 @@ set autoindent                  " Indent by text please, make it on the same lev
 set smartindent                 " Try to make smart indents
 set list                        " Show invisible symbols
 
-if $PLATFORM == 'darwin'
-    set listchars=tab:▸\ ,eol:¬     " Show invisible symbols in TextMate way
-endif
+set listchars=tab:▸\ ,eol:¬     " Show invisible symbols in TextMate way
 
 " Command line and status line
 set showcmd                     " I wanna see, what I'm typing
