@@ -39,7 +39,10 @@ set smarttab                    " Let's see, how smart are they
 set autoindent                  " Indent by text please, make it on the same level as prv one
 set smartindent                 " Try to make smart indents
 set list                        " Show invisible symbols
-set listchars=tab:▸\ ,eol:¬     " Show invisible symbols in TextMate way
+
+if $PLATFORM == 'darwin'
+    set listchars=tab:▸\, eol:¬     " Show invisible symbols in TextMate way
+endif
 
 " Command line and status line
 set showcmd                     " I wanna see, what I'm typing
@@ -215,12 +218,6 @@ let php_highlight_quotes = 1
 " ## SnipMate
 let snips_author = 'Alex Kudryashov'
 
-" ## BufExplorer
-" CTRL+b opens the buffer list
-" map <C-b> <esc>:BufExplorer<cr>
-" map <silent> ,tb :BufExplorer<CR>
-" map <silent> ,be :BufExplorer<CR>
-
 " ## MarksBrowser
 map <silent> ,tm :MarksBrowser<CR>
 map <silent> ,me :MarksBrowser<CR>
@@ -257,10 +254,6 @@ let g:SuperTabDefaultCompletionType = "context"
 let delimitMate_expand_cr = 1
 au FileType vim let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 au FileType vim let b:delimitMate_quotes = "'"
-
-" ## Project
-" nmap <silent> ,tp <Plug>ToggleProject
-" nmap <silent> ,to :Project .vimprojects<CR>
 
 " ## YankRing
 nnoremap <silent> ,rr :YRShow<CR>
