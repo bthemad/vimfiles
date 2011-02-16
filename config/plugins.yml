@@ -1,6 +1,7 @@
 #####   Plugins List   ##### 
 ###   Explorer plugins   ###
 # The NERD tree (nerdtree)
+# NERDTree ack plugin
 # Tag Explorer (taglist) 
 # Lusty Explorer
 # Lusty Buffer
@@ -12,7 +13,6 @@
 
 ##      PHP     ##
 # PHP Complete
-# PHP Folding
 # PHP Indent
 
 ##    Python    ##
@@ -38,6 +38,8 @@
 # DelimMate
 # AutoTag
 # YankRing
+# Ack
+# SimpleFold
 ---
 - names: [The NERD tree]
   authors: [Marty Grenfell]
@@ -48,6 +50,16 @@
   comment:
   plugin_type: plugin
   dir: nerdtree
+
+- names: [NERDTree Ack]
+  authors: [Tudor Barbu]
+  urls:
+    - http://www.vim.org/scripts/script.php?script_id=3357
+  description: 'Search with ack in NERDTree'
+  plugin_type: plugin
+  vim_org_id: 14469 # 1.0 2010-12-10
+  file_type: vim
+  dir: nerdtree_ack
 
 - names: [taglist.vim]
   authors: [Yegappan Lakshmanan]
@@ -101,17 +113,6 @@
   comment:
   plugin_type: plugin
   dir: php_complete
-
-- names: [PHP Folding]
-  authors: [Ray Burgemeestre]
-  urls:
-    - http://www.vim.org/scripts/script.php?script_id=1623
-  description: 'Better php folding support'
-  comment:
-  plugin_type: plugin
-  vim_org_id: 12114 # 1.7, 2010-01-16
-  file_type: vim
-  dir: php_folding
 
 - names: [PHP Indent]
   authors: [John Wellesz]
@@ -268,6 +269,38 @@
   vim_org_id: 13554 # 11.0
   file_type: zip
   dir: yank_ring
+
+- names: [ack]
+  authors: [Miles Sterrett]
+  urls:
+    - http://www.vim.org/scripts/script.php?script_id=2572
+  repo: git://github.com/mileszs/ack.vim.git
+  description: 'Vim plugin for the Perl module / CLI script ack'
+  comment:
+  plugin_type: plugin
+  dir: ack
+
+- names: [SimpleFold]
+  authors: [Mauricio Fernandez]
+  urls:
+    - http://www.vim.org/scripts/script.php?script_id=1868
+  description: 'Better folding for files'
+  comment:
+  plugin_type: plugin
+  vim_org_id: 7003 # 0.5.0 2007-04-19
+  file_type: vim
+  dir: simplefold
+
+# - names: [PHP Folding]
+  # authors: [Ray Burgemeestre]
+  # urls:
+    # - http://www.vim.org/scripts/script.php?script_id=1623
+  # description: 'Better php folding support'
+  # comment:
+  # plugin_type: plugin
+  # vim_org_id: 12114 # 1.7, 2010-01-16
+  # file_type: vim
+  # dir: php_folding
 
 # - names: [Marks Browser]
   # authors: [Viktor Kojouharov]
