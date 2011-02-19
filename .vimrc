@@ -18,7 +18,7 @@ set t_vb=                       " No, don't show
 " set autochdir                   " Automatically change dir to the fileDir
 set backspace=indent,eol,start  " I want to delete more with backSpace
 set whichwrap=l,h,<,>,[,]       " Let me travel left and right out of string
-set encoding=utf-8              " Force endcoding to utf-8
+set encoding=utf-8              " Force encoding to utf-8
 set fileencodings=utf-8,cp1251  " List of encoding to parse through
 set hidden                      " Make unsaved hidden buffers possible
 set nowrap                      " Don't wrap lines by default
@@ -80,14 +80,6 @@ set colorcolumn=80
 set foldopen=block,insert,jump,hor,mark,percent,quickfix,search,tag,undo
 
 "" Working with filetypes
-" Tune autocompletion
-"autocmd FileType python set omnifunc=pythoncomplete#Complete
-"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-"autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-"autocmd FileType c set omnifunc=ccomplete#Complete
 
 " Tune fileTypes
 " Treat rss files as xml
@@ -96,6 +88,7 @@ autocmd BufNewFile,BufRead *.rss setfiletype xml
 autocmd BufWritePre *.php,*.js,*.htm*,*.py :call <SID>StripTrailingWhitespaces()
 " Example of customizing tabs for exact filetype
 "autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+let g:xml_syntax_folding = 1
 
 " ## Edit .vimrc ##
 map ,vv :vsp $MYVIMRC<CR>
@@ -125,12 +118,6 @@ map ,wo <C-W>o
 map ,wv <C-W>v
 map ,wc <C-W>c
 map ,wp <C-W>p
-
-" Indentation like in TextMate (works only under MacVim)
-nmap <D-[> <<
-nmap <D-]> >>
-vmap <D-[> <gv
-vmap <D-]> >gv
 
 " Let's try to move in insert mode just like in emacs
 imap <C-L> <right>
@@ -228,6 +215,7 @@ let g:syntastic_auto_loc_list=1
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+let g:syntastic_jsl_conf = $HOME . "/.dotfiles/jsl.conf"
 
 " ## Command-T
 map <silent> ,tf :CommandT<CR>
@@ -237,15 +225,6 @@ map <silent> ,gs :Gstatus<CR>
 map <silent> ,gc :Gcommit<CR>
 map <silent> ,gw :Gwrite<CR>
 map <silent> ,gb :Gblame<CR>
-
-" " ## Conque
-" map <silent> ,trm :ConqueTermSplit bash<CR>
-
-" ## FuzzyFinder
-" nnoremap <silent> ,ff :FufFile<CR>
-" nnoremap <silent> ,fb :FufBuffer<CR>
-" nnoremap <silent> ,fd :FufDir<CR>
-" nnoremap <silent> ,ft :FufTag<CR>
 
 " ## SuperTab
 let g:SuperTabDefaultCompletionType = "context"
@@ -257,6 +236,9 @@ au FileType vim let b:delimitMate_quotes = "'"
 
 " ## YankRing
 nnoremap <silent> ,rr :YRShow<CR>
+let g:yankring_history_file = '.yr_hist'
+
+let g:JSLintHighlightErrorLine = 0
 
 " Set sudo write for w!! Very useful =)
 command! Wsudo set buftype=nowrite | silent execute ':%w !sudo tee %' | set buftype= | e! %
