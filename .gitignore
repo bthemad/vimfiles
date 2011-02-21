@@ -1,5 +1,7 @@
 dep/
 backup/*
 tmp/*
-bundle/*
 .netrwhist
+undofiles
+doc/
+

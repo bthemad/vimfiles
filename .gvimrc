@@ -1,4 +1,6 @@
-set guioptions-=T               " Hide toolbar
+set guioptions-=T                   " Hide toolbar
+set guioptions-=R                   " Something with right toolbar
+set guioptions-=L                   " Something with left toolbar
 
 if has("gui_macvim")
     set guifont=Monaco:h12          " I really love this font
@@ -14,7 +16,7 @@ if has("gui_macvim")
     map <D-e> :call StartTerm()<CR>
 
     " Command-/ to toggle comments
-    map <D-/> <plug>NERDCommenterToggle<CR>
+    map <D-/> <plug>NERDCommenterToggle
 
     " Command-][ to increase/decrease indentation
     vmap <D-]> >gv
@@ -26,7 +28,7 @@ if has("gui_macvim")
 endif
 
 " ConqueTerm wrapper
-function StartTerm()
+function! StartTerm()
   " map <silent> ,trm :ConqueTermSplit bash<CR>
   execute 'ConqueTermSplit ' . $SHELL . ' --login'
   setlocal listchars=tab:\ \ 

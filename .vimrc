@@ -4,8 +4,14 @@ let mapleader = ","
 let maplocalleader = ","
 " Pathogen load
 filetype off
+
+let pathogen_disabled=['NERD_Tree-and-ack']
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+" source /Users/akudryashov/.vim/bundle/NERD_Tree-and-ack/plugin/NERD_tree_ACK.vim
+let &rtp = &rtp . ',' .$HOME . '/.vim/bundle/NERD_Tree-and-ack/'
+
+" source /Users/akudryashov/.vim/bundle/NERD_Tree-and-ack/plugin/NERD_tree_ACK.vim
 
 " Some clear Vim settings
 set nocompatible                " For more sugar
@@ -69,6 +75,12 @@ set backup                      " Don't keep a backup file
 set backupdir=~/.vim/backup     " Set backup dir
 set directory=~/.vim/tmp        " Set tmp directory
 set backupskip=/tmp/*,/private/tmp/*
+" enable persistent undo
+if has("persistent_undo")
+    set undofile
+    set undodir=~/.vim/undofiles,/var/tmp,/tmp,.
+endif
+
 
 syntax on                       " Show me syntax highlighting
 filetype on
@@ -87,13 +99,26 @@ autocmd BufNewFile,BufRead *.rss setfiletype xml
 " Clear whitespaces on write to php and js files
 autocmd BufWritePre *.php,*.js,*.htm*,*.py :call <SID>StripTrailingWhitespaces()
 " Example of customizing tabs for exact filetype
-"autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+" ruby and yaml files are indented by two
+autocmd FileType ruby,rdoc,cucumber,yaml set softtabstop=2 tabstop=2 shiftwidth=2
+" Gemfile, Isolate, Vagrantfile and config.ru are ruby
+autocmd BufNewFile,BufRead Gemfile     setfiletype ruby
+autocmd BufNewFile,BufRead Isolate     setfiletype ruby
+autocmd BufNewFile,BufRead Vagrantfile setfiletype ruby
+autocmd BufNewFile,BufRead config.ru   setfiletype ruby
+
+" Enable folding
+set foldenable                  " enable folding
+set foldmethod=syntax           " use the syntax definitions' folding
 let g:xml_syntax_folding = 1
 
 " ## Edit .vimrc ##
 map ,vv :vsp $MYVIMRC<CR>
+map ,gv :vsp $MYGVIMRC<CR>
 map ,vc :vsp ~/.vim/config/plugins.yml<CR>
-map ,V :source $MYVIMRC<CR>
+map ,V :call ReloadRc()<CR>
+map ,vh :vsp /Users/akudryashov/Documents/study/reviews/2010-02\ -\ Pragmatic\ Vim.txt<CR>
+
 "autocmd BufWritePost .vimrc source $MYVIMRC
 
 " ## Buffers ##
@@ -118,6 +143,7 @@ map ,wo <C-W>o
 map ,wv <C-W>v
 map ,wc <C-W>c
 map ,wp <C-W>p
+map ,wx <C-W>x
 
 " Let's try to move in insert mode just like in emacs
 imap <C-L> <right>
@@ -141,9 +167,6 @@ nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 " Swap ` and ' for navigation
 nnoremap ' `
 nnoremap ` '
-" A bit more convenient way to start and end of line
-" nmap H ^
-" nmap L $
 
 " Clear search highlight results
 nnoremap <leader><space> :noh<cr>
@@ -161,9 +184,6 @@ nnoremap k gk
 nnoremap j gj
 nnoremap gk k
 nnoremap gj j
-
-" Show me tasks from my Today list
-" nmap <silent> ,ic %!icv<CR>
 
 " Run current file as python script
 map ,rp :!python %
@@ -189,6 +209,8 @@ map <silent> ,tt :NERDTreeToggle<CR>
 
 " ## NerdCommenter
 let NERDSpaceDelims = 1
+let NERDMenuMode=0              " disable menu
+let NERDDefaultNesting=0        " don't recomment commented lines
 
 " ## PHP Indent
 let PHP_BracesAtCodeLevel = 1
@@ -204,10 +226,6 @@ let php_highlight_quotes = 1
 
 " ## SnipMate
 let snips_author = 'Alex Kudryashov'
-
-" ## MarksBrowser
-map <silent> ,tm :MarksBrowser<CR>
-map <silent> ,me :MarksBrowser<CR>
 
 " ## Syntastic
 let g:syntastic_enable_signs=1
@@ -238,7 +256,12 @@ au FileType vim let b:delimitMate_quotes = "'"
 nnoremap <silent> ,rr :YRShow<CR>
 let g:yankring_history_file = '.yr_hist'
 
-let g:JSLintHighlightErrorLine = 0
+" ## Tabular
+let mapleader=','
+if exists(":Tabularize")
+  map <Leader>a= :Tabularize /=>\?<CR>
+  map <Leader>a: :Tabularize /:\zs<CR>
+endif
 
 " Set sudo write for w!! Very useful =)
 command! Wsudo set buftype=nowrite | silent execute ':%w !sudo tee %' | set buftype= | e! %
@@ -285,6 +308,67 @@ function! Preserve(command)
   call cursor(l, c)
 endfunction
 
+function! ReloadRc()
+    source $MYVIMRC
+    source $MYGVIMRC
+endfunction
 
 "" Spelling corrections and abbreviations ""
 iabbr pirnt print
+
+
+""" Bundle list for update-vim-bundles """
+"" Generally Useful:
+" Bundle: git://github.com/scrooloose/nerdtree.git
+" Bundle: git://github.com/vim-scripts/NERD_Tree-and-ack.git
+" Bundle: git://github.com/mileszs/ack.vim.git
+" Bundle: git://github.com/sjbach/lusty.git
+" Bundle: git://github.com/bronson/vim-closebuffer.git
+" Bundle: git://github.com/tpope/vim-vividchalk.git
+" Bundle: git://github.com/godlygeek/csapprox.git
+" Bundle: git://github.com/vim-scripts/ZoomWin.git
+" Bundle: git://github.com/vim-scripts/YankRing.vim.git
+" Bundle: git://github.com/godlygeek/tabular.git
+" Bundle: git://github.com/rson/vim-conque.git
+
+" BUNDLE: git://git.wincent.com/command-t.git
+"   If rvm is installed, make sure we compile command-t with the system ruby
+"   BUNDLE-COMMAND: if which rvm >/dev/null 2>&1; then rvm system exec rake make; else rake make; fi
+
+"" Programming:
+" Bundle: git://github.com/tpope/vim-fugitive.git
+" Bundle: git://github.com/tpope/vim-git.git
+" Bundle: git://github.com/scrooloose/nerdcommenter.git
+" Bundle: git://github.com/tpope/vim-surround.git
+" Bundle: git://github.com/tpope/vim-repeat.git
+" Bundle: git://github.com/vim-scripts/taglist.vim.git
+" Bundle: git://github.com/ervandew/supertab.git
+" Bundle: git://github.com/msanders/snipmate.vim.git
+" Bundle: git://github.com/Raimondi/delimitMate.git
+" Bundle: git://github.com/scrooloose/syntastic.git
+" Bundle: git://github.com/vim-scripts/matchit.zip.git
+" Bundle: git://github.com/pangloss/vim-simplefold.git
+" Bundle: git://github.com/vim-scripts/AutoTag.git
+
+"" Syntax files
+" Bundle: git://github.com/tpope/vim-markdown.git
+" Bundle: git://github.com/kchmck/vim-coffee-script.git
+
+" JavaScript programming
+" Bundle: git://github.com/vim-scripts/jQuery.git
+
+" PHP Programming
+" Bundle: git://github.com/2072/PHP-Indenting-for-VIm.git
+" BUNDLE: git://github.com/shawncplus/phpcomplete.vim.git
+"   BUNDLE-COMMAND: if [ ! -d "autoload" ]; then mkdir autoload; fi && cp -f phpcomplete.vim ./autoload/
+
+" Ruby/Rails Programming:
+" # Bundle: git://github.com/vim-ruby/vim-ruby.git
+" # Bundle: git://github.com/tpope/vim-rails.git
+" # Bundle: git://github.com/tpope/vim-rake.git
+" # Bundle: git://github.com/janx/vim-rubytest.git
+" # Bundle: git://github.com/tsaleh/vim-shoulda.git
+" # Bundle: git://github.com/tpope/vim-cucumber.git
+" # Bundle: git://github.com/tpope/vim-haml.git
+" # Bundle: git://github.com/astashov/vim-ruby-debugger.git
+
