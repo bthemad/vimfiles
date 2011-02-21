@@ -1,6 +1,7 @@
 set guioptions-=T                   " Hide toolbar
 set guioptions-=R                   " Something with right toolbar
 set guioptions-=L                   " Something with left toolbar
+set guioptions-=c                   " Use console dialogs
 
 if has("gui_macvim")
     set guifont=Monaco:h12          " I really love this font

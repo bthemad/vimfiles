@@ -208,9 +208,13 @@ set tags+=`pwd`/tags
 map <silent> ,tt :NERDTreeToggle<CR>
 
 " ## NerdCommenter
+let NERDCreateDefaultMappings=0 " disable default mappings
 let NERDSpaceDelims = 1
 let NERDMenuMode=0              " disable menu
 let NERDDefaultNesting=0        " don't recomment commented lines
+map <leader>cc <plug>NERDCommenterToggle
+map <leader>cu <plug>NERDCommenterUncomment
+map <leader>cC <plug>NERDCommenterSexy
 
 " ## PHP Indent
 let PHP_BracesAtCodeLevel = 1
@@ -262,6 +266,11 @@ if exists(":Tabularize")
   map <Leader>a= :Tabularize /=>\?<CR>
   map <Leader>a: :Tabularize /:\zs<CR>
 endif
+
+" ## Conque Terminal
+" let g:ConqueTerm_Color = 1
+let g:ConqueTerm_ReadUnfocused = 1
+let g:ConqueTerm_CloseOnEnd = 0
 
 " Set sudo write for w!! Very useful =)
 command! Wsudo set buftype=nowrite | silent execute ':%w !sudo tee %' | set buftype= | e! %
