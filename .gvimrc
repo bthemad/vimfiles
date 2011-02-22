@@ -26,6 +26,9 @@ if has("gui_macvim")
     nmap <D-[> <<
     nmap <D-]> >>
 
+    macmenu &File.New\ Tab key=<nop>
+    map <D-t> :CommandT<CR>
+
 endif
 
 " ConqueTerm wrapper

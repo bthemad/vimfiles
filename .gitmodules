@@ -16,9 +16,6 @@
 [submodule "bundle/closebuffer"]
 	path = bundle/closebuffer
 	url = git://github.com/bronson/vim-closebuffer.git
-[submodule "bundle/vividchalk"]
-	path = bundle/vividchalk
-	url = git://github.com/tpope/vim-vividchalk.git
 [submodule "bundle/csapprox"]
 	path = bundle/csapprox
 	url = git://github.com/godlygeek/csapprox.git
@@ -91,3 +88,6 @@
 [submodule "bundle/phpcomplete.vim"]
 	path = bundle/phpcomplete.vim
 	url = git://github.com/shawncplus/phpcomplete.vim.git
+[submodule "bundle/kwbdi.vim"]
+	path = bundle/kwbdi.vim
+	url = git://github.com/vim-scripts/kwbdi.vim.git

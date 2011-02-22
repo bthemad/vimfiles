@@ -125,7 +125,7 @@ map ,vh :vsp /Users/akudryashov/Documents/study/reviews/2010-02\ -\ Pragmatic\ V
 map ,bn :bnext<CR>
 map ,bp :bprev<CR>
 map ,bt :b#<CR>
-map ,bd :bd<CR>
+" map ,bd :bd<CR>
 
 " ## Windows ##
 map ,wl <C-W>l
@@ -241,6 +241,7 @@ let g:syntastic_jsl_conf = $HOME . "/.dotfiles/jsl.conf"
 
 " ## Command-T
 map <silent> ,tf :CommandT<CR>
+let g:CommandTMaxHeight=20
 
 " ## Fugitive
 map <silent> ,gs :Gstatus<CR>
@@ -272,8 +273,11 @@ endif
 let g:ConqueTerm_ReadUnfocused = 1
 let g:ConqueTerm_CloseOnEnd = 0
 
+" ## ZoomWindow
+map <Leader><Leader> :ZoomWin<CR>
+
 " Set sudo write for w!! Very useful =)
-command! Wsudo set buftype=nowrite | silent execute ':%w !sudo tee %' | set buftype= | e! %
+comm! -bang Wsudo    exec 'w !sudo tee % > /dev/null' | e!
 command! ST !icalBuddy uncompletedTasks
 
 " Color scheme
@@ -333,12 +337,12 @@ iabbr pirnt print
 " Bundle: git://github.com/mileszs/ack.vim.git
 " Bundle: git://github.com/sjbach/lusty.git
 " Bundle: git://github.com/bronson/vim-closebuffer.git
-" Bundle: git://github.com/tpope/vim-vividchalk.git
 " Bundle: git://github.com/godlygeek/csapprox.git
 " Bundle: git://github.com/vim-scripts/ZoomWin.git
 " Bundle: git://github.com/vim-scripts/YankRing.vim.git
 " Bundle: git://github.com/godlygeek/tabular.git
 " Bundle: git://github.com/rson/vim-conque.git
+" Bundle: git://github.com/vim-scripts/kwbdi.vim.git
 
 " BUNDLE: git://git.wincent.com/command-t.git
 "   If rvm is installed, make sure we compile command-t with the system ruby
