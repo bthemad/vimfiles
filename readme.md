@@ -1,9 +1,8 @@
 ## My [vim][1] config files
 
-The main upadte script is [vim-upadte-bundles][2].
 Primarily I use MacVim, so gvimrc is basically specialized for it.
-Certainly I use [pathogen][3] as a glue, it's just the key to the rescue.
-The list of plugins can be found in [bundle][4] direcory.
+Certainly I use [pathogen][3] as a glue, it's just the key to the rescue. The main upadte script is [vim-upadte-bundles][2]. The list of plugins can be found in [bundle][4] direcory.
+
 Very thanks to people from [vim-scripts][5], for their github repo with all the scripts. Now I can use submodules for all my plugins.
 
 [1]: http://www.vim.org/
