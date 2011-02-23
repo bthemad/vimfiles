@@ -1,8 +1,8 @@
 dep/
-backup/*
-tmp/*
+backup/
+tmp/
 .netrwhist
-undofiles
+undofiles/
 doc/
 Trashed-Bundles
 
