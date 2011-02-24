@@ -154,7 +154,7 @@ imap <C-K> <up>
 " Toggle paste mode
 set pastetoggle=,p
 " Toggle wrap mode
-nmap <silent> ,wr  :set wrap!<CR>
+nmap <silent> ,wr  :set wrap! list!<CR>
 " Toggle spelling
 nmap <silent> ,sp :set spell!<CR>
 " Insert first dictionary occurrence
@@ -273,7 +273,8 @@ let g:ConqueTerm_ReadUnfocused = 1
 let g:ConqueTerm_CloseOnEnd = 0
 
 " ## ZoomWindow
-map <Leader><Leader> :ZoomWin<CR>
+map zz :ZoomWin<CR>
+map ,, :ZoomWin<CR>
 
 " ## GUndo
 nnoremap ,gu :GundoToggle<CR>
