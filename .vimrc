@@ -115,7 +115,6 @@ let g:xml_syntax_folding = 1
 " ## Edit .vimrc ##
 map ,vv :vsp $MYVIMRC<CR>
 map ,gv :vsp $MYGVIMRC<CR>
-map ,vc :vsp ~/.vim/config/plugins.yml<CR>
 map ,V :call ReloadRc()<CR>
 map ,vh :vsp /Users/akudryashov/Documents/study/reviews/2010-02\ -\ Pragmatic\ Vim.txt<CR>
 
@@ -276,6 +275,9 @@ let g:ConqueTerm_CloseOnEnd = 0
 " ## ZoomWindow
 map <Leader><Leader> :ZoomWin<CR>
 
+" ## GUndo
+nnoremap ,gu :GundoToggle<CR>
+
 " Set sudo write for w!! Very useful =)
 comm! -bang Wsudo    exec 'w !sudo tee % > /dev/null' | e!
 command! ST !icalBuddy uncompletedTasks
@@ -343,6 +345,7 @@ iabbr pirnt print
 " Bundle: git://github.com/godlygeek/tabular.git
 " Bundle: git://github.com/rson/vim-conque.git
 " Bundle: git://github.com/vim-scripts/kwbdi.vim.git
+" Bundle: git://github.com/sjl/gundo.vim.git
 
 " BUNDLE: git://git.wincent.com/command-t.git
 "   If rvm is installed, make sure we compile command-t with the system ruby

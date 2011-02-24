@@ -91,3 +91,6 @@
 [submodule "bundle/kwbdi.vim"]
 	path = bundle/kwbdi.vim
 	url = git://github.com/vim-scripts/kwbdi.vim.git
+[submodule "bundle/gundo.vim"]
+	path = bundle/gundo.vim
+	url = git://github.com/sjl/gundo.vim.git
