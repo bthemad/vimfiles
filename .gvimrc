@@ -29,6 +29,7 @@ if has("gui_macvim")
     macmenu &File.New\ Tab key=<nop>
     map <D-t> :CommandT<CR>
 
+    map ,md <ESC>:w!<CR>:!markdown '%' \| smartypants > /tmp/mdp.html && open /tmp/mdp.html<CR><CR>a
 endif
 
 " ConqueTerm wrapper

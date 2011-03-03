@@ -8,10 +8,8 @@ filetype off
 let pathogen_disabled=['NERD_Tree-and-ack']
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
-" source /Users/akudryashov/.vim/bundle/NERD_Tree-and-ack/plugin/NERD_tree_ACK.vim
+" Manually add NerdTree Ack, cause it has to be loaded after NerdTree
 let &rtp = &rtp . ',' .$HOME . '/.vim/bundle/NERD_Tree-and-ack/'
-
-" source /Users/akudryashov/.vim/bundle/NERD_Tree-and-ack/plugin/NERD_tree_ACK.vim
 
 " Some clear Vim settings
 set nocompatible                " For more sugar
@@ -124,7 +122,8 @@ map ,vh :vsp /Users/akudryashov/Documents/study/reviews/2010-02\ -\ Pragmatic\ V
 map ,bn :bnext<CR>
 map ,bp :bprev<CR>
 map ,bt :b#<CR>
-" map ,bd :bd<CR>
+map ,bd :bd<CR>
+map ,fd <Plug>CloseBuffer
 
 " ## Windows ##
 map ,wl <C-W>l
@@ -217,8 +216,6 @@ map <leader>cC <plug>NERDCommenterSexy
 
 " ## PHP Indent
 let PHP_BracesAtCodeLevel = 1
-" We got our own PHPFolding stuff
-let php_folding = 0
 
 " ## PHP HighLight
 let php_sql_query = 1
@@ -345,8 +342,8 @@ iabbr pirnt print
 " Bundle: git://github.com/vim-scripts/YankRing.vim.git
 " Bundle: git://github.com/godlygeek/tabular.git
 " Bundle: git://github.com/rson/vim-conque.git
-" Bundle: git://github.com/vim-scripts/kwbdi.vim.git
 " Bundle: git://github.com/sjl/gundo.vim.git
+" Bundle: git://github.com/tpope/vim-unimpaired.git
 
 " BUNDLE: git://git.wincent.com/command-t.git
 "   If rvm is installed, make sure we compile command-t with the system ruby
