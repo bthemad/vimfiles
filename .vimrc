@@ -108,6 +108,7 @@ autocmd BufNewFile,BufRead config.ru   setfiletype ruby
 " Enable folding
 set foldenable                  " enable folding
 set foldmethod=syntax           " use the syntax definitions' folding
+set foldlevel=99                " no folds by default
 let g:xml_syntax_folding = 1
 
 " ## Edit .vimrc ##
@@ -148,6 +149,9 @@ imap <C-L> <right>
 imap <C-H> <left>
 imap <C-J> <down>
 imap <C-K> <up>
+
+" Some sessions options
+set sessionoptions=blank,buffers,curdir,folds,globals,help,localoptions,options,resize,winpos,winsize
 
 " ## Misc ##
 " Toggle paste mode
@@ -244,6 +248,7 @@ map <silent> ,gs :Gstatus<CR>
 map <silent> ,gc :Gcommit<CR>
 map <silent> ,gw :Gwrite<CR>
 map <silent> ,gb :Gblame<CR>
+map <silent> ,gl :Glog<CR>
 
 " ## SuperTab
 let g:SuperTabDefaultCompletionType = "context"
@@ -275,6 +280,12 @@ map ,, :ZoomWin<CR>
 
 " ## GUndo
 nnoremap ,gu :GundoToggle<CR>
+
+" ## SessonMan
+map <silent> ,sl :SessionList<CR>
+map <silent> ,ss :SessionSave<CR>
+map <silent> ,sa :SessionSaveAs<CR>
+map <silent> ,sp :SessionOpenLast<CR>
 
 " Set sudo write for w!! Very useful =)
 comm! -bang Wsudo    exec 'w !sudo tee % > /dev/null' | e!
@@ -344,6 +355,7 @@ iabbr pirnt print
 " Bundle: git://github.com/rson/vim-conque.git
 " Bundle: git://github.com/sjl/gundo.vim.git
 " Bundle: git://github.com/tpope/vim-unimpaired.git
+" Bundle: https://github.com/giddie/sessionman.vim.git
 
 " BUNDLE: git://git.wincent.com/command-t.git
 "   If rvm is installed, make sure we compile command-t with the system ruby
