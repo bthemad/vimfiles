@@ -76,18 +76,9 @@
 [submodule "bundle/markdown"]
 	path = bundle/markdown
 	url = git://github.com/tpope/vim-markdown.git
-[submodule "bundle/coffee-script"]
-	path = bundle/coffee-script
-	url = git://github.com/kchmck/vim-coffee-script.git
 [submodule "bundle/jQuery"]
 	path = bundle/jQuery
 	url = git://github.com/vim-scripts/jQuery.git
-[submodule "bundle/PHP-Indenting-for-VIm"]
-	path = bundle/PHP-Indenting-for-VIm
-	url = git://github.com/2072/PHP-Indenting-for-VIm.git
-[submodule "bundle/phpcomplete.vim"]
-	path = bundle/phpcomplete.vim
-	url = git://github.com/shawncplus/phpcomplete.vim.git
 [submodule "bundle/kwbdi.vim"]
 	path = bundle/kwbdi.vim
 	url = git://github.com/vim-scripts/kwbdi.vim.git
@@ -97,6 +88,3 @@
 [submodule "bundle/unimpaired"]
 	path = bundle/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
-[submodule "bundle/sessionman.vim"]
-	path = bundle/sessionman.vim
-	url = https://github.com/giddie/sessionman.vim.git
