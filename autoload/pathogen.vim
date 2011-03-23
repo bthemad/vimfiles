@@ -1,6 +1,6 @@
 " pathogen.vim - path option manipulation
 " Maintainer:   Tim Pope <vimNOSPAM@tpope.org>
-" Version:      1.2
+" Version:      1.3
 
 " Install in ~/.vim/autoload (or ~\vimfiles\autoload).
 "
@@ -140,3 +140,4 @@ function! pathogen#helptags() " {{{1
 endfunction " }}}1
 
 " vim:set ft=vim ts=8 sw=2 sts=2:
+

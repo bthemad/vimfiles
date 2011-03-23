@@ -3,15 +3,15 @@ scriptencoding utf-8
 let mapleader = ","
 let maplocalleader = ","
 " Pathogen load
-filetype off
 
+filetype off
 let pathogen_disabled=['NERD_Tree-and-ack']
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 " Manually add NerdTree Ack, cause it has to be loaded after NerdTree
-let &rtp = &rtp . ',' .$HOME . '/.vim/bundle/NERD_Tree-and-ack/'
+let &rtp = &rtp . ',' .$HOME . '/.vim/bundle/NERD_Tree-and-ack/'	
 
-" Some clear Vim settings
+ "Some clear Vim settings
 set nocompatible                " For more sugar
 set relativenumber              " Show relative line numbers
 set ttyfast                     " Like fast=true in Oracle =)
@@ -35,6 +35,7 @@ set diffopt+=iwhite             " Ignore whitespaces on diff
 set scrolloff=3                 " Keep 3 lines when scrolling
 set cursorline                  " Highlight cursor line
 set mouse=a                     " Let's use a mouse, just for split moving
+set cpoptions+=y                " We want the "." to repeat yanking of text
 
 " Set tabs to spaces
 set tabstop=4                   " Number of spaces in tab
@@ -150,9 +151,6 @@ imap <C-H> <left>
 imap <C-J> <down>
 imap <C-K> <up>
 
-" Some sessions options
-set sessionoptions=blank,buffers,curdir,folds,globals,help,localoptions,options,resize,winpos,winsize
-
 " ## Misc ##
 " Toggle paste mode
 set pastetoggle=,p
@@ -261,13 +259,11 @@ au FileType vim let b:delimitMate_quotes = "'"
 " ## YankRing
 nnoremap <silent> ,rr :YRShow<CR>
 let g:yankring_history_file = '.yr_hist'
+let g:yankring_default_menu_mode = 0
 
 " ## Tabular
-let mapleader=','
-if exists(":Tabularize")
-  map <Leader>a= :Tabularize /=>\?<CR>
-  map <Leader>a: :Tabularize /:\zs<CR>
-endif
+map ,a= :Tabularize /=>\?<CR>
+map ,a: :Tabularize /:\zs<CR>
 
 " ## Conque Terminal
 " let g:ConqueTerm_Color = 1
@@ -355,7 +351,6 @@ iabbr pirnt print
 " Bundle: git://github.com/rson/vim-conque.git
 " Bundle: git://github.com/sjl/gundo.vim.git
 " Bundle: git://github.com/tpope/vim-unimpaired.git
-" Bundle: https://github.com/giddie/sessionman.vim.git
 
 " BUNDLE: git://git.wincent.com/command-t.git
 "   If rvm is installed, make sure we compile command-t with the system ruby
@@ -364,9 +359,9 @@ iabbr pirnt print
 "" Programming:
 " Bundle: git://github.com/tpope/vim-fugitive.git
 " Bundle: git://github.com/tpope/vim-git.git
-" Bundle: git://github.com/scrooloose/nerdcommenter.git
 " Bundle: git://github.com/tpope/vim-surround.git
 " Bundle: git://github.com/tpope/vim-repeat.git
+" Bundle: git://github.com/scrooloose/nerdcommenter.git
 " Bundle: git://github.com/vim-scripts/taglist.vim.git
 " Bundle: git://github.com/ervandew/supertab.git
 " Bundle: git://github.com/msanders/snipmate.vim.git
@@ -378,14 +373,13 @@ iabbr pirnt print
 
 "" Syntax files
 " Bundle: git://github.com/tpope/vim-markdown.git
-" Bundle: git://github.com/kchmck/vim-coffee-script.git
 
 " JavaScript programming
 " Bundle: git://github.com/vim-scripts/jQuery.git
 
 " PHP Programming
-" Bundle: git://github.com/2072/PHP-Indenting-for-VIm.git
-" BUNDLE: git://github.com/shawncplus/phpcomplete.vim.git
+" # Bundle: git://github.com/2072/PHP-Indenting-for-VIm.git
+" # BUNDLE: git://github.com/shawncplus/phpcomplete.vim.git
 "   BUNDLE-COMMAND: if [ ! -d "autoload" ]; then mkdir autoload; fi && cp -f phpcomplete.vim ./autoload/
 
 " Ruby/Rails Programming:
