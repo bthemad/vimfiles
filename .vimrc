@@ -44,7 +44,7 @@ set shiftwidth=4                " Number of spaces to delete by backspace
 set expandtab                   " Tabs as spaces
 set smarttab                    " Let's see, how smart are they
 set autoindent                  " Indent by text please, make it on the same level as prv one
-set smartindent                 " Try to make smart indents
+" set smartindent                 " Try to make smart indents
 set list                        " Show invisible symbols
 
 set listchars=tab:▸\ ,eol:¬     " Show invisible symbols in TextMate way
@@ -202,7 +202,7 @@ let Tlist_File_Fold_Auto_Close = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 map <silent> ,tl :TlistToggle<CR>
-set tags+=`pwd`/tags
+set tags=tags;/
 
 " ## NerdTree
 map <silent> ,tt :NERDTreeToggle<CR>
@@ -277,12 +277,6 @@ map ,, :ZoomWin<CR>
 " ## GUndo
 nnoremap ,gu :GundoToggle<CR>
 
-" ## SessonMan
-map <silent> ,sl :SessionList<CR>
-map <silent> ,ss :SessionSave<CR>
-map <silent> ,sa :SessionSaveAs<CR>
-map <silent> ,sp :SessionOpenLast<CR>
-
 " Set sudo write for w!! Very useful =)
 comm! -bang Wsudo    exec 'w !sudo tee % > /dev/null' | e!
 command! ST !icalBuddy uncompletedTasks
@@ -332,6 +326,30 @@ function! ReloadRc()
     source $MYVIMRC
     source $MYGVIMRC
 endfunction
+
+function! GenerateTags()
+python << EEOOFF
+import vim
+import subprocess
+def do_cmd(cmd, cwd):
+    p = subprocess.Popen(cmd, shell=True, stdout=None, stderr=None, cwd=cwd)
+EEOOFF
+    let l:dname = getcwd()
+    let l:fname = l:dname . "/tags.sh"
+    if filereadable(l:fname)
+        " execute "! " . l:dname . "/tags.sh"<CR><CR>
+        " :silent execute "!start " . l:fname
+python << EEOOFF
+do_cmd(vim.eval("l:fname"), vim.eval("l:dname"))
+EEOOFF
+        " :silent execute "! " . l:fname . " &>/dev/null &" | redraw!
+        if exists(":TlistUpdate")
+            TlistUpdate
+        endif
+    endif
+endfunction
+map <silent> <Leader>gt <ESC>:call GenerateTags()<CR><CR>
+autocmd BufWritePost,FileWritePost *.php,*.js,*.py :call GenerateTags ()
 
 "" Spelling corrections and abbreviations ""
 iabbr pirnt print
@@ -391,4 +409,5 @@ iabbr pirnt print
 " # Bundle: git://github.com/tpope/vim-cucumber.git
 " # Bundle: git://github.com/tpope/vim-haml.git
 " # Bundle: git://github.com/astashov/vim-ruby-debugger.git
+
 
