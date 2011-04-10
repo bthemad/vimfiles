@@ -87,6 +87,11 @@ filetype plugin on
 filetype indent on
 set colorcolumn=80
 
+augroup filetypedetect
+au BufNewFile,BufRead *.xt  setf xt
+augroup END
+
+
 " Commands, that open folds
 set foldopen=block,insert,jump,hor,mark,percent,quickfix,search,tag,undo
 
@@ -328,28 +333,17 @@ function! ReloadRc()
 endfunction
 
 function! GenerateTags()
-python << EEOOFF
-import vim
-import subprocess
-def do_cmd(cmd, cwd):
-    p = subprocess.Popen(cmd, shell=True, stdout=None, stderr=None, cwd=cwd)
-EEOOFF
     let l:dname = getcwd()
     let l:fname = l:dname . "/tags.sh"
     if filereadable(l:fname)
-        " execute "! " . l:dname . "/tags.sh"<CR><CR>
-        " :silent execute "!start " . l:fname
-python << EEOOFF
-do_cmd(vim.eval("l:fname"), vim.eval("l:dname"))
-EEOOFF
-        " :silent execute "! " . l:fname . " &>/dev/null &" | redraw!
+        :silent execute "! " . l:fname . " &"
         if exists(":TlistUpdate")
             TlistUpdate
         endif
     endif
 endfunction
 map <silent> <Leader>gt <ESC>:call GenerateTags()<CR><CR>
-autocmd BufWritePost,FileWritePost *.php,*.js,*.py :call GenerateTags ()
+autocmd BufWritePost,FileWritePost *.php,*.js,*.py :call GenerateTags()
 
 "" Spelling corrections and abbreviations ""
 iabbr pirnt print
