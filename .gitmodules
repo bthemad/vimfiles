@@ -88,3 +88,6 @@
 [submodule "bundle/AutoTag"]
 	path = bundle/AutoTag
 	url = git://github.com/vim-scripts/AutoTag.git
+[submodule "bundle/colors-solarized"]
+	path = bundle/colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
