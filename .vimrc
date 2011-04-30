@@ -6,7 +6,6 @@ let maplocalleader = ","
 
 filetype off
 let pathogen_disabled=['NERD_Tree-and-ack']
-let pathogen_disabled=['csapprox']
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 " Manually add NerdTree Ack, cause it has to be loaded after NerdTree
@@ -288,12 +287,11 @@ comm! -bang Wsudo    exec 'w !sudo tee % > /dev/null' | e!
 command! ST !icalBuddy uncompletedTasks
 
 " Color scheme
-" set t_Co=256
-" colorscheme railscasts
+set t_Co=256
+colorscheme railscasts
 " let g:solarized_termcolors=256
-g:solarized_visibility=low
-set background=dark
-colorscheme solarized
+" set background=dark
+" colorscheme solarized
 
 " Set an orange cursor in insert mode, and a red cursor otherwise.
 " Works at least for xterm and rxvt terminals.
@@ -396,6 +394,7 @@ iabbr pirnt print
 
 " Color schemes
 " Bundle: git://github.com/altercation/vim-colors-solarized.git
+" Bundle: git://github.com/tpope/vim-vividchalk.git
 
 " PHP Programming
 " # Bundle: git://github.com/2072/PHP-Indenting-for-VIm.git
