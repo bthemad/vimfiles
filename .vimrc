@@ -5,7 +5,7 @@ let maplocalleader = ","
 " Pathogen load
 
 filetype off
-let pathogen_disabled=['NERD_Tree-and-ack']
+let pathogen_disabled=['NERD_Tree-and-ack', 'supertab']
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 " Manually add NerdTree Ack, cause it has to be loaded after NerdTree
