@@ -252,6 +252,8 @@ map <silent> ,gc :Gcommit<CR>
 map <silent> ,gw :Gwrite<CR>
 map <silent> ,gb :Gblame<CR>
 map <silent> ,gl :Glog<CR>
+// Delete buffer after leaving it when browsing through git history
+autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " ## DelimitMate
 let delimitMate_expand_cr = 1
