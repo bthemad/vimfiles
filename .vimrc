@@ -253,9 +253,6 @@ map <silent> ,gw :Gwrite<CR>
 map <silent> ,gb :Gblame<CR>
 map <silent> ,gl :Glog<CR>
 
-" ## SuperTab
-let g:SuperTabDefaultCompletionType = "context"
-
 " ## DelimitMate
 let delimitMate_expand_cr = 1
 au FileType vim let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
@@ -378,7 +375,6 @@ iabbr pirnt print
 " Bundle: git://github.com/tpope/vim-repeat.git
 " Bundle: git://github.com/scrooloose/nerdcommenter.git
 " Bundle: git://github.com/vim-scripts/taglist.vim.git
-" Bundle: git://github.com/ervandew/supertab.git
 " Bundle: git://github.com/msanders/snipmate.vim.git
 " Bundle: git://github.com/Raimondi/delimitMate.git
 " Bundle: git://github.com/scrooloose/syntastic.git
