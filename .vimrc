@@ -385,6 +385,7 @@ iabbr pirnt print
 " Bundle: git://github.com/vim-scripts/matchit.zip.git
 " Bundle: git://github.com/pangloss/vim-simplefold.git
 " Bundle: git://github.com/vim-scripts/AutoTag.git
+" Bundle: git://repo.or.cz/vcscommand
 
 "" Syntax files
 " Bundle: git://github.com/tpope/vim-markdown.git
