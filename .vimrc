@@ -9,7 +9,7 @@ let pathogen_disabled=['NERD_Tree-and-ack', 'supertab']
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 " Manually add NerdTree Ack, cause it has to be loaded after NerdTree
-let &rtp = &rtp . ',' .$HOME . '/.vim/bundle/NERD_Tree-and-ack/'	
+let &rtp = &rtp . ',' .$HOME . '/.vim/bundle/NERD_Tree-and-ack/'    
 
  "Some clear Vim settings
 set nocompatible                " For more sugar
@@ -207,7 +207,7 @@ let Tlist_File_Fold_Auto_Close = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 map <silent> ,tl :TlistToggle<CR>
-set tags=tags;/
+set tags=tags;./tags;
 
 " ## NerdTree
 map <silent> ,tt :NERDTreeToggle<CR>
@@ -338,6 +338,7 @@ endfunction
 function! GenerateTags()
     let l:dname = getcwd()
     let l:fname = l:dname . "/tags.sh"
+    echo l:fname
     if filereadable(l:fname)
         :silent execute "! " . l:fname . " &"
         if exists(":TlistUpdate")
@@ -347,6 +348,24 @@ function! GenerateTags()
 endfunction
 map <silent> <Leader>gt <ESC>:call GenerateTags()<CR><CR>
 autocmd BufWritePost,FileWritePost *.php,*.js,*.py :call GenerateTags()
+
+function! RsyncCurrentFile()
+    !/Users/alexander/bin/rsync_tuenti_current.py  %:p
+endfunction
+
+function! CheckTuenti()
+    let l:fname = $HOME . "/.vim/bundle/tuenti_tools/after/ftplugin/php_tuenti.vim"
+    if filereadable(l:fname)
+        autocmd FileType php source $HOME/.vim/bundle/tuenti_tools/after/ftplugin/php_tuenti.vim
+        autocmd FileType php,javascript set noexpandtab
+        " au BufWritePost * !/Users/alexander/bin/rsync_tuenti_current.py %:p
+        map <Leader>qq <ESC>:call RsyncCurrentFile()<CR><CR>
+        set path=main;,tests;,./;
+        " set tags=~/Zend/workspaces/DefaultWorkspace7/current/tags
+    endif
+endfunction
+
+call CheckTuenti()
 
 "" Spelling corrections and abbreviations ""
 iabbr pirnt print
