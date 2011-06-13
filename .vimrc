@@ -252,9 +252,8 @@ map <silent> ,gc :Gcommit<CR>
 map <silent> ,gw :Gwrite<CR>
 map <silent> ,gb :Gblame<CR>
 map <silent> ,gl :Glog<CR>
-
-" ## SuperTab
-let g:SuperTabDefaultCompletionType = "context"
+" Delete buffer after leaving it when browsing through git history
+autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " ## DelimitMate
 let delimitMate_expand_cr = 1
@@ -397,13 +396,13 @@ iabbr pirnt print
 " Bundle: git://github.com/tpope/vim-repeat.git
 " Bundle: git://github.com/scrooloose/nerdcommenter.git
 " Bundle: git://github.com/vim-scripts/taglist.vim.git
-" Bundle: git://github.com/ervandew/supertab.git
 " Bundle: git://github.com/msanders/snipmate.vim.git
 " Bundle: git://github.com/Raimondi/delimitMate.git
 " Bundle: git://github.com/scrooloose/syntastic.git
 " Bundle: git://github.com/vim-scripts/matchit.zip.git
 " Bundle: git://github.com/pangloss/vim-simplefold.git
 " Bundle: git://github.com/vim-scripts/AutoTag.git
+" Bundle: git://repo.or.cz/vcscommand
 
 "" Syntax files
 " Bundle: git://github.com/tpope/vim-markdown.git
