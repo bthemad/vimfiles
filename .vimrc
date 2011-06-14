@@ -9,7 +9,7 @@ let pathogen_disabled=['NERD_Tree-and-ack', 'supertab']
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 " Manually add NerdTree Ack, cause it has to be loaded after NerdTree
-let &rtp = &rtp . ',' .$HOME . '/.vim/bundle/NERD_Tree-and-ack/'	
+let &rtp = &rtp . ',' .$HOME . '/.vim/bundle/NERD_Tree-and-ack/'    
 
  "Some clear Vim settings
 set nocompatible                " For more sugar
@@ -207,7 +207,7 @@ let Tlist_File_Fold_Auto_Close = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 map <silent> ,tl :TlistToggle<CR>
-set tags=tags;/
+set tags=tags;./tags;
 
 " ## NerdTree
 map <silent> ,tt :NERDTreeToggle<CR>
@@ -255,6 +255,19 @@ map <silent> ,gl :Glog<CR>
 map <silent> ,ge :Gedit<CR>
 " Delete buffer after leaving it when browsing through git history
 autocmd BufReadPost fugitive://* set bufhidden=delete
+
+" ## VCSCommand
+let VCSCommandDisableMappings = 1
+let VCSCommandDisableMenu = 1
+map <silent> ,vca :VCSAdd<CR>
+map <silent> ,vcn :VCSAnnotate<CR>
+map <silent> ,vcc :VCSCommit<CR>
+map <silent> ,vcd :VCSVimDiff<CR>
+map <silent> ,vcg :VCSGotoOriginal!<CR>
+map <silent> ,vcs :VCSStatus<CR>
+map <silent> ,vcl :VCSLog -l10<CR>
+map ,vcL :VCSLog 
+map <silent> ,vci :VCSInfo<CR>
 
 " ## DelimitMate
 let delimitMate_expand_cr = 1
@@ -338,6 +351,7 @@ endfunction
 function! GenerateTags()
     let l:dname = getcwd()
     let l:fname = l:dname . "/tags.sh"
+    echo l:fname
     if filereadable(l:fname)
         :silent execute "! " . l:fname . " &"
         if exists(":TlistUpdate")
@@ -346,7 +360,38 @@ function! GenerateTags()
     endif
 endfunction
 map <silent> <Leader>gt <ESC>:call GenerateTags()<CR><CR>
-autocmd BufWritePost,FileWritePost *.php,*.js,*.py :call GenerateTags()
+
+function! RsyncCurrentFile()
+    !/Users/alexander/bin/rsync_tuenti_current.py  %:p
+endfunction
+
+function! CheckTuenti()
+    let l:fname = $HOME . "/.vim/bundle/tuenti_tools/after/ftplugin/php_tuenti.vim"
+    if filereadable(l:fname)
+        autocmd FileType php source $HOME/.vim/bundle/tuenti_tools/after/ftplugin/php_tuenti.vim
+        autocmd FileType php,javascript set noexpandtab
+        " au BufWritePost * !/Users/alexander/bin/rsync_tuenti_current.py %:p
+        map <Leader>qq <ESC>:call RsyncCurrentFile()<CR><CR>
+        set path=main;,tests;,./;
+        " set tags=~/Zend/workspaces/DefaultWorkspace7/current/tags
+    endif
+endfunction
+
+call CheckTuenti()
+
+" Analyze the code
+if !exists("autocommands_loaded")
+
+  let autocommands_loaded = 1
+  "PHP Make 
+    autocmd BufRead *.inc,*.php set makeprg=/usr/local/bin/zca\ %
+    autocmd BufRead *.inc,*.php set errorformat=%f(line\ %l):\ %m
+    autocmd BufWritePre :silent lmake<cr>:lwindow <cr>:redraw!<cr>
+    autocmd BufWritePost,FileWritePost *.php,*.js,*.py :call GenerateTags()
+endif
+
+map ,pb :silent lmake<cr>:lwindow <cr>:redraw!<cr>
+
 
 "" Spelling corrections and abbreviations ""
 iabbr pirnt print
@@ -378,7 +423,7 @@ iabbr pirnt print
 " Bundle: git://github.com/tpope/vim-repeat.git
 " Bundle: git://github.com/scrooloose/nerdcommenter.git
 " Bundle: git://github.com/vim-scripts/taglist.vim.git
-" Bundle: git://github.com/msanders/snipmate.vim.git
+" Bundle: git://github.com/garbas/vim-snipmate.git
 " Bundle: git://github.com/Raimondi/delimitMate.git
 " Bundle: git://github.com/scrooloose/syntastic.git
 " Bundle: git://github.com/vim-scripts/matchit.zip.git
