@@ -422,7 +422,7 @@ iabbr pirnt print
 " Bundle: git://github.com/tpope/vim-repeat.git
 " Bundle: git://github.com/scrooloose/nerdcommenter.git
 " Bundle: git://github.com/vim-scripts/taglist.vim.git
-" Bundle: git://github.com/garbas/snipmate.git
+" Bundle: git://github.com/garbas/vim-snipmate.git
 " Bundle: git://github.com/Raimondi/delimitMate.git
 " Bundle: git://github.com/scrooloose/syntastic.git
 " Bundle: git://github.com/vim-scripts/matchit.zip.git
