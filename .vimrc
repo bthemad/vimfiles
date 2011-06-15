@@ -211,6 +211,7 @@ set tags=tags;./tags;
 
 " ## NerdTree
 map <silent> ,tt :NERDTreeToggle<CR>
+let g:NERDTreeChDirMode = 1
 
 " ## NerdCommenter
 let NERDCreateDefaultMappings=0 " disable default mappings
@@ -351,30 +352,37 @@ function! GenerateTags()
     let l:dname = getcwd()
     let l:fname = l:dname . "/tags.sh"
     if filereadable(l:fname)
+        echo "Updating tags"
         :silent execute "! " . l:fname . " &"
         if exists(":TlistUpdate")
-            TlistUpdate
-        endif
-        if exists(
             TlistUpdate
         endif
     endif
 endfunction
 map <silent> <Leader>gt <ESC>:call GenerateTags()<CR><CR>
 
+function! UpdateTuentiTags()
+    :silent execute "! /Users/alexander/src/tuenti/current/tags.sh &"
+endfunction
+
 function! RsyncCurrentFile()
     !/Users/alexander/bin/rsync_tuenti_current.py  %:p
+    call UpdateTuentiTags()
 endfunction
 
 function! CheckTuenti()
-    let l:fname = $HOME . "/.vim/bundle/tuenti_tools/after/ftplugin/php_tuenti.vim"
+    let l:fname = $HOME . "/src/tuenti/current/configuration/environments/alexander_environment.php"
     if filereadable(l:fname)
-        autocmd FileType php source $HOME/.vim/bundle/tuenti_tools/after/ftplugin/php_tuenti.vim
-        autocmd FileType php,javascript set noexpandtab
-        " au BufWritePost * !/Users/alexander/bin/rsync_tuenti_current.py %:p
+        echo "Definetely Tuenti"
+        if !exists("tuenti_autocommands_loaded")
+            let tuenti_autocommands_loaded = 1
+            autocmd FileType php,javascript set noexpandtab
+            " autocmd BufWritePost * !/Users/alexander/bin/rsync_tuenti_current.py %:p
+        endif
         map <Leader>qq <ESC>:call RsyncCurrentFile()<CR><CR>
+        map <Leader>trt <ESC>:NERDTree tt<CR>q
+        map <Leader>trr <ESC>:NERDTree tr<CR>q
         set path=main;,tests;,./;
-        " set tags=~/Zend/workspaces/DefaultWorkspace7/current/tags
     endif
 endfunction
 
@@ -382,7 +390,6 @@ call CheckTuenti()
 
 " Analyze the code
 if !exists("autocommands_loaded")
-
   let autocommands_loaded = 1
   "PHP Make 
     autocmd BufRead *.inc,*.php set makeprg=/usr/local/bin/zca\ %
