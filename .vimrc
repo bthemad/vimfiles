@@ -5,7 +5,7 @@ let maplocalleader = ","
 " Pathogen load
 
 filetype off
-let pathogen_disabled=['NERD_Tree-and-ack', 'supertab']
+let pathogen_disabled=['NERD_Tree-and-ack']
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 " Manually add NerdTree Ack, cause it has to be loaded after NerdTree
@@ -350,10 +350,12 @@ endfunction
 function! GenerateTags()
     let l:dname = getcwd()
     let l:fname = l:dname . "/tags.sh"
-    echo l:fname
     if filereadable(l:fname)
         :silent execute "! " . l:fname . " &"
         if exists(":TlistUpdate")
+            TlistUpdate
+        endif
+        if exists(
             TlistUpdate
         endif
     endif
@@ -386,7 +388,6 @@ if !exists("autocommands_loaded")
     autocmd BufRead *.inc,*.php set makeprg=/usr/local/bin/zca\ %
     autocmd BufRead *.inc,*.php set errorformat=%f(line\ %l):\ %m
     autocmd BufWritePre :silent lmake<cr>:lwindow <cr>:redraw!<cr>
-    autocmd BufWritePost,FileWritePost *.php,*.js,*.py :call GenerateTags()
 endif
 
 map ,pb :silent lmake<cr>:lwindow <cr>:redraw!<cr>
@@ -427,7 +428,6 @@ iabbr pirnt print
 " Bundle: git://github.com/scrooloose/syntastic.git
 " Bundle: git://github.com/vim-scripts/matchit.zip.git
 " Bundle: git://github.com/pangloss/vim-simplefold.git
-" Bundle: git://github.com/vim-scripts/AutoTag.git
 " Bundle: git://repo.or.cz/vcscommand
 
 "" Syntax files
