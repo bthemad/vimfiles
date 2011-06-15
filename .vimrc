@@ -253,6 +253,7 @@ map <silent> ,gc :Gcommit<CR>
 map <silent> ,gw :Gwrite<CR>
 map <silent> ,gb :Gblame<CR>
 map <silent> ,gl :Glog<CR>
+map <silent> ,ge :Gedit<CR>
 " Delete buffer after leaving it when browsing through git history
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
