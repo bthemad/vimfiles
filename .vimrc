@@ -371,6 +371,11 @@ function! RsyncCurrentFile()
     call UpdateTuentiTags()
 endfunction
 
+function! RsyncAllFiles()
+    !/Users/alexander/bin/rsync_tuenti_current.py
+    call UpdateTuentiTags()
+endfunction
+
 function! CheckTuenti()
     let l:fname = $HOME . "/src/tuenti/current/configuration/environments/alexander_environment.php"
     if filereadable(l:fname)
@@ -381,6 +386,7 @@ function! CheckTuenti()
             " autocmd BufWritePost * !/Users/alexander/bin/rsync_tuenti_current.py %:p
         endif
         map <Leader>qq <ESC>:call RsyncCurrentFile()<CR><CR>
+        map <Leader>qa <ESC>:call RsyncAllFiles()<CR><CR>
         map <Leader>trt <ESC>:NERDTree tt<CR>q
         map <Leader>trr <ESC>:NERDTree tr<CR>q
         set path=main;,tests;,./;
@@ -431,7 +437,7 @@ iabbr pirnt print
 " Bundle: git://github.com/tpope/vim-repeat.git
 " Bundle: git://github.com/scrooloose/nerdcommenter.git
 " Bundle: git://github.com/vim-scripts/taglist.vim.git
-" Bundle: git://github.com/bthemad/snipmate.vim.git
+" # Bundle: git://github.com/bthemad/snipmate.vim.git
 " Bundle: git://github.com/Raimondi/delimitMate.git
 " Bundle: git://github.com/scrooloose/syntastic.git
 " Bundle: git://github.com/vim-scripts/matchit.zip.git
