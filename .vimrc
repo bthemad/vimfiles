@@ -100,9 +100,6 @@ set foldopen=block,insert,jump,hor,mark,percent,quickfix,search,tag,undo
 " Tune fileTypes
 " Treat rss files as xml
 autocmd BufNewFile,BufRead *.rss setfiletype xml
-" Clear whitespaces on write to php and js files
-autocmd BufWritePre *.php,*.js,*.htm*,*.py :call <SID>StripTrailingWhitespaces()
-" Example of customizing tabs for exact filetype
 " ruby and yaml files are indented by two
 autocmd FileType ruby,rdoc,cucumber,yaml set softtabstop=2 tabstop=2 shiftwidth=2
 " Gemfile, Isolate, Vagrantfile and config.ru are ruby
@@ -231,9 +228,6 @@ let php_htmlInStrings = 1
 let php_baselib = 1
 let php_smart_members = 1
 let php_highlight_quotes = 1
-
-" ## SnipMate
-let snips_author = 'Alex Kudryashov'
 
 " ## Syntastic
 let g:syntastic_enable_signs=1
@@ -375,28 +369,42 @@ function! RsyncAllFiles()
     call UpdateTuentiTags()
 endfunction
 
+let s:tuenti = 0
 function! CheckTuenti()
-    let l:fname = $HOME . "/src/tuenti/current/configuration/environments/alexander_environment.php"
+    let l:fname = $HOME . "/src/tuenti/current/rsyncExclude.txt"
     if filereadable(l:fname)
-        if !exists("tuenti_autocommands_loaded")
-            let tuenti_autocommands_loaded = 1
-            autocmd FileType php,javascript set noexpandtab
-            " autocmd BufWritePost * !/Users/alexander/bin/rsync_tuenti_current.py %:p
-        endif
-        map <Leader>qq <ESC>:call RsyncCurrentFile()<CR><CR>
-        map <Leader>qa <ESC>:call RsyncAllFiles()<CR><CR>
-        map <Leader>trt <ESC>:NERDTree tt<CR>q
-        map <Leader>trr <ESC>:NERDTree tr<CR>q
-        set path=main;,tests;,./;
+        " echo "seems like tuenti"
+        let s:is_tuenti = 1
     endif
 endfunction
 
 call CheckTuenti()
+if s:is_tuenti == 1
+    " echo "Definetely Tuenti"
+    if !exists("tuenti_autocommands_loaded")
+        let tuenti_autocommands_loaded = 1
+        autocmd FileType php,javascript,html set noexpandtab
+        " autocmd BufWritePost * !/Users/alexander/bin/rsync_tuenti_current.py %:p
+    endif
+    map <Leader>qq <ESC>:call RsyncCurrentFile()<CR><CR>
+    map <Leader>qa <ESC>:call RsyncAllFiles()<CR><CR>
+    map <Leader>trt <ESC>:NERDTree tt<CR>q
+    map <Leader>trr <ESC>:NERDTree tr<CR>q
+    set path=main;,tests;,./;
+    let snips_author = 'Alexander Kudryashov <alexander@tuenti.com>'
+else
+    if !exists("g:non_tuenti_autocommands_loaded")
+        let g:non_tuenti_autocommands_loaded = 1
+        " Clear whitespaces on write to php and js files
+        autocmd BufWritePre *.php,*.js,*.htm*,*.py :call <SID>StripTrailingWhitespaces()
+    endif
+    let snips_author = 'Alex Kudryashov'
+endif
+
 
 " Analyze the code
 if !exists("autocommands_loaded")
-  let autocommands_loaded = 1
-  "PHP Make 
+    let autocommands_loaded = 1
     autocmd BufRead *.inc,*.php set makeprg=/usr/local/bin/zca\ %
     autocmd BufRead *.inc,*.php set errorformat=%f(line\ %l):\ %m
     autocmd BufWritePre :silent lmake<cr>:lwindow <cr>:redraw!<cr>
