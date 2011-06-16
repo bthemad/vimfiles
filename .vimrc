@@ -353,7 +353,6 @@ function! GenerateTags()
     let l:dname = getcwd()
     let l:fname = l:dname . "/tags.sh"
     if filereadable(l:fname)
-        echo "Updating tags"
         :silent execute "! " . l:fname . " &"
         if exists(":TlistUpdate")
             TlistUpdate
@@ -379,7 +378,6 @@ endfunction
 function! CheckTuenti()
     let l:fname = $HOME . "/src/tuenti/current/configuration/environments/alexander_environment.php"
     if filereadable(l:fname)
-        echo "Definetely Tuenti"
         if !exists("tuenti_autocommands_loaded")
             let tuenti_autocommands_loaded = 1
             autocmd FileType php,javascript set noexpandtab
