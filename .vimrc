@@ -387,7 +387,7 @@ if s:is_tuenti == 1
         " autocmd BufWritePost * !/Users/alexander/bin/rsync_tuenti_current.py %:p
     endif
     map <Leader>qq <ESC>:call RsyncCurrentFile()<CR><CR>
-    map <Leader>qa <ESC>:call RsyncAllFiles()<CR><CR>
+    map <Leader>qf <ESC>:call RsyncAllFiles()<CR><CR>
     map <Leader>trt <ESC>:NERDTree tt<CR>q
     map <Leader>trr <ESC>:NERDTree tr<CR>q
     set path=main;,tests;,./;
@@ -424,6 +424,7 @@ iabbr pirnt print
 " Bundle: git://github.com/mileszs/ack.vim.git
 " Bundle: git://github.com/sjbach/lusty.git
 " Bundle: git://github.com/bronson/vim-closebuffer.git
+" Bundle: git://github.com/vim-scripts/minibufexpl.vim.git
 " Bundle: git://github.com/godlygeek/csapprox.git
 " Bundle: git://github.com/vim-scripts/ZoomWin.git
 " Bundle: git://github.com/vim-scripts/YankRing.vim.git
