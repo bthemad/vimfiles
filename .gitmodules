@@ -94,3 +94,6 @@
 [submodule "bundle/snipmate.vim"]
 	path = bundle/snipmate.vim
 	url = git://github.com/bthemad/snipmate.vim.git
+[submodule "bundle/minibufexpl.vim"]
+	path = bundle/minibufexpl.vim
+	url = git://github.com/vim-scripts/minibufexpl.vim.git

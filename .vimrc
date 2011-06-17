@@ -203,6 +203,7 @@ let Tlist_Exit_OnlyWindow = 1
 let Tlist_File_Fold_Auto_Close = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+let tlist_php_settings='php;c:class;f:function'
 map <silent> ,tl :TlistToggle<CR>
 set tags=tags;./tags;
 
@@ -286,6 +287,9 @@ let g:ConqueTerm_CloseOnEnd = 0
 " ## ZoomWindow
 map zz :ZoomWin<CR>
 map ,, :ZoomWin<CR>
+
+" ## MiniBufExpl
+let g:miniBufExplMapCTabSwitchBufs = 1
 
 " ## GUndo
 nnoremap ,gu :GundoToggle<CR>
@@ -422,7 +426,6 @@ iabbr pirnt print
 " Bundle: git://github.com/scrooloose/nerdtree.git
 " Bundle: git://github.com/vim-scripts/NERD_Tree-and-ack.git
 " Bundle: git://github.com/mileszs/ack.vim.git
-" Bundle: git://github.com/sjbach/lusty.git
 " Bundle: git://github.com/bronson/vim-closebuffer.git
 " Bundle: git://github.com/vim-scripts/minibufexpl.vim.git
 " Bundle: git://github.com/godlygeek/csapprox.git
