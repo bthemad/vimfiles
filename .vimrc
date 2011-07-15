@@ -279,11 +279,6 @@ let g:yankring_default_menu_mode = 0
 map ,a= :Tabularize /=>\?<CR>
 map ,a: :Tabularize /:\zs<CR>
 
-" ## Conque Terminal
-" let g:ConqueTerm_Color = 1
-let g:ConqueTerm_ReadUnfocused = 1
-let g:ConqueTerm_CloseOnEnd = 0
-
 " ## ZoomWindow
 map zz :ZoomWin<CR>
 map ,, :ZoomWin<CR>
@@ -432,11 +427,10 @@ iabbr pirnt print
 " Bundle: git://github.com/vim-scripts/ZoomWin.git
 " Bundle: git://github.com/vim-scripts/YankRing.vim.git
 " Bundle: git://github.com/godlygeek/tabular.git
-" Bundle: git://github.com/rson/vim-conque.git
 " Bundle: git://github.com/sjl/gundo.vim.git
 " Bundle: git://github.com/tpope/vim-unimpaired.git
 
-" BUNDLE: git://git.wincent.com/command-t.git
+" BUNDLE: git://github.com/bthemad/Command-T.git
 "   If rvm is installed, make sure we compile command-t with the system ruby
 "   BUNDLE-COMMAND: if which rvm >/dev/null 2>&1; then rvm system exec rake make; else rake make; fi
 
@@ -451,8 +445,6 @@ iabbr pirnt print
 " Bundle: git://github.com/Raimondi/delimitMate.git
 " Bundle: git://github.com/scrooloose/syntastic.git
 " Bundle: git://github.com/vim-scripts/matchit.zip.git
-" Bundle: git://github.com/pangloss/vim-simplefold.git
-" Bundle: git://repo.or.cz/vcscommand
 
 "" Syntax files
 " Bundle: git://github.com/tpope/vim-markdown.git
@@ -478,5 +470,7 @@ iabbr pirnt print
 " # Bundle: git://github.com/tpope/vim-cucumber.git
 " # Bundle: git://github.com/tpope/vim-haml.git
 " # Bundle: git://github.com/astashov/vim-ruby-debugger.git
-
+" # Bundle: git://github.com/rson/vim-conque.git
+" # Bundle: git://github.com/pangloss/vim-simplefold.git
+" # Bundle: git://repo.or.cz/vcscommand
 
