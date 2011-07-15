@@ -188,7 +188,7 @@ nnoremap gk k
 nnoremap gj j
 
 " Run current file as python script
-map ,rp :!python %
+map ,rp :!python %<CR>
 
 inoremap <D-Enter> <C-O>o
 inoremap <C-Enter> <C-O>o

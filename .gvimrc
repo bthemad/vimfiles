@@ -26,6 +26,10 @@ if has("gui_macvim")
     nmap <D-[> <<
     nmap <D-]> >>
 
+	" Comand - }{ to brows buffers
+	nmap <D-}> :bn<CR>
+    nmap <D-{> :bp<CR>
+
     macmenu &File.New\ Tab key=<nop>
     map <D-t> :CommandT<CR>
 
