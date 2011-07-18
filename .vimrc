@@ -196,6 +196,9 @@ inoremap <C-Enter> <C-O>o
 inoremap <S-Enter> <C-O>o
 inoremap <M-Enter> <C-O>o
 
+" Autoclose omnicompletion window
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
 "" ### Plugin configs ###
 
 " ## TagList
