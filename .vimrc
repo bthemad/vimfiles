@@ -189,6 +189,7 @@ nnoremap gj j
 
 " Run current file as python script
 map ,rp :!python %
+let python_highlight_all = 1
 
 inoremap <D-Enter> <C-O>o
 inoremap <C-Enter> <C-O>o
