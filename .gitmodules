@@ -82,3 +82,6 @@
 [submodule "vim-update-bundles"]
 	path = vim-update-bundles
 	url = git://github.com/bronson/vim-update-bundles.git
+[submodule "vub"]
+	path = vub
+	url = git://github.com/bronson/vim-update-bundles.git
