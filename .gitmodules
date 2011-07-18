@@ -13,8 +13,8 @@
 [submodule "bundle/lusty"]
 	path = bundle/lusty
 	url = git://github.com/sjbach/lusty.git
-[submodule "bundle/closebuffer"]
-	path = bundle/closebuffer
+[submodule "bundle/vim-closebuffer"]
+	path = bundle/vim-closebuffer
 	url = git://github.com/bronson/vim-closebuffer.git
 [submodule "bundle/csapprox"]
 	path = bundle/csapprox
@@ -31,20 +31,20 @@
 [submodule "bundle/conque"]
 	path = bundle/conque
 	url = git://github.com/rson/vim-conque.git
-[submodule "bundle/fugitive"]
-	path = bundle/fugitive
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule "bundle/git"]
-	path = bundle/git
+[submodule "bundle/vim-git"]
+	path = bundle/vim-git
 	url = git://github.com/tpope/vim-git.git
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
-[submodule "bundle/surround"]
-	path = bundle/surround
+[submodule "bundle/vim-surround"]
+	path = bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "bundle/repeat"]
-	path = bundle/repeat
+[submodule "bundle/vim-repeat"]
+	path = bundle/vim-repeat
 	url = git://github.com/tpope/vim-repeat.git
 [submodule "bundle/taglist.vim"]
 	path = bundle/taglist.vim
@@ -61,8 +61,8 @@
 [submodule "bundle/simplefold"]
 	path = bundle/simplefold
 	url = git://github.com/pangloss/vim-simplefold.git
-[submodule "bundle/markdown"]
-	path = bundle/markdown
+[submodule "bundle/vim-markdown"]
+	path = bundle/vim-markdown
 	url = git://github.com/tpope/vim-markdown.git
 [submodule "bundle/jQuery"]
 	path = bundle/jQuery
@@ -73,17 +73,17 @@
 [submodule "bundle/gundo.vim"]
 	path = bundle/gundo.vim
 	url = git://github.com/sjl/gundo.vim.git
-[submodule "bundle/unimpaired"]
-	path = bundle/unimpaired
+[submodule "bundle/vim-unimpaired"]
+	path = bundle/vim-unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
 [submodule "bundle/AutoTag"]
 	path = bundle/AutoTag
 	url = git://github.com/vim-scripts/AutoTag.git
-[submodule "bundle/colors-solarized"]
-	path = bundle/colors-solarized
+[submodule "bundle/vim-colors-solarized"]
+	path = bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "bundle/vividchalk"]
-	path = bundle/vividchalk
+[submodule "bundle/vim-vividchalk"]
+	path = bundle/vim-vividchalk
 	url = git://github.com/tpope/vim-vividchalk.git
 [submodule "bundle/vcscommand"]
 	path = bundle/vcscommand
@@ -97,3 +97,6 @@
 [submodule "bundle/Command-T"]
 	path = bundle/Command-T
 	url = git://github.com/bthemad/Command-T.git
+[submodule "bundle/phpcomplete.vim"]
+	path = bundle/phpcompleete.vim
+	url = git://github.com/shawncplus/phpcomplete.vim.git

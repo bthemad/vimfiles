@@ -188,7 +188,7 @@ nnoremap gk k
 nnoremap gj j
 
 " Run current file as python script
-map ,rp :!python %<CR>
+map ,rp :!python %
 
 inoremap <D-Enter> <C-O>o
 inoremap <C-Enter> <C-O>o
@@ -458,8 +458,8 @@ iabbr pirnt print
 
 " PHP Programming
 " # Bundle: git://github.com/2072/PHP-Indenting-for-VIm.git
-" # BUNDLE: git://github.com/shawncplus/phpcomplete.vim.git
-" # BUNDLE-COMMAND: if [ ! -d "autoload" ]; then mkdir autoload; fi && cp -f phpcomplete.vim ./autoload/
+" BUNDLE: git://github.com/shawncplus/phpcomplete.vim.git
+" BUNDLE-COMMAND: if [ ! -d "autoload" ]; then mkdir autoload; fi && cp -f phpcomplete.vim ./autoload/
 
 " Ruby/Rails Programming:
 " # Bundle: git://github.com/vim-ruby/vim-ruby.git
