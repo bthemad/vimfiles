@@ -372,7 +372,7 @@ function! RsyncAllFiles()
     call UpdateTuentiTags()
 endfunction
 
-let s:tuenti = 0
+let s:is_tuenti = 0
 function! CheckTuenti()
     let l:fname = $HOME . "/src/tuenti/current/rsyncExclude.txt"
     if filereadable(l:fname)
@@ -401,7 +401,7 @@ else
         " Clear whitespaces on write to php and js files
         autocmd BufWritePre *.php,*.js,*.htm*,*.py :call <SID>StripTrailingWhitespaces()
     endif
-    let snips_author = 'Alex Kudryashov'
+    let snips_author = 'Alex Kudryashov <alex.kudryashov@gmail.com>'
 endif
 
 
