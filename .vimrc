@@ -464,6 +464,7 @@ iabbr pirnt print
 " # Bundle: git://github.com/2072/PHP-Indenting-for-VIm.git
 " BUNDLE: git://github.com/shawncplus/phpcomplete.vim.git
 " BUNDLE-COMMAND: if [ ! -d "autoload" ]; then mkdir autoload; fi && cp -f phpcomplete.vim ./autoload/
+" Bundle: git://github.com/bthemad/php-doc.vim.git
 
 " Ruby/Rails Programming:
 " # Bundle: git://github.com/vim-ruby/vim-ruby.git

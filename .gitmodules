@@ -85,3 +85,6 @@
 [submodule "vub"]
 	path = vub
 	url = git://github.com/bronson/vim-update-bundles.git
+[submodule "bundle/php-doc.vim"]
+	path = bundle/php-doc.vim
+	url = git://github.com/bthemad/php-doc.vim.git
