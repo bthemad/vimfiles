@@ -293,6 +293,13 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 " ## GUndo
 nnoremap ,gu :GundoToggle<CR>
 
+" ## PHPDoc
+inoremap ,pd <ESC>:call PhpDocSingle()<CR>i 
+nnoremap ,pd :call PhpDocSingle()<CR> 
+vnoremap ,pd :call PhpDocRange()<CR> 
+let g:pdv_cfg_Author = "kevin olson <acidjazz@gmail.com>"
+let g:pdv_cfg_php4always = 0
+
 " Set sudo write for w!! Very useful =)
 comm! -bang Wsudo    exec 'w !sudo tee % > /dev/null' | e!
 command! ST !icalBuddy uncompletedTasks
@@ -395,13 +402,16 @@ if s:is_tuenti == 1
     map <Leader>trr <ESC>:NERDTree tr<CR>q
     set path=main;,tests;,./;
     let snips_author = 'Alexander Kudryashov <alexander@tuenti.com>'
+    let g:pdv_cfg_Author = 'Alexander Kudryashov <alexander@tuenti.com>'
 else
+    " echo "Not Tuenti"
     if !exists("g:non_tuenti_autocommands_loaded")
         let g:non_tuenti_autocommands_loaded = 1
         " Clear whitespaces on write to php and js files
         autocmd BufWritePre *.php,*.js,*.htm*,*.py :call <SID>StripTrailingWhitespaces()
     endif
     let snips_author = 'Alex Kudryashov <alex.kudryashov@gmail.com>'
+    let g:pdv_cfg_Author = 'Alex Kudryashov <alex.kudryashov@gmail.com>'
 endif
 
 
