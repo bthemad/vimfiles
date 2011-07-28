@@ -177,10 +177,6 @@ nnoremap <leader><space> :noh<cr>
 nmap <C-J> 5j
 nmap <C-K> 5k
 
-" Let's try once again with jj
-inoremap jj <ESC>
-cnoremap jj <C-C>
-
 " I want to navigate wrapped lines
 nnoremap k gk
 nnoremap j gj
@@ -198,9 +194,14 @@ inoremap <M-Enter> <C-O>o
 
 " Autoclose omnicompletion window
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+nmap n nz.
+nmap N Nz.
+nmap * *z.
+nmap # #z.
+nmap g* g*z.
+nmap g# g#z.
 
 "" ### Plugin configs ###
-
 " ## TagList
 let Tlist_Close_On_Select = 1
 let Tlist_Exit_OnlyWindow = 1
