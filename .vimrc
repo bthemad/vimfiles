@@ -194,6 +194,7 @@ inoremap <M-Enter> <C-O>o
 
 " Autoclose omnicompletion window
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
 nmap n nz.
 nmap N Nz.
 nmap * *z.
