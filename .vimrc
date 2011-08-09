@@ -195,13 +195,6 @@ inoremap <M-Enter> <C-O>o
 " Autoclose omnicompletion window
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-nmap n nz.
-nmap N Nz.
-nmap * *z.
-nmap # #z.
-nmap g* g*z.
-nmap g# g#z.
-
 "" ### Plugin configs ###
 " ## TagList
 let Tlist_Close_On_Select = 1
