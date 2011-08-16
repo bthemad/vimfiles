@@ -268,6 +268,7 @@ map <silent> ,vci :VCSInfo<CR>
 let delimitMate_expand_cr = 1
 au FileType vim let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 au FileType vim let b:delimitMate_quotes = "'"
+au FileType php let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 " ## YankRing
 nnoremap <silent> ,rr :YRShow<CR>
