@@ -1,3 +1,6 @@
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+" Bundle: tpope/vim-pathogen
+
 scriptencoding utf-8
 " ### Settings ###
 let mapleader = ","
@@ -6,6 +9,7 @@ let maplocalleader = ","
 
 filetype off
 let pathogen_disabled=['NERD_Tree-and-ack']
+call pathogen#infect()
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 " Manually add NerdTree Ack, cause it has to be loaded after NerdTree
@@ -442,7 +446,7 @@ iabbr pirnt print
 
 " BUNDLE: git://github.com/bthemad/Command-T.git
 "   If rvm is installed, make sure we compile command-t with the system ruby
-"   BUNDLE-COMMAND: if which rvm >/dev/null 2>&1; then rvm system exec rake make; else rake make; fi
+"   BUNDLE-COMMAND: cd ~/.vim/bundle/Command-T && rake make
 
 "" Programming:
 " Bundle: git://github.com/tpope/vim-fugitive.git
@@ -469,7 +473,7 @@ iabbr pirnt print
 " PHP Programming
 " # Bundle: git://github.com/2072/PHP-Indenting-for-VIm.git
 " BUNDLE: git://github.com/shawncplus/phpcomplete.vim.git
-" BUNDLE-COMMAND: if [ ! -d "autoload" ]; then mkdir autoload; fi && cp -f phpcomplete.vim ./autoload/
+" BUNDLE-COMMAND: cp -fr ~/.vim/bundle/phpcomplete.vim/autoload/phpcomplete.vim ~/.vim/autoload/
 " Bundle: git://github.com/bthemad/php-doc.vim.git
 
 " Ruby/Rails Programming:

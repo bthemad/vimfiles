@@ -88,3 +88,6 @@
 [submodule "bundle/php-doc.vim"]
 	path = bundle/php-doc.vim
 	url = git://github.com/bthemad/php-doc.vim.git
+[submodule "bundle/vim-pathogen"]
+	path = bundle/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
