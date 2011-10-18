@@ -1,3 +1,6 @@
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+" Bundle: tpope/vim-pathogen
+
 scriptencoding utf-8
 " ### Settings ###
 let mapleader = ","
@@ -6,6 +9,7 @@ let maplocalleader = ","
 
 filetype off
 let pathogen_disabled=['NERD_Tree-and-ack']
+call pathogen#infect()
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 " Manually add NerdTree Ack, cause it has to be loaded after NerdTree
@@ -433,63 +437,61 @@ iabbr pirnt print
 
 """ Bundle list for update-vim-bundles """
 "" Generally Useful:
-" Bundle: git://github.com/scrooloose/nerdtree.git
-" Bundle: git://github.com/vim-scripts/NERD_Tree-and-ack.git
-" Bundle: git://github.com/mileszs/ack.vim.git
-" Bundle: git://github.com/bronson/vim-closebuffer.git
-" Bundle: git://github.com/vim-scripts/minibufexpl.vim.git
-" Bundle: git://github.com/godlygeek/csapprox.git
-" Bundle: git://github.com/vim-scripts/ZoomWin.git
-" Bundle: git://github.com/vim-scripts/YankRing.vim.git
-" Bundle: git://github.com/godlygeek/tabular.git
-" Bundle: git://github.com/sjl/gundo.vim.git
-" Bundle: git://github.com/tpope/vim-unimpaired.git
-" Bundle: git://github.com/bkad/CamelCaseMotion.git
-" Bundle: git://github.com/vim-scripts/argtextobj.vim.git
-" Bundle: git://github.com/michaeljsmith/vim-indent-object.git
+" Bundle: scrooloose/nerdtree.git
+" Bundle: NERD_Tree-and-ack.git
+" Bundle: mileszs/ack.vim.git
+" Bundle: bronson/vim-closebuffer.git
+" Bundle: minibufexpl.vim.git
+" Bundle: godlygeek/csapprox.git
+" Bundle: ZoomWin.git
+" Bundle: YankRing.vim.git
+" Bundle: godlygeek/tabular.git
+" Bundle: sjl/gundo.vim.git
+" Bundle: tpope/vim-unimpaired.git
+" Bundle: bkad/CamelCaseMotion.git
+" Bundle: argtextobj.vim.git
+" Bundle: michaeljsmith/vim-indent-object.git
 
 " BUNDLE: git://github.com/bthemad/Command-T.git
 "   If rvm is installed, make sure we compile command-t with the system ruby
-"   BUNDLE-COMMAND: if which rvm >/dev/null 2>&1; then rvm system exec rake make; else rake make; fi
+"   BUNDLE-COMMAND: cd ~/.vim/bundle/Command-T && rake make
 
 "" Programming:
-" Bundle: git://github.com/tpope/vim-fugitive.git
-" Bundle: git://github.com/tpope/vim-git.git
-" Bundle: git://github.com/tpope/vim-surround.git
-" Bundle: git://github.com/tpope/vim-repeat.git
-" Bundle: git://github.com/scrooloose/nerdcommenter.git
-" Bundle: git://github.com/vim-scripts/taglist.vim.git
-" Bundle: git://github.com/bthemad/snipmate.vim.git
-" Bundle: git://github.com/Raimondi/delimitMate.git
-" Bundle: git://github.com/scrooloose/syntastic.git
-" Bundle: git://github.com/vim-scripts/matchit.zip.git
+" Bundle: tpope/vim-fugitive.git
+" Bundle: tpope/vim-git.git
+" Bundle: tpope/vim-surround.git
+" Bundle: tpope/vim-repeat.git
+" Bundle: scrooloose/nerdcommenter.git
+" Bundle: taglist.vim.git
+" Bundle: bthemad/snipmate.vim.git
+" Bundle: Raimondi/delimitMate.git
+" Bundle: scrooloose/syntastic.git
+" Bundle: matchit.zip.git
 
 "" Syntax files
-" Bundle: git://github.com/tpope/vim-markdown.git
+" Bundle: tpope/vim-markdown.git
 
 " JavaScript programming
-" Bundle: git://github.com/vim-scripts/jQuery.git
+" Bundle: jQuery.git
 
 " Color schemes
-" Bundle: git://github.com/altercation/vim-colors-solarized.git
-" Bundle: git://github.com/tpope/vim-vividchalk.git
+" Bundle: altercation/vim-colors-solarized.git
+" Bundle: tpope/vim-vividchalk.git
 
 " PHP Programming
-" # Bundle: git://github.com/2072/PHP-Indenting-for-VIm.git
-" BUNDLE: git://github.com/shawncplus/phpcomplete.vim.git
+" BUNDLE: shawncplus/phpcomplete.vim.git
 " # BUNDLE-COMMAND: if [ ! -d "autoload" ]; then mkdir autoload; fi && cp -f phpcomplete.vim ./autoload/
-" Bundle: git://github.com/bthemad/php-doc.vim.git
+" Bundle: bthemad/php-doc.vim.git
 
 " Ruby/Rails Programming:
-" # Bundle: git://github.com/vim-ruby/vim-ruby.git
-" # Bundle: git://github.com/tpope/vim-rails.git
-" # Bundle: git://github.com/tpope/vim-rake.git
-" # Bundle: git://github.com/janx/vim-rubytest.git
-" # Bundle: git://github.com/tsaleh/vim-shoulda.git
-" # Bundle: git://github.com/tpope/vim-cucumber.git
-" # Bundle: git://github.com/tpope/vim-haml.git
-" # Bundle: git://github.com/astashov/vim-ruby-debugger.git
-" # Bundle: git://github.com/rson/vim-conque.git
-" # Bundle: git://github.com/pangloss/vim-simplefold.git
-" # Bundle: git://repo.or.cz/vcscommand
+" # Bundle: vim-ruby/vim-ruby.git
+" # Bundle: tpope/vim-rails.git
+" # Bundle: tpope/vim-rake.git
+" # Bundle: janx/vim-rubytest.git
+" # Bundle: tsaleh/vim-shoulda.git
+" # Bundle: tpope/vim-cucumber.git
+" # Bundle: tpope/vim-haml.git
+" # Bundle: astashov/vim-ruby-debugger.git
+" # Bundle: rson/vim-conque.git
+" # Bundle: pangloss/vim-simplefold.git
 
