@@ -296,6 +296,11 @@ vnoremap ,pd :call PhpDocRange()<CR>
 let g:pdv_cfg_Author = "kevin olson <acidjazz@gmail.com>"
 let g:pdv_cfg_php4always = 0
 
+" ## CamelCaseMotion
+map <S-W> <Plug>CamelCaseMotion_w
+map <S-B> <Plug>CamelCaseMotion_b
+map <S-E> <Plug>CamelCaseMotion_e
+
 " Set sudo write for w!! Very useful =)
 comm! -bang Wsudo    exec 'w !sudo tee % > /dev/null' | e!
 command! ST !icalBuddy uncompletedTasks
@@ -439,6 +444,9 @@ iabbr pirnt print
 " Bundle: git://github.com/godlygeek/tabular.git
 " Bundle: git://github.com/sjl/gundo.vim.git
 " Bundle: git://github.com/tpope/vim-unimpaired.git
+" Bundle: git://github.com/bkad/CamelCaseMotion.git
+" Bundle: git://github.com/vim-scripts/argtextobj.vim.git
+" Bundle: git://github.com/michaeljsmith/vim-indent-object.git
 
 " BUNDLE: git://github.com/bthemad/Command-T.git
 "   If rvm is installed, make sure we compile command-t with the system ruby
@@ -469,7 +477,7 @@ iabbr pirnt print
 " PHP Programming
 " # Bundle: git://github.com/2072/PHP-Indenting-for-VIm.git
 " BUNDLE: git://github.com/shawncplus/phpcomplete.vim.git
-" BUNDLE-COMMAND: if [ ! -d "autoload" ]; then mkdir autoload; fi && cp -f phpcomplete.vim ./autoload/
+" # BUNDLE-COMMAND: if [ ! -d "autoload" ]; then mkdir autoload; fi && cp -f phpcomplete.vim ./autoload/
 " Bundle: git://github.com/bthemad/php-doc.vim.git
 
 " Ruby/Rails Programming:
