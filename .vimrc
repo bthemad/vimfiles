@@ -74,6 +74,7 @@ set imsearch=0
 highlight lCursor guifg=NONE guibg=Cyan
 
 " Backup and tmp folders
+set noswapfile                  " For watchdog to work
 set backup                      " Don't keep a backup file
 set backupdir=~/.vim/backup     " Set backup dir
 set directory=~/.vim/tmp        " Set tmp directory
