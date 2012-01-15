@@ -1,8 +1,8 @@
-cd /Users/akudryashov/.vim/vub
+cd /Users/alexander/.vim/vub
 git pull
-cd /Users/akudryashov/.vim
+cd /Users/alexander/.vim
 ./vub/vim-update-bundles \
-    --vimdir-path=/Users/akudryashov/.vim \
-    --vimrc-path=/Users/akudryashov/.vim/.vimrc \
+    --vimdir-path=/Users/alexander/.vim \
+    --vimrc-path=/Users/alexander/.vim/.vimrc \
     --verbose
 
