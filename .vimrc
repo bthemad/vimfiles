@@ -243,6 +243,7 @@ let g:syntastic_auto_loc_list=1
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+let g:syntastic_javascript_checker = "jsl"
 let g:syntastic_jsl_conf = $HOME . "/.dotfiles/jsl.conf"
 
 " ## Command-T
