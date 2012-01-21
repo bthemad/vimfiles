@@ -480,8 +480,8 @@ iabbr pirnt print
 " Bundle: kchmck/vim-coffee-script
 
 " Color schemes
-" Bundle: altercation/vim-colors-solarized
-" Bundle: tpope/vim-vividchalk
+" # Bundle: altercation/vim-colors-solarized
+" # Bundle: tpope/vim-vividchalk
 
 " PHP Programming
 " BUNDLE: shawncplus/phpcomplete.vim
