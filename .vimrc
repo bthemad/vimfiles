@@ -119,6 +119,12 @@ set foldmethod=syntax           " use the syntax definitions' folding
 set foldlevel=99                " no folds by default
 let g:xml_syntax_folding = 1
 
+" Enable Home/End in command line
+cnoremap <c-e> <end>
+imap     <c-e> <c-o>$
+cnoremap <c-a> <home>
+imap     <c-a> <c-o>^
+
 " ## Edit .vimrc ##
 map ,vv :vsp $MYVIMRC<CR>
 map ,gv :vsp $MYGVIMRC<CR>
@@ -145,9 +151,9 @@ map ,wH <C-W>H
 map ,wJ <C-W>J
 map ,wK <C-W>K
 
-map ,ws <C-W>s
+map ,ws :rightbelow new<CR>
 map ,wo <C-W>o
-map ,wv <C-W>v
+map ,wv :rightbelow vnew<CR>
 map ,wc <C-W>c
 map ,wp <C-W>p
 map ,wx <C-W>x
@@ -333,7 +339,7 @@ endif
 
 "" Help Functions ""
 " Strip trailing spaces
-function! <SID>StripTrailingWhitespaces()
+function! StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
     let _s=@/
     let l = line(".")
@@ -344,6 +350,7 @@ function! <SID>StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfunction
+map <silent> <Leader>sw <ESC>:call StripTrailingWhitespaces()<CR><CR>
 
 " Preserve state of cursor after executing a command
 function! Preserve(command)
@@ -481,7 +488,7 @@ iabbr pirnt print
 " Bundle: kchmck/vim-coffee-script
 
 " Color schemes
-" # Bundle: altercation/vim-colors-solarized
+" Bundle: altercation/vim-colors-solarized
 " # Bundle: tpope/vim-vividchalk
 
 " PHP Programming
