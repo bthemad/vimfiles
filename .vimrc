@@ -496,6 +496,9 @@ iabbr pirnt print
 " # BUNDLE-COMMAND: if [ ! -d "autoload" ]; then mkdir autoload; fi && cp -f phpcomplete.vim ./autoload/
 " Bundle: bthemad/php-doc.vim
 
+" C/C++ Programming
+" Bundle: a.vim
+
 " Ruby/Rails Programming:
 " # Bundle: vim-ruby/vim-ruby
 " # Bundle: tpope/vim-rails
