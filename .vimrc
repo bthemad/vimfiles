@@ -113,6 +113,8 @@ autocmd BufNewFile,BufRead Isolate     setfiletype ruby
 autocmd BufNewFile,BufRead Vagrantfile setfiletype ruby
 autocmd BufNewFile,BufRead config.ru   setfiletype ruby
 
+au FileType gitcommit set tw=68 spell
+
 " Enable folding
 set foldenable                  " enable folding
 set foldmethod=syntax           " use the syntax definitions' folding
@@ -251,6 +253,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_javascript_checker = "jsl"
 let g:syntastic_jsl_conf = $HOME . "/.dotfiles/jsl.conf"
+let g:syntastic_python_checker = 'pyflakes'
 
 " ## Command-T
 map <silent> ,tf :CommandT<CR>
