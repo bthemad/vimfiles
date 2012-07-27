@@ -260,6 +260,8 @@ let g:syntastic_python_checker = 'pyflakes'
 " ## Command-T
 map <silent> ,tf :CommandT<CR>
 let g:CommandTMaxHeight=20
+set wildignore+=*.o,*.obj,.git,*.d
+
 
 " ## Fugitive
 map <silent> ,gs :Gstatus<CR>
