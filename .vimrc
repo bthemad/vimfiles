@@ -55,7 +55,7 @@ set listchars=tab:▸\ ,eol:¬     " Show invisible symbols in TextMate way
 
 " Command line and status line
 set showcmd                     " I wanna see, what I'm typing
-set statusline=%<%y%f%h%m%r%{fugitive#statusline()}%=format=%{&fileformat}\ file=%{&fileencoding}\ enc=%{&encoding}\ %l,%c%V\ %P
+set statusline=%<%y%f%h%m%r%{tagbar#currenttag('\ %s','')}\ %{fugitive#statusline()}%=format=%{&fileformat}\ file=%{&fileencoding}\ enc=%{&encoding}\ %l,%c%V\ %P
 set laststatus=2                " Previous nightmare was copy pasted. It all shows the status
 
 " Search params
@@ -215,14 +215,18 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 "" ### Plugin configs ###
 " ## TagList
-let Tlist_Close_On_Select = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_File_Fold_Auto_Close = 1
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-let tlist_php_settings='php;c:class;f:function'
-map <silent> ,tl :TlistToggle<CR>
-set tags=tags;./tags;
+" let Tlist_Close_On_Select = 1
+" let Tlist_Exit_OnlyWindow = 1
+" let Tlist_File_Fold_Auto_Close = 1
+" let Tlist_GainFocus_On_ToggleOpen = 1
+" let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+" let tlist_php_settings='php;c:class;f:function'
+" map <silent> ,tl :TlistToggle<CR>
+" set tags=tags;./tags;
+map <silent> ,tl :TagbarOpen fjc<CR>
+map <silent> ,tc :TagbarCurrentTag<CR>
+let g:tagbar_width = 50
+let g:tagbar_compact = 1
 
 " ## NerdTree
 map <silent> ,tt :NERDTreeToggle<CR>
@@ -481,7 +485,8 @@ iabbr pirnt print
 " Bundle: tpope/vim-surround
 " Bundle: tpope/vim-repeat
 " Bundle: scrooloose/nerdcommenter
-" Bundle: taglist.vim
+" # Bundle: taglist.vim
+" Bundle: majutsushi/tagbar
 " Bundle: bthemad/snipmate.vim
 " Bundle: Raimondi/delimitMate
 " Bundle: scrooloose/syntastic
