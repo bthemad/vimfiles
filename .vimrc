@@ -261,6 +261,9 @@ set statusline+=%*
 let g:syntastic_javascript_checker = "jsl"
 let g:syntastic_jsl_conf = $HOME . "/.dotfiles/jsl.conf"
 let g:syntastic_python_checker = 'pyflakes'
+let g:syntastic_mode_map = { 'mode': 'active',
+            \ 'active_filetypes': [],
+            \ 'passive_filetypes': ['java'] }
 
 " ## Command-T
 map <silent> ,tf :CommandT<CR>
