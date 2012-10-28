@@ -55,7 +55,7 @@ set listchars=tab:▸\ ,eol:¬     " Show invisible symbols in TextMate way
 
 " Command line and status line
 set showcmd                     " I wanna see, what I'm typing
-set statusline=%<%y%f%h%m%r%{fugitive#statusline()}%=format=%{&fileformat}\ file=%{&fileencoding}\ enc=%{&encoding}\ %l,%c%V\ %P
+set statusline=%<%y%f%h%m%r%{tagbar#currenttag('\ %s','')}\ %{fugitive#statusline()}%=format=%{&fileformat}\ file=%{&fileencoding}\ enc=%{&encoding}\ %l,%c%V\ %P
 set laststatus=2                " Previous nightmare was copy pasted. It all shows the status
 
 " Search params
@@ -107,17 +107,28 @@ set foldopen=block,insert,jump,hor,mark,percent,quickfix,search,tag,undo
 autocmd BufNewFile,BufRead *.rss setfiletype xml
 " ruby and yaml files are indented by two
 autocmd FileType ruby,rdoc,cucumber,yaml set softtabstop=2 tabstop=2 shiftwidth=2
+autocmd FileType python set softtabstop=2 tabstop=2 shiftwidth=2
+autocmd FileType cpp set softtabstop=2 tabstop=2 shiftwidth=2
+
 " Gemfile, Isolate, Vagrantfile and config.ru are ruby
 autocmd BufNewFile,BufRead Gemfile     setfiletype ruby
 autocmd BufNewFile,BufRead Isolate     setfiletype ruby
 autocmd BufNewFile,BufRead Vagrantfile setfiletype ruby
 autocmd BufNewFile,BufRead config.ru   setfiletype ruby
 
+au FileType gitcommit set tw=68 spell
+
 " Enable folding
 set foldenable                  " enable folding
 set foldmethod=syntax           " use the syntax definitions' folding
 set foldlevel=99                " no folds by default
 let g:xml_syntax_folding = 1
+
+" Enable Home/End in command line
+cnoremap <c-e> <end>
+imap     <c-e> <c-o>$
+cnoremap <c-a> <home>
+imap     <c-a> <c-o>^
 
 " ## Edit .vimrc ##
 map ,vv :vsp $MYVIMRC<CR>
@@ -145,9 +156,9 @@ map ,wH <C-W>H
 map ,wJ <C-W>J
 map ,wK <C-W>K
 
-map ,ws <C-W>s
+map ,ws :rightbelow new<CR>
 map ,wo <C-W>o
-map ,wv <C-W>v
+map ,wv :rightbelow vnew<CR>
 map ,wc <C-W>c
 map ,wp <C-W>p
 map ,wx <C-W>x
@@ -205,14 +216,18 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 "" ### Plugin configs ###
 " ## TagList
-let Tlist_Close_On_Select = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_File_Fold_Auto_Close = 1
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-let tlist_php_settings='php;c:class;f:function'
-map <silent> ,tl :TlistToggle<CR>
-set tags=tags;./tags;
+" let Tlist_Close_On_Select = 1
+" let Tlist_Exit_OnlyWindow = 1
+" let Tlist_File_Fold_Auto_Close = 1
+" let Tlist_GainFocus_On_ToggleOpen = 1
+" let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+" let tlist_php_settings='php;c:class;f:function'
+" map <silent> ,tl :TlistToggle<CR>
+" set tags=tags;./tags;
+map <silent> ,tl :TagbarOpen fjc<CR>
+map <silent> ,tc :TagbarCurrentTag<CR>
+let g:tagbar_width = 50
+let g:tagbar_compact = 1
 
 " ## NerdTree
 map <silent> ,tt :NERDTreeToggle<CR>
@@ -245,10 +260,16 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_javascript_checker = "jsl"
 let g:syntastic_jsl_conf = $HOME . "/.dotfiles/jsl.conf"
+let g:syntastic_python_checker = 'pyflakes'
+let g:syntastic_mode_map = { 'mode': 'active',
+            \ 'active_filetypes': [],
+            \ 'passive_filetypes': ['java'] }
 
 " ## Command-T
 map <silent> ,tf :CommandT<CR>
 let g:CommandTMaxHeight=20
+set wildignore+=*.o,*.obj,.git,*.d
+
 
 " ## Fugitive
 map <silent> ,gs :Gstatus<CR>
@@ -333,7 +354,7 @@ endif
 
 "" Help Functions ""
 " Strip trailing spaces
-function! <SID>StripTrailingWhitespaces()
+function! StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
     let _s=@/
     let l = line(".")
@@ -344,6 +365,7 @@ function! <SID>StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfunction
+map <silent> <Leader>sw <ESC>:call StripTrailingWhitespaces()<CR><CR>
 
 " Preserve state of cursor after executing a command
 function! Preserve(command)
@@ -467,7 +489,8 @@ iabbr pirnt print
 " Bundle: tpope/vim-surround
 " Bundle: tpope/vim-repeat
 " Bundle: scrooloose/nerdcommenter
-" Bundle: taglist.vim
+" # Bundle: taglist.vim
+" Bundle: majutsushi/tagbar
 " Bundle: bthemad/snipmate.vim
 " Bundle: Raimondi/delimitMate
 " Bundle: scrooloose/syntastic
@@ -481,13 +504,16 @@ iabbr pirnt print
 " Bundle: kchmck/vim-coffee-script
 
 " Color schemes
-" # Bundle: altercation/vim-colors-solarized
+" Bundle: altercation/vim-colors-solarized
 " # Bundle: tpope/vim-vividchalk
 
 " PHP Programming
 " BUNDLE: shawncplus/phpcomplete.vim
 " # BUNDLE-COMMAND: if [ ! -d "autoload" ]; then mkdir autoload; fi && cp -f phpcomplete.vim ./autoload/
 " Bundle: bthemad/php-doc.vim
+
+" C/C++ Programming
+" Bundle: a.vim
 
 " Ruby/Rails Programming:
 " # Bundle: vim-ruby/vim-ruby
