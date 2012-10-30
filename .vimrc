@@ -107,7 +107,6 @@ set foldopen=block,insert,jump,hor,mark,percent,quickfix,search,tag,undo
 autocmd BufNewFile,BufRead *.rss setfiletype xml
 " ruby and yaml files are indented by two
 autocmd FileType ruby,rdoc,cucumber,yaml set softtabstop=2 tabstop=2 shiftwidth=2
-autocmd FileType python set softtabstop=2 tabstop=2 shiftwidth=2
 autocmd FileType cpp set softtabstop=2 tabstop=2 shiftwidth=2
 
 " Gemfile, Isolate, Vagrantfile and config.ru are ruby
@@ -260,7 +259,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_javascript_checker = "jsl"
 let g:syntastic_jsl_conf = $HOME . "/.dotfiles/jsl.conf"
-let g:syntastic_python_checker = 'pyflakes'
+let g:syntastic_python_checker = 'flake8'
 let g:syntastic_mode_map = { 'mode': 'active',
             \ 'active_filetypes': [],
             \ 'passive_filetypes': ['java'] }
@@ -440,7 +439,7 @@ else
     if !exists("g:non_tuenti_autocommands_loaded")
         let g:non_tuenti_autocommands_loaded = 1
         " Clear whitespaces on write to php and js files
-        autocmd BufWritePre *.php,*.js,*.htm*,*.py :call <SID>StripTrailingWhitespaces()
+        autocmd BufWritePre *.php,*.js,*.htm*,*.py :call StripTrailingWhitespaces()
     endif
     let snips_author = 'Alex Kudryashov <alex.kudryashov@gmail.com>'
     let g:pdv_cfg_Author = 'Alex Kudryashov <alex.kudryashov@gmail.com>'
@@ -464,6 +463,7 @@ iabbr pirnt print
 
 """ Bundle list for update-vim-bundles """
 "" Generally Useful:
+" Bundle: hynek/vim-python-pep8-indent
 " Bundle: scrooloose/nerdtree
 " Bundle: NERD_Tree-and-ack
 " Bundle: mileszs/ack.vim
