@@ -474,10 +474,11 @@ iabbr pirnt print
 " Bundle: YankRing.vim
 " Bundle: godlygeek/tabular
 " Bundle: sjl/gundo.vim
-" Bundle: tpope/vim-unimpaired
 " Bundle: bkad/CamelCaseMotion
 " Bundle: argtextobj.vim
 " Bundle: michaeljsmith/vim-indent-object
+" Bundle: tpope/vim-unimpaired
+" Bundle: tpope/vim-eunuch
 
 " BUNDLE: git://github.com/bthemad/Command-T.git
 "   If rvm is installed, make sure we compile command-t with the system ruby
