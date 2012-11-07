@@ -299,11 +299,6 @@ au FileType vim let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 au FileType vim let b:delimitMate_quotes = "'"
 au FileType php let b:delimitMate_matchpairs = "(:),[:],{:}"
 
-" ## YankRing
-nnoremap <silent> ,rr :YRShow<CR>
-let g:yankring_history_file = '.yr_hist'
-let g:yankring_default_menu_mode = 0
-
 " ## Tabular
 map ,a= :Tabularize /=>\?<CR>
 map ,a: :Tabularize /:\zs<CR>
@@ -329,6 +324,11 @@ let g:pdv_cfg_php4always = 0
 map <S-W> <Plug>CamelCaseMotion_w
 map <S-B> <Plug>CamelCaseMotion_b
 map <S-E> <Plug>CamelCaseMotion_e
+
+" ## Yankstack
+let g:yankstack_map_keys = 0
+nmap <C-P> <Plug>yankstack_substitute_older_paste
+nmap <C-N> <Plug>yankstack_substitute_newer_paste
 
 " Set sudo write for w!! Very useful =)
 comm! -bang Wsudo    exec 'w !sudo tee % > /dev/null' | e!
@@ -463,6 +463,7 @@ iabbr pirnt print
 
 """ Bundle list for update-vim-bundles """
 "" Generally Useful:
+" Bundle: maxbrunsfeld/vim-yankstack
 " Bundle: hynek/vim-python-pep8-indent
 " Bundle: scrooloose/nerdtree
 " Bundle: NERD_Tree-and-ack
@@ -471,7 +472,6 @@ iabbr pirnt print
 " Bundle: minibufexpl.vim
 " Bundle: godlygeek/csapprox
 " Bundle: ZoomWin
-" Bundle: YankRing.vim
 " Bundle: godlygeek/tabular
 " Bundle: sjl/gundo.vim
 " Bundle: bkad/CamelCaseMotion
