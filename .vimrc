@@ -108,6 +108,7 @@ autocmd BufNewFile,BufRead *.rss setfiletype xml
 " ruby and yaml files are indented by two
 autocmd FileType ruby,rdoc,cucumber,yaml set softtabstop=2 tabstop=2 shiftwidth=2
 autocmd FileType cpp set softtabstop=2 tabstop=2 shiftwidth=2
+autocmd FileType c set softtabstop=2 tabstop=2 shiftwidth=2
 
 " Gemfile, Isolate, Vagrantfile and config.ru are ruby
 autocmd BufNewFile,BufRead Gemfile     setfiletype ruby
