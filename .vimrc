@@ -516,7 +516,7 @@ iabbr pirnt print
 " Bundle: bthemad/php-doc.vim
 
 " C/C++ Programming
-" # Bundle: bthemad/a.vim
+" Bundle: bthemad/a.vim
 
 " Ruby/Rails Programming:
 " # Bundle: vim-ruby/vim-ruby
