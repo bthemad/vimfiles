@@ -503,8 +503,8 @@ iabbr pirnt print
 " Bundle: tpope/vim-markdown
 
 " JavaScript programming
-" Bundle: jQuery
-" Bundle: kchmck/vim-coffee-script
+" # Bundle: jQuery
+" # Bundle: kchmck/vim-coffee-script
 
 " Color schemes
 " Bundle: altercation/vim-colors-solarized
@@ -516,7 +516,7 @@ iabbr pirnt print
 " Bundle: bthemad/php-doc.vim
 
 " C/C++ Programming
-" Bundle: a.vim
+" # Bundle: bthemad/a.vim
 
 " Ruby/Rails Programming:
 " # Bundle: vim-ruby/vim-ruby
