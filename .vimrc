@@ -498,6 +498,7 @@ iabbr pirnt print
 " Bundle: Raimondi/delimitMate
 " Bundle: scrooloose/syntastic
 " Bundle: matchit.zip
+" Bundle: bthemad/tslime.vim
 
 "" Syntax files
 " Bundle: tpope/vim-markdown
