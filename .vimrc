@@ -135,7 +135,10 @@ imap     <c-a> <c-o>^
 map ,vv :vsp $MYVIMRC<CR>
 map ,gv :vsp $MYGVIMRC<CR>
 map ,V :call ReloadRc()<CR>
-map ,vh :vsp /Users/akudryashov/Documents/study/reviews/2010-02\ -\ Pragmatic\ Vim.txt<CR>
+
+" Edit snippets. Because you can't expand variable easy way.
+let s:python_snippets = $HOME . '/.vim/bundle/snipmate-snippets/snippets/python.snippets'
+execute "map ,vp :vsp " . s:python_snippets . "<CR>"
 
 "autocmd BufWritePost .vimrc source $MYVIMRC
 
@@ -479,6 +482,13 @@ iabbr pirnt print
 " Bundle: argtextobj.vim
 " Bundle: tpope/vim-unimpaired
 " Bundle: tpope/vim-eunuch
+" Bundle: ervandew/supertab
+
+"" Snipmate
+" Bundle: MarcWeber/vim-addon-mw-utils
+" Bundle: tomtom/tlib_vim
+" Bundle: git://github.com/bthemad/snipmate-snippets
+" Bundle: garbas/vim-snipmate
 
 " BUNDLE: git://github.com/bthemad/Command-T.git
 "   If rvm is installed, make sure we compile command-t with the system ruby
