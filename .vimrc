@@ -466,7 +466,6 @@ iabbr pirnt print
 """ Bundle list for update-vim-bundles """
 "" Generally Useful:
 " Bundle: maxbrunsfeld/vim-yankstack
-" Bundle: hynek/vim-python-pep8-indent
 " Bundle: scrooloose/nerdtree
 " Bundle: NERD_Tree-and-ack
 " Bundle: mileszs/ack.vim
@@ -478,7 +477,6 @@ iabbr pirnt print
 " Bundle: sjl/gundo.vim
 " Bundle: bkad/CamelCaseMotion
 " Bundle: argtextobj.vim
-" Bundle: michaeljsmith/vim-indent-object
 " Bundle: tpope/vim-unimpaired
 " Bundle: tpope/vim-eunuch
 
@@ -492,16 +490,17 @@ iabbr pirnt print
 " Bundle: tpope/vim-surround
 " Bundle: tpope/vim-repeat
 " Bundle: scrooloose/nerdcommenter
-" # Bundle: taglist.vim
 " Bundle: majutsushi/tagbar
-" Bundle: bthemad/snipmate.vim
 " Bundle: Raimondi/delimitMate
 " Bundle: scrooloose/syntastic
 " Bundle: matchit.zip
-" Bundle: bthemad/tslime.vim
+" Bundle: git://github.com/bthemad/tslime.vim
+"
+"" Python
+" Bundle: hynek/vim-python-pep8-indent
 
 "" Syntax files
-" Bundle: tpope/vim-markdown
+" # Bundle: tpope/vim-markdown
 
 " JavaScript programming
 " # Bundle: jQuery
@@ -511,23 +510,6 @@ iabbr pirnt print
 " Bundle: altercation/vim-colors-solarized
 " # Bundle: tpope/vim-vividchalk
 
-" PHP Programming
-" BUNDLE: shawncplus/phpcomplete.vim
-" # BUNDLE-COMMAND: if [ ! -d "autoload" ]; then mkdir autoload; fi && cp -f phpcomplete.vim ./autoload/
-" Bundle: bthemad/php-doc.vim
-
 " C/C++ Programming
 " Bundle: bthemad/a.vim
-
-" Ruby/Rails Programming:
-" # Bundle: vim-ruby/vim-ruby
-" # Bundle: tpope/vim-rails
-" # Bundle: tpope/vim-rake
-" # Bundle: janx/vim-rubytest
-" # Bundle: tsaleh/vim-shoulda
-" # Bundle: tpope/vim-cucumber
-" # Bundle: tpope/vim-haml
-" # Bundle: astashov/vim-ruby-debugger
-" # Bundle: rson/vim-conque
-" # Bundle: pangloss/vim-simplefold
 

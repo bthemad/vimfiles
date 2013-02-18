@@ -100,6 +100,3 @@
 [submodule "bundle/a.vim"]
 	path = bundle/a.vim
 	url = https://github.com/bthemad/a.vim.git
-[submodule "bundle/tslime.vim"]
-	path = bundle/tslime.vim
-	url = https://github.com/bthemad/tslime.vim.git
