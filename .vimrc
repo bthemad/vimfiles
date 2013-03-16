@@ -401,54 +401,13 @@ function! GenerateTags()
 endfunction
 map <silent> <Leader>gt <ESC>:call GenerateTags()<CR><CR>
 
-function! UpdateTuentiTags()
-    :silent execute "! /Users/alexander/src/tuenti/current/tags.sh &"
-endfunction
-
-function! RsyncCurrentFile()
-    !/Users/alexander/bin/rsync_tuenti_current.py  %:p
-    call UpdateTuentiTags()
-endfunction
-
-function! RsyncAllFiles()
-    !/Users/alexander/bin/rsync_tuenti_current.py
-    call UpdateTuentiTags()
-endfunction
-
-let s:is_tuenti = 0
-function! CheckTuenti()
-    let l:fname = $HOME . "/src/tuenti/current/rsyncExclude.txt"
-    if filereadable(l:fname)
-        " echo "seems like tuenti"
-        let s:is_tuenti = 1
-    endif
-endfunction
-
-call CheckTuenti()
-if s:is_tuenti == 1
-    " echo "Definetely Tuenti"
-    if !exists("tuenti_autocommands_loaded")
-        let tuenti_autocommands_loaded = 1
-        autocmd FileType php,javascript,html set noexpandtab
-        " autocmd BufWritePost * !/Users/alexander/bin/rsync_tuenti_current.py %:p
-    endif
-    map <Leader>qq <ESC>:call RsyncCurrentFile()<CR><CR>
-    map <Leader>qf <ESC>:call RsyncAllFiles()<CR><CR>
-    map <Leader>trt <ESC>:NERDTree tt<CR>q
-    map <Leader>trr <ESC>:NERDTree tr<CR>q
-    set path=main;,tests;,./;
-    let snips_author = 'Alexander Kudryashov <alexander@tuenti.com>'
-    let g:pdv_cfg_Author = 'Alexander Kudryashov <alexander@tuenti.com>'
-else
-    " echo "Not Tuenti"
-    if !exists("g:non_tuenti_autocommands_loaded")
-        let g:non_tuenti_autocommands_loaded = 1
-        " Clear whitespaces on write to php and js files
-        autocmd BufWritePre *.php,*.js,*.htm*,*.py :call StripTrailingWhitespaces()
-    endif
-    let snips_author = 'Alex Kudryashov <alex.kudryashov@gmail.com>'
-    let g:pdv_cfg_Author = 'Alex Kudryashov <alex.kudryashov@gmail.com>'
+if !exists("g:autocommands_loaded")
+    let g:autocommands_loaded = 1
+    " Clear whitespaces on write to php and js files
+    autocmd BufWritePre *.php,*.js,*.htm*,*.py :call StripTrailingWhitespaces()
 endif
+let snips_author = 'Alex Kudryashov <alex.kudryashov@gmail.com>'
+let g:pdv_cfg_Author = 'Alex Kudryashov <alex.kudryashov@gmail.com>'
 
 
 " Analyze the code
