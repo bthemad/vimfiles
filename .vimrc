@@ -446,7 +446,7 @@ iabbr pirnt print
 "" Snipmate
 " Bundle: MarcWeber/vim-addon-mw-utils
 " Bundle: tomtom/tlib_vim
-" # Bundle: git@github.com:bthemad/snipmate-snippets
+" Bundle: git@github.com:bthemad/snipmate-snippets
 " Bundle: garbas/vim-snipmate
 
 " BUNDLE: git://github.com/bthemad/Command-T.git
