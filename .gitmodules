@@ -103,3 +103,6 @@
 [submodule "bundle/snipmate-snippets"]
 	path = bundle/snipmate-snippets
 	url = git@github.com:bthemad/snipmate-snippets
+[submodule "bundle/pytest.vim"]
+	path = bundle/pytest.vim
+	url = https://github.com/alfredodeza/pytest.vim.git

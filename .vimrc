@@ -10,7 +10,7 @@ let maplocalleader = ","
 filetype off
 let pathogen_disabled=['NERD_Tree-and-ack']
 call pathogen#infect()
-call pathogen#runtime_append_all_bundles()
+call pathogen#incubate()
 call pathogen#helptags()
 " Manually add NerdTree Ack, cause it has to be loaded after NerdTree
 let &rtp = &rtp . ',' .$HOME . '/.vim/bundle/NERD_Tree-and-ack/'    
@@ -467,6 +467,7 @@ iabbr pirnt print
 "
 "" Python
 " Bundle: hynek/vim-python-pep8-indent
+" Bundle: alfredodeza/pytest.vim
 
 "" Syntax files
 " # Bundle: tpope/vim-markdown
