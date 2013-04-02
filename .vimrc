@@ -309,8 +309,7 @@ map ,a= :Tabularize /=>\?<CR>
 map ,a: :Tabularize /:\zs<CR>
 
 " ## ZoomWindow
-map zz :ZoomWin<CR>
-map ,, :ZoomWin<CR>
+map z; :ZoomWin<CR>
 
 " ## MiniBufExpl
 let g:miniBufExplMapCTabSwitchBufs = 1
