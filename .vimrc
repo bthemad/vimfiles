@@ -6,9 +6,6 @@ scriptencoding utf-8
 let mapleader = ","
 let maplocalleader = ","
 
-" Powerline
-set rtp+=/Users/alex/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/
-
 " Pathogen load
 
 filetype off
@@ -58,9 +55,8 @@ set list                        " Show invisible symbols
 set listchars=tab:▸\ ,eol:¬     " Show invisible symbols in TextMate way
 
 " Command line and status line
-" set showcmd                     " I wanna see, what I'm typing
-" set statusline=%<%y%f%h%m%r%{tagbar#currenttag('\ %s','')}\ %{fugitive#statusline()}%=format=%{&fileformat}\ file=%{&fileencoding}\ enc=%{&encoding}\ %l,%c%V\ %P
-set noshowmode                  " We got statusline for this
+set showcmd                     " I wanna see, what I'm typing
+set statusline=%<%y%f%h%m%r%{tagbar#currenttag('\ %s','')}\ %{fugitive#statusline()}%=format=%{&fileformat}\ file=%{&fileencoding}\ enc=%{&encoding}\ %l,%c%V\ %P
 set laststatus=2                " Previous nightmare was copy pasted. It all shows the status
 
 " Search params
@@ -181,10 +177,6 @@ imap <C-K> <up>
 " ## Misc ##
 " Toggle paste mode
 set pastetoggle=,p
-" Toggle wrap mode
-nmap <silent> ,wr  :set wrap! list!<CR>
-" Toggle spelling
-nmap <silent> ,sp :set spell!<CR>
 " Insert first dictionary occurrence
 nmap <silent> ,sr 1z=
 " Change directory to current file's directory
@@ -224,15 +216,6 @@ inoremap <M-Enter> <C-O>o
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 "" ### Plugin configs ###
-" ## TagList
-" let Tlist_Close_On_Select = 1
-" let Tlist_Exit_OnlyWindow = 1
-" let Tlist_File_Fold_Auto_Close = 1
-" let Tlist_GainFocus_On_ToggleOpen = 1
-" let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-" let tlist_php_settings='php;c:class;f:function'
-" map <silent> ,tl :TlistToggle<CR>
-" set tags=tags;./tags;
 map <silent> ,tl :TagbarOpen fjc<CR>
 map <silent> ,tc :TagbarCurrentTag<CR>
 let g:tagbar_width = 50
@@ -262,14 +245,19 @@ let php_smart_members = 1
 let php_highlight_quotes = 1
 
 " ## Syntastic
+let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=1
+let g:syntastic_loc_list_height=5
+let g:syntastic_error_symbol='✗'
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_warning_symbol='⚠'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_javascript_checker = "jsl"
+let g:syntastic_javascript_checkers = ["jsl"]
 let g:syntastic_jsl_conf = $HOME . "/.dotfiles/jsl.conf"
-let g:syntastic_python_checker = 'flake8'
+let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_mode_map = { 'mode': 'active',
             \ 'active_filetypes': [],
             \ 'passive_filetypes': ['java'] }
@@ -436,7 +424,6 @@ iabbr pirnt print
 " Bundle: NERD_Tree-and-ack
 " Bundle: mileszs/ack.vim
 " Bundle: bronson/vim-closebuffer
-" # Bundle: minibufexpl.vim
 " Bundle: fholgado/minibufexpl.vim
 " Bundle: godlygeek/csapprox
 " Bundle: ZoomWin
