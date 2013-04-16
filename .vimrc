@@ -5,6 +5,10 @@ scriptencoding utf-8
 " ### Settings ###
 let mapleader = ","
 let maplocalleader = ","
+
+" Powerline
+set rtp+=/Users/alex/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/
+
 " Pathogen load
 
 filetype off
@@ -54,8 +58,9 @@ set list                        " Show invisible symbols
 set listchars=tab:▸\ ,eol:¬     " Show invisible symbols in TextMate way
 
 " Command line and status line
-set showcmd                     " I wanna see, what I'm typing
-set statusline=%<%y%f%h%m%r%{tagbar#currenttag('\ %s','')}\ %{fugitive#statusline()}%=format=%{&fileformat}\ file=%{&fileencoding}\ enc=%{&encoding}\ %l,%c%V\ %P
+" set showcmd                     " I wanna see, what I'm typing
+" set statusline=%<%y%f%h%m%r%{tagbar#currenttag('\ %s','')}\ %{fugitive#statusline()}%=format=%{&fileformat}\ file=%{&fileencoding}\ enc=%{&encoding}\ %l,%c%V\ %P
+set noshowmode                  " We got statusline for this
 set laststatus=2                " Previous nightmare was copy pasted. It all shows the status
 
 " Search params
@@ -68,10 +73,10 @@ set mat=5                       " Blink on matching brackets
 set gdefault                    " Global substitution by default
 
 " Make it russian
-set keymap=russian-jcukenwin
-set iminsert=0
-set imsearch=0
-highlight lCursor guifg=NONE guibg=Cyan
+" set keymap=russian-jcukenwin
+" set iminsert=0
+" set imsearch=0
+" highlight lCursor guifg=NONE guibg=Cyan
 
 " Backup and tmp folders
 set noswapfile                  " For watchdog to work
@@ -312,7 +317,7 @@ map ,a: :Tabularize /:\zs<CR>
 map z; :ZoomWin<CR>
 
 " ## MiniBufExpl
-let g:miniBufExplMapCTabSwitchBufs = 1
+" let g:miniBufExplMapCTabSwitchBufs = 1
 
 " ## GUndo
 nnoremap ,gu :GundoToggle<CR>
@@ -431,7 +436,8 @@ iabbr pirnt print
 " Bundle: NERD_Tree-and-ack
 " Bundle: mileszs/ack.vim
 " Bundle: bronson/vim-closebuffer
-" Bundle: minibufexpl.vim
+" # Bundle: minibufexpl.vim
+" Bundle: fholgado/minibufexpl.vim
 " Bundle: godlygeek/csapprox
 " Bundle: ZoomWin
 " Bundle: godlygeek/tabular
@@ -441,6 +447,7 @@ iabbr pirnt print
 " Bundle: tpope/vim-unimpaired
 " Bundle: tpope/vim-eunuch
 " Bundle: ervandew/supertab
+" Bundle: davidoc/taskpaper.vim
 
 "" Snipmate
 " Bundle: MarcWeber/vim-addon-mw-utils

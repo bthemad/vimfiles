@@ -4,7 +4,9 @@ set guioptions-=L                   " Something with left toolbar
 set guioptions-=c                   " Use console dialogs
 
 if has("gui_macvim")
-    set guifont=Monaco:h12          " I really love this font
+    " set guifont=Monaco:h12          " I really love this font
+    " set guifont=Monaco\ for\ Powerline:h12
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h12
 
     set fuoptions=maxhorz,maxvert   " Fullscreen takes up entire screen
 
