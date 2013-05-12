@@ -56,7 +56,7 @@ set listchars=tab:▸\ ,eol:¬     " Show invisible symbols in TextMate way
 
 " Command line and status line
 set showcmd                     " I wanna see, what I'm typing
-set statusline=%<%y%f%h%m%r%{tagbar#currenttag('\ %s','')}\ %{fugitive#statusline()}%=format=%{&fileformat}\ file=%{&fileencoding}\ enc=%{&encoding}\ %l,%c%V\ %P
+set statusline=%<%y%f%h%m%r\ %{fugitive#statusline()}%=format=%{&fileformat}\ file=%{&fileencoding}\ enc=%{&encoding}\ %l,%c%V\ %P
 set laststatus=2                " Previous nightmare was copy pasted. It all shows the status
 
 " Search params
