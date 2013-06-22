@@ -442,9 +442,9 @@ iabbr pirnt print
 " Bundle: git@github.com:bthemad/snipmate-snippets
 " Bundle: garbas/vim-snipmate
 
-" BUNDLE: git://github.com/bthemad/Command-T.git
+" # BUNDLE: git://github.com/bthemad/Command-T.git
 "   If rvm is installed, make sure we compile command-t with the system ruby
-"   BUNDLE-COMMAND: cd ~/.vim/bundle/Command-T && rake make
+"   # BUNDLE-COMMAND: cd ~/.vim/bundle/Command-T && rake make
 
 "" Programming:
 " Bundle: tpope/vim-fugitive
