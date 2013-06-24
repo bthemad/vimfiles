@@ -103,9 +103,6 @@
 [submodule "bundle/taskpaper.vim"]
 	path = bundle/taskpaper.vim
 	url = https://github.com/davidoc/taskpaper.vim.git
-[submodule "bundle/minibufexpl.vim"]
-	path = bundle/minibufexpl.vim
-	url = https://github.com/fholgado/minibufexpl.vim.git
 [submodule "bundle/Command-T"]
 	path = bundle/Command-T
 	url = https://github.com/wincent/Command-T.git

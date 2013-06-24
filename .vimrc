@@ -424,7 +424,7 @@ iabbr pirnt print
 " Bundle: NERD_Tree-and-ack
 " Bundle: mileszs/ack.vim
 " Bundle: bronson/vim-closebuffer
-" Bundle: fholgado/minibufexpl.vim
+" # Bundle: fholgado/minibufexpl.vim
 " Bundle: godlygeek/csapprox
 " Bundle: ZoomWin
 " Bundle: godlygeek/tabular
