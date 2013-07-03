@@ -161,9 +161,9 @@ map ,wH <C-W>H
 map ,wJ <C-W>J
 map ,wK <C-W>K
 
-map ,ws :rightbelow new<CR>
+map ,ws :split<CR>
 map ,wo <C-W>o
-map ,wv :rightbelow vnew<CR>
+map ,wv :vsplit<CR>
 map ,wc <C-W>c
 map ,wp <C-W>p
 map ,wx <C-W>x
@@ -424,7 +424,7 @@ iabbr pirnt print
 " Bundle: NERD_Tree-and-ack
 " Bundle: mileszs/ack.vim
 " Bundle: bronson/vim-closebuffer
-" # Bundle: fholgado/minibufexpl.vim
+" Bundle: fholgado/minibufexpl.vim
 " Bundle: godlygeek/csapprox
 " Bundle: ZoomWin
 " Bundle: godlygeek/tabular
