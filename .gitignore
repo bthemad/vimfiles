@@ -1,6 +1,7 @@
 autoload
 backup/*
 tmp/*
+bundle/*
 .netrwhist
 undofiles/*
 doc/*
