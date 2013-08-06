@@ -66,6 +66,8 @@ set showmatch                   " Some magic on parenthesis and braces, I might 
 set mat=5                       " Blink on matching brackets
 set gdefault                    " Global substitution by default
 
+set noshowmode                  " With AirLine I don't need it
+
 " Backup and tmp folders
 set noswapfile                  " For watchdog to work
 set backup                      " Don't keep a backup file
@@ -149,6 +151,10 @@ imap <C-K> <up>
 
 " Toggle paste mode
 set pastetoggle=,p
+" Toggle wrap mode
+nmap <silent> ,wr  :set wrap! list!<CR>
+" Toggle spelling
+nmap <silent> ,sp :set spell!<CR>
 " Insert first dictionary occurrence
 nmap <silent> ,sr 1z=
 " Change directory to current file's directory
@@ -335,6 +341,8 @@ NeoBundle 'git@github.com:bthemad/tslime.vim'
 NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'alfredodeza/pytest.vim'
 NeoBundle 'git@github.com:bthemad/a.vim'
+
+NeoBundle 'bling/vim-airline'
 
 " Installation check.
 NeoBundleCheck
