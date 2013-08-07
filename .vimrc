@@ -338,9 +338,10 @@ NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'matchit.zip'
 NeoBundle 'git@github.com:bthemad/tslime.vim'
-NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'alfredodeza/pytest.vim'
 NeoBundle 'git@github.com:bthemad/a.vim'
+NeoBundle 'hynek/vim-python-pep8-indent'
+NeoBundle 'lambacck/python_matchit'
 
 NeoBundle 'bling/vim-airline'
 
