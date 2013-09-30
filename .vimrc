@@ -264,6 +264,14 @@ let g:yankstack_map_keys = 0
 nmap <C-P> <Plug>yankstack_substitute_older_paste
 nmap <C-N> <Plug>yankstack_substitute_newer_paste
 
+" ### Jedi
+let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#rename_command = "<leader>pr"
+let g:jedi#usages_command = "<leader>pn"
+let g:jedi#goto_definitions_command = "<leader>pd"
+let g:jedi#goto_assignments_command = "<leader>pg"
+let g:jedi#documentation_command = "<leader>pk"
+
 " # Help Functions
 " Strip trailing spaces
 function! StripTrailingWhitespaces()
@@ -338,10 +346,11 @@ NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'matchit.zip'
 NeoBundle 'git@github.com:bthemad/tslime.vim'
-NeoBundle 'alfredodeza/pytest.vim'
 NeoBundle 'git@github.com:bthemad/a.vim'
+NeoBundle 'alfredodeza/pytest.vim'
 NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'lambacck/python_matchit'
+NeoBundle 'davidhalter/jedi-vim'
 
 NeoBundle 'bling/vim-airline'
 
