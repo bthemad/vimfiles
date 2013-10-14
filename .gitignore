@@ -4,6 +4,7 @@ tmp/*
 bundle/*
 .netrwhist
 undofiles/*
+ctrlp_cache/*
 doc/*
 Trashed-Bundles
 sessions/*

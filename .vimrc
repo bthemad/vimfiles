@@ -103,9 +103,13 @@ autocmd FileType gitcommit set tw=68 spell
 
 " ## Hotkeys
 " Enable Home/End in command line
-cnoremap <c-e> <end>
-imap     <c-e> <c-o>$
 cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+cnoremap <c-b> <left>
+cnoremap <c-f> <right>
+cnoremap <c-d> <delete>
+
+imap     <c-e> <c-o>$
 imap     <c-a> <c-o>^
 
 " Edit .vimrc
@@ -142,6 +146,7 @@ map ,wv :vsplit<CR>
 map ,wc <C-W>c
 map ,wp <C-W>p
 map ,wx <C-W>x
+map ,wn <C-W>n
 
 " Let's try to move in insert mode just like in emacs
 imap <C-L> <right>
@@ -149,12 +154,12 @@ imap <C-H> <left>
 imap <C-J> <down>
 imap <C-K> <up>
 
-" Toggle paste mode
-set pastetoggle=,p
-" Toggle wrap mode
-nmap <silent> ,wr  :set wrap! list!<CR>
-" Toggle spelling
-nmap <silent> ,sp :set spell!<CR>
+" Settings toggles
+nmap \p :set paste!<CR>
+nmap \n :exec &nu==&rnu? "se nu!" : "se rnu!"<CR>
+nmap \w :set wrap! list!<CR>
+nmap \s :set spell!<CR>
+
 " Insert first dictionary occurrence
 nmap <silent> ,sr 1z=
 " Change directory to current file's directory
@@ -214,20 +219,13 @@ map <leader>cc <plug>NERDCommenterToggle
 map <leader>cu <plug>NERDCommenterUncomment
 map <leader>cC <plug>NERDCommenterSexy
 
-" ### Command-T
-map <silent> ,tf :CommandT<CR>
-let g:CommandTMaxHeight=20
+" ### CtrlP
+let g:ctrlp_map = '<leader>tf'
+let g:ctrlp_by_filename = 1
+let g:ctrlp_cache_dir = $HOME . '/.vim/ctrlp_cache'
+let g:ctrlp_max_files = 10000
+let g:ctrlp_max_depth = 40
 set wildignore+=*.o,*.obj,.git,*.d
-
-" ### Fugitive
-map <silent> ,gs :Gstatus<CR>
-map <silent> ,gc :Gcommit<CR>
-map <silent> ,gw :Gwrite<CR>
-map <silent> ,gb :Gblame<CR>
-map <silent> ,gl :Glog<CR>
-map <silent> ,ge :Gedit<CR>
-" Delete buffer after leaving it when browsing through git history
-autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " ### Syntastic
 let g:syntastic_check_on_open=1
@@ -306,8 +304,6 @@ function! ReloadRc()
     source $MYGVIMRC
 endfunction
 
-
-
 " Required for NeoBundle
 NeoBundle 'Shougo/vimproc'
 
@@ -325,7 +321,7 @@ NeoBundle 'bkad/CamelCaseMotion'
 NeoBundle 'argtextobj.vim'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'ervandew/supertab'
-NeoBundle 'wincent/Command-T', {'build': {'mac': 'rake make', 'unix': 'rake make'}}
+NeoBundle 'kien/ctrlp.vim'
 
 " Syntax
 NeoBundle 'davidoc/taskpaper.vim'
@@ -353,6 +349,11 @@ NeoBundle 'lambacck/python_matchit'
 NeoBundle 'davidhalter/jedi-vim'
 
 NeoBundle 'bling/vim-airline'
+
+" Retired
+" NeoBundle 'wincent/Command-T', {'build': {'mac': 'rake make', 'unix': 'rake make'}}
+" C/C++/Objective-C completion with clang
+" NeoBundle 'Valloric/YouCompleteMe'
 
 " Installation check.
 NeoBundleCheck

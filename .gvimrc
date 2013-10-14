@@ -27,7 +27,7 @@ if has("gui_macvim")
     nmap <D-]> >>
 
     macmenu &File.New\ Tab key=<nop>
-    map <D-t> :CommandT<CR>
+    map <D-t> :CtrlP<CR>
 
     map ,md <ESC>:w!<CR>:!markdown '%' \| smartypants > /tmp/mdp.html && open /tmp/mdp.html<CR><CR>a
 
