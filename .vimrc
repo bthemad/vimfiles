@@ -324,6 +324,7 @@ endfunction
 NeoBundle 'Shougo/vimproc'
 
 " My Bundles here:
+NeoBundle 'bling/vim-airline'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'NERD_Tree-and-ack'
 NeoBundle 'maxbrunsfeld/vim-yankstack'
