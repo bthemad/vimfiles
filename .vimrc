@@ -39,6 +39,7 @@ set scrolloff=3                 " Keep 3 lines when scrolling
 set cursorline                  " Highlight cursor line
 set mouse=a                     " Let's use a mouse, just for split moving
 set cpoptions+=y                " We want the "." to repeat yanking of text
+set splitright                  " Open splits on the right
 
 " Set tabs to spaces
 set tabstop=4                   " Number of spaces in tab
@@ -128,6 +129,17 @@ map ,bp :bprev<CR>
 map ,bt :b#<CR>
 map ,bd :bd<CR>
 map ,fd <Plug>CloseBuffer
+nmap \\ :b #<CR>
+nmap \1 :b 1<CR>
+nmap \2 :b 2<CR>
+nmap \3 :b 3<CR>
+nmap \4 :b 4<CR>
+nmap \5 :b 5<CR>
+nmap \6 :b 6<CR>
+nmap \7 :b 7<CR>
+nmap \8 :b 8<CR>
+nmap \9 :b 9<CR>
+nmap \0 :b 10<CR>
 
 " Windows
 map ,wl <C-W>l
@@ -270,6 +282,10 @@ let g:jedi#goto_definitions_command = "<leader>pd"
 let g:jedi#goto_assignments_command = "<leader>pg"
 let g:jedi#documentation_command = "<leader>pk"
 
+" ### Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+
 " # Help Functions
 " Strip trailing spaces
 function! StripTrailingWhitespaces()
@@ -310,10 +326,8 @@ NeoBundle 'Shougo/vimproc'
 " My Bundles here:
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'NERD_Tree-and-ack'
-NeoBundle 'bronson/vim-closebuffer'
 NeoBundle 'maxbrunsfeld/vim-yankstack'
 NeoBundle 'mileszs/ack.vim'
-NeoBundle 'fholgado/minibufexpl.vim'
 NeoBundle 'godlygeek/csapprox'
 NeoBundle 'ZoomWin'
 NeoBundle 'sjl/gundo.vim'
@@ -322,6 +336,7 @@ NeoBundle 'argtextobj.vim'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'bronson/vim-closebuffer'
 
 " Syntax
 NeoBundle 'davidoc/taskpaper.vim'
@@ -348,10 +363,6 @@ NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'lambacck/python_matchit'
 NeoBundle 'davidhalter/jedi-vim'
 
-NeoBundle 'bling/vim-airline'
-
-" Retired
-" NeoBundle 'wincent/Command-T', {'build': {'mac': 'rake make', 'unix': 'rake make'}}
 " C/C++/Objective-C completion with clang
 " NeoBundle 'Valloric/YouCompleteMe'
 
