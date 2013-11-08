@@ -40,6 +40,7 @@ set cursorline                  " Highlight cursor line
 set mouse=a                     " Let's use a mouse, just for split moving
 set cpoptions+=y                " We want the "." to repeat yanking of text
 set splitright                  " Open splits on the right
+set history=10000               " Save more command history
 
 " Set tabs to spaces
 set tabstop=4                   " Number of spaces in tab
