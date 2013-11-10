@@ -13,9 +13,6 @@ if has("gui_macvim")
     " Command-Shift-F for Ack
     map <D-F> :Ack<space>
 
-    " Command-e for ConqueTerm
-    map <D-e> :call StartTerm()<CR>
-
     " Command-/ to toggle comments
     map <D-/> <plug>NERDCommenterToggle
 
@@ -26,17 +23,18 @@ if has("gui_macvim")
     nmap <D-[> <<
     nmap <D-]> >>
 
-    macmenu &File.New\ Tab key=<nop>
-    map <D-t> :CtrlP<CR>
 
     map ,md <ESC>:w!<CR>:!markdown '%' \| smartypants > /tmp/mdp.html && open /tmp/mdp.html<CR><CR>a
 
     set guicursor+=a:blinkon0
+
+    " Pluggin remaps
+    macmenu &File.Print key=<nop>
+    map <D-p> :CtrlP<CR>
+    macmenu &File.New\ Tab key=<nop>
+    map <D-t> :NERDTreeToggle<CR>
+    macmenu &Tools.Make key=<nop>
+    map <D-b> :CtrlPBuffer<CR>
+
 endif
 
-" ConqueTerm wrapper
-function! StartTerm()
-  " map <silent> ,trm :ConqueTermSplit bash<CR>
-  execute 'ConqueTermSplit ' . $SHELL . ' --login'
-  setlocal listchars=tab:\ \ 
-endfunction

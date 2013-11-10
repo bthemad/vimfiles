@@ -234,11 +234,13 @@ map <leader>cC <plug>NERDCommenterSexy
 
 " ### CtrlP
 let g:ctrlp_map = '<leader>tf'
+let g:ctrlp_open_multiple_files = '1vjvr'
 let g:ctrlp_by_filename = 1
 let g:ctrlp_cache_dir = $HOME . '/.vim/ctrlp_cache'
 let g:ctrlp_max_files = 10000
 let g:ctrlp_max_depth = 40
 set wildignore+=*.o,*.obj,.git,*.d
+
 
 " ### Syntastic
 let g:syntastic_check_on_open=1
@@ -286,6 +288,14 @@ let g:jedi#documentation_command = "<leader>pk"
 " ### Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
+
+" ### Vimux
+let g:VimuxPromptString = "> "
+function! VimuxSlime()
+    call VimuxSendText(@v)
+    call VimuxSendKeys("Enter")
+endfunction
+vmap <LocalLeader>vs "vy :call VimuxSlime()<CR>
 
 " # Help Functions
 " Strip trailing spaces
@@ -339,6 +349,7 @@ NeoBundle 'ervandew/supertab'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'bronson/vim-closebuffer'
 NeoBundle 'git@github.com:bthemad/ZoomWin'
+NeoBundle 'benmills/vimux'
 
 " Syntax
 NeoBundle 'davidoc/taskpaper.vim'
