@@ -162,8 +162,8 @@ map ,wx <C-W>x
 map ,wn <C-W>n
 
 " Let's try to move in insert mode just like in emacs
-imap <C-L> <right>
-imap <C-H> <left>
+imap <C-F> <right>
+imap <C-B> <left>
 imap <C-J> <down>
 imap <C-K> <up>
 
