@@ -83,7 +83,12 @@ if has("persistent_undo")
 endif
 
 " Color scheme
-set t_Co=256
+" set t_Co=256
+" solarized options
+" set background=dark
+" let g:solarized_termcolors = 256
+" let g:solarized_termtrans = 1
+" colorscheme solarized
 colorscheme railscasts
 
 " ## Syntax and Filetypes
@@ -279,11 +284,21 @@ nmap <C-N> <Plug>yankstack_substitute_newer_paste
 
 " ### Jedi
 let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#popup_select_first = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#show_call_signatures = 0
+
+let g:jedi#completions_command = ""
 let g:jedi#rename_command = "<leader>pr"
-let g:jedi#usages_command = "<leader>pn"
-let g:jedi#goto_definitions_command = "<leader>pd"
-let g:jedi#goto_assignments_command = "<leader>pg"
-let g:jedi#documentation_command = "<leader>pk"
+let g:jedi#usages_command = "<leader>pu"
+let g:jedi#goto_definitions_command = "<leader>pf"
+let g:jedi#goto_assignments_command = "<leader>pa"
+let g:jedi#documentation_command = "<leader>pd"
+" Don't show me the doc window
+autocmd FileType python setlocal completeopt-=preview
+
+" ### SuperTab
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 " ### Airline
 let g:airline#extensions#tabline#enabled = 1
