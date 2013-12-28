@@ -312,6 +312,9 @@ function! VimuxSlime()
 endfunction
 vmap <LocalLeader>vs "vy :call VimuxSlime()<CR>
 
+" ### Seek
+let g:seek_enable_jumps = 1
+
 " # Help Functions
 " Strip trailing spaces
 function! StripTrailingWhitespaces()
@@ -365,6 +368,8 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'bronson/vim-closebuffer'
 NeoBundle 'git@github.com:bthemad/ZoomWin'
 NeoBundle 'benmills/vimux'
+NeoBundle 'mhinz/vim-signify'
+NeoBundle 'goldfeld/vim-seek'
 
 " Syntax
 NeoBundle 'davidoc/taskpaper.vim'
