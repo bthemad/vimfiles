@@ -312,9 +312,6 @@ function! VimuxSlime()
 endfunction
 vmap <LocalLeader>vs "vy :call VimuxSlime()<CR>
 
-" ### Seek
-let g:seek_enable_jumps = 1
-
 " # Help Functions
 " Strip trailing spaces
 function! StripTrailingWhitespaces()
@@ -328,7 +325,7 @@ function! StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfunction
-map <silent> <Leader>sw <ESC>:call StripTrailingWhitespaces()<CR><CR>
+" map <silent> <Leader>sw <ESC>:call StripTrailingWhitespaces()<CR><CR>
 
 " Preserve state of cursor after executing a command
 function! Preserve(command)
@@ -369,7 +366,6 @@ NeoBundle 'bronson/vim-closebuffer'
 NeoBundle 'git@github.com:bthemad/ZoomWin'
 NeoBundle 'benmills/vimux'
 NeoBundle 'mhinz/vim-signify'
-NeoBundle 'goldfeld/vim-seek'
 
 " Syntax
 NeoBundle 'davidoc/taskpaper.vim'
@@ -398,6 +394,7 @@ NeoBundle 'davidhalter/jedi-vim'
 
 " C/C++/Objective-C completion with clang
 " NeoBundle 'Valloric/YouCompleteMe'
+" NeoBundle 'git@github.com:bthemad/c.vim.git'
 
 " Installation check.
 NeoBundleCheck
