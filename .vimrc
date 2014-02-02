@@ -310,7 +310,14 @@ function! VimuxSlime()
     call VimuxSendText(@v)
     call VimuxSendKeys("Enter")
 endfunction
-vmap <LocalLeader>vs "vy :call VimuxSlime()<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vr :VimuxPromptCommand<CR>
+
+" ### pdv
+let g:pdv_cfg_Author = "Alexander Kudryashov <alex.kudryashov@gmail.com>"
+inoremap <Leader>pp <ESC>:call PhpDocSingle()<CR>i
+nnoremap <Leader>pp :call PhpDocSingle()<CR>
+vnoremap <Leader>pp :call PhpDocRange()<CR>
 
 " # Help Functions
 " Strip trailing spaces
@@ -385,12 +392,12 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'matchit.zip'
-NeoBundle 'git@github.com:bthemad/tslime.vim'
 NeoBundle 'git@github.com:bthemad/a.vim'
 NeoBundle 'alfredodeza/pytest.vim'
 NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'lambacck/python_matchit'
 NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'git@github.com:bthemad/php-doc.vim'
 
 " C/C++/Objective-C completion with clang
 " NeoBundle 'Valloric/YouCompleteMe'
