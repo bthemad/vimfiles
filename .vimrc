@@ -53,6 +53,7 @@ set autoindent                  " Indent by text please, make it on the same lev
 set list                        " Show invisible symbols
 
 set listchars=tab:▸\ ,eol:¬     " Show invisible symbols in TextMate way
+set tags=tags;
 
 " Command line and status line
 set showcmd                     " I wanna see, what I'm typing
@@ -321,20 +322,6 @@ nnoremap <Leader>pp :call PhpDocSingle()<CR>
 vnoremap <Leader>pp :call PhpDocRange()<CR>
 
 " # Help Functions
-" Strip trailing spaces
-function! StripTrailingWhitespaces()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-" map <silent> <Leader>sw <ESC>:call StripTrailingWhitespaces()<CR><CR>
-
 " Preserve state of cursor after executing a command
 function! Preserve(command)
   " Preparation: save last search, and cursor position.
