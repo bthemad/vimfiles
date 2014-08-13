@@ -106,7 +106,8 @@ let g:xml_syntax_folding = 1
 set foldopen=block,insert,jump,hor,mark,percent,quickfix,search,tag,undo
 
 " ruby and yaml files are indented by two
-autocmd FileType ruby,rdoc,cucumber,yaml set softtabstop=2 tabstop=2 shiftwidth=2
+autocmd FileType ruby, rdoc, cucumber, yaml set softtabstop=2 tabstop=2 shiftwidth=2
+autocmd FileType scala set softtabstop=2 tabstop=2 shiftwidth=2
 autocmd FileType gitcommit set tw=68 spell
 
 " ## Hotkeys
@@ -375,6 +376,7 @@ NeoBundle 'garbas/vim-snipmate'
 
 " Programming
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'idanarye/vim-merginal'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'scrooloose/nerdcommenter'
@@ -388,6 +390,7 @@ NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'lambacck/python_matchit'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'git@github.com:bthemad/php-doc.vim'
+NeoBundle 'derekwyatt/vim-scala'
 
 " C/C++/Objective-C completion with clang
 " NeoBundle 'Valloric/YouCompleteMe'
