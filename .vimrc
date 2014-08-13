@@ -299,7 +299,9 @@ let g:jedi#documentation_command = "<leader>pd"
 autocmd FileType python setlocal completeopt-=preview
 
 " ### SuperTab
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-n>"
+let g:SuperTabCrMapping = 0
 
 " ### Airline
 let g:airline#extensions#tabline#enabled = 1
@@ -363,6 +365,7 @@ NeoBundle 'mhinz/vim-signify'
 
 " Syntax
 NeoBundle 'davidoc/taskpaper.vim'
+NeoBundle 'rodjek/vim-puppet'
 
 " Snipmate
 NeoBundle 'MarcWeber/vim-addon-mw-utils'
