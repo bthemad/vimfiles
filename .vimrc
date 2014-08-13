@@ -376,7 +376,6 @@ NeoBundle 'garbas/vim-snipmate'
 
 " Programming
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'idanarye/vim-merginal'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'scrooloose/nerdcommenter'
