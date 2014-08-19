@@ -34,7 +34,6 @@ set spellsuggest=10             " Show only 10 options for spelling check
 set synmaxcol=2048              " Syntax color max line width
 set wildmenu                    " Enhanced command-line completion
 set fillchars=""                " Get rid of | in window separators
-set diffopt+=iwhite             " Ignore whitespaces on diff
 set scrolloff=3                 " Keep 3 lines when scrolling
 set cursorline                  " Highlight cursor line
 set mouse=a                     " Let's use a mouse, just for split moving
@@ -57,8 +56,7 @@ set tags=tags;
 
 " Command line and status line
 set showcmd                     " I wanna see, what I'm typing
-set statusline=%<%y%f%h%m%r\ %{fugitive#statusline()}%=format=%{&fileformat}\ file=%{&fileencoding}\ enc=%{&encoding}\ %l,%c%V\ %P
-set laststatus=2                " Previous nightmare was copy pasted. It all shows the status
+set laststatus=2                " Show statusline all the time
 
 " Search params
 set hlsearch                    " Highlight search results
