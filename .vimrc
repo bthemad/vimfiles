@@ -108,6 +108,9 @@ autocmd FileType ruby, rdoc, cucumber, yaml set softtabstop=2 tabstop=2 shiftwid
 autocmd FileType scala set softtabstop=2 tabstop=2 shiftwidth=2
 autocmd FileType gitcommit set tw=68 spell
 
+" Filetyps based on extension
+autocmd BufNewFile,BufRead *.cm set filetype=confluencewiki
+
 " ## Hotkeys
 " Enable Home/End in command line
 cnoremap <c-a> <home>
@@ -365,6 +368,7 @@ NeoBundle 'mhinz/vim-signify'
 " Syntax
 NeoBundle 'davidoc/taskpaper.vim'
 NeoBundle 'rodjek/vim-puppet'
+NeoBundle 'confluencewiki.vim'
 
 " Snipmate
 NeoBundle 'MarcWeber/vim-addon-mw-utils'
