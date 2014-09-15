@@ -350,7 +350,6 @@ NeoBundle 'Shougo/vimproc'
 " My Bundles here:
 NeoBundle 'bling/vim-airline'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'NERD_Tree-and-ack'
 NeoBundle 'maxbrunsfeld/vim-yankstack'
 NeoBundle 'mileszs/ack.vim'
 NeoBundle 'godlygeek/csapprox'
@@ -362,8 +361,6 @@ NeoBundle 'ervandew/supertab'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'bronson/vim-closebuffer'
 NeoBundle 'git@github.com:bthemad/ZoomWin'
-NeoBundle 'benmills/vimux'
-NeoBundle 'mhinz/vim-signify'
 
 " Syntax
 NeoBundle 'davidoc/taskpaper.vim'
@@ -376,8 +373,9 @@ NeoBundle 'tomtom/tlib_vim'
 NeoBundle 'git@github.com:bthemad/snipmate-snippets'
 NeoBundle 'garbas/vim-snipmate'
 
-" Programming
+" Programming general
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'mhinz/vim-signify'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'scrooloose/nerdcommenter'
@@ -385,17 +383,20 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'matchit.zip'
-NeoBundle 'git@github.com:bthemad/a.vim'
+
+" PHP
+NeoBundle 'git@github.com:bthemad/php-doc.vim'
+
+" Python
 NeoBundle 'alfredodeza/pytest.vim'
 NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'lambacck/python_matchit'
 NeoBundle 'davidhalter/jedi-vim'
-NeoBundle 'git@github.com:bthemad/php-doc.vim'
-NeoBundle 'derekwyatt/vim-scala'
 
 " C/C++/Objective-C completion with clang
 " NeoBundle 'Valloric/YouCompleteMe'
 " NeoBundle 'git@github.com:bthemad/c.vim.git'
+" NeoBundle 'git@github.com:bthemad/a.vim'
 
 " Installation check.
 NeoBundleCheck
