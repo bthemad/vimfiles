@@ -345,7 +345,7 @@ function! ReloadRc()
 endfunction
 
 " Required for NeoBundle
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', {'build': {'unix': 'make'}}
 
 " My Bundles here:
 NeoBundle 'bling/vim-airline'
