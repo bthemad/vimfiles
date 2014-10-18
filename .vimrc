@@ -361,6 +361,7 @@ NeoBundle 'ervandew/supertab'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'bronson/vim-closebuffer'
 NeoBundle 'git@github.com:bthemad/ZoomWin'
+NeoBundle 'benmills/vimux'
 
 " Syntax
 NeoBundle 'davidoc/taskpaper.vim'
