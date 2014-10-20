@@ -1,4 +1,3 @@
-set nocompatible               " Be iMproved
 
 scriptencoding utf-8
 " ### Settings ###
@@ -6,13 +5,17 @@ let mapleader = ","
 let maplocalleader = ","
 
 if has('vim_starting')
+  set nocompatible               " Be iMproved
+  " Required for NeoBundle
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
+
+call neobundle#end()
 
 
 " Some clear Vim settings
