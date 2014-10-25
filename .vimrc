@@ -370,6 +370,7 @@ NeoBundle 'benmills/vimux'
 NeoBundle 'davidoc/taskpaper.vim'
 NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'confluencewiki.vim'
+NeoBundle 'chase/vim-ansible-yaml'
 
 " Snipmate
 NeoBundle 'MarcWeber/vim-addon-mw-utils'
