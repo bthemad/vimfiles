@@ -95,7 +95,7 @@ colorscheme railscasts
 
 " ## Syntax and Filetypes
 syntax on                       " Show me syntax highlighting
-filetype plugin indent on     	" Required!
+filetype plugin indent on       " Required!
 set colorcolumn=80
 
 " Enable folding
@@ -305,7 +305,7 @@ autocmd FileType python setlocal completeopt-=preview
 
 " ### SuperTab
 let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-n>"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 let g:SuperTabCrMapping = 0
 
 " ### Airline
@@ -369,6 +369,7 @@ NeoBundle 'git@github.com:bthemad/ZoomWin'
 NeoBundle 'davidoc/taskpaper.vim'
 NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'confluencewiki.vim'
+NeoBundle 'chase/vim-ansible-yaml'
 
 " Snipmate
 NeoBundle 'MarcWeber/vim-addon-mw-utils'
