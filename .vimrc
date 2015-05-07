@@ -10,12 +10,6 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-call neobundle#end()
 
 
 " Some clear Vim settings
@@ -347,6 +341,11 @@ function! ReloadRc()
     source $MYGVIMRC
 endfunction
 
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+
 " Required for NeoBundle
 NeoBundle 'Shougo/vimproc', {'build': {'unix': 'make'}}
 
@@ -405,3 +404,5 @@ NeoBundle 'davidhalter/jedi-vim'
 
 " Installation check.
 NeoBundleCheck
+
+call neobundle#end()
