@@ -366,8 +366,6 @@ NeoBundle 'git@github.com:bthemad/ZoomWin'
 NeoBundle 'benmills/vimux'
 
 " Syntax
-NeoBundle 'davidoc/taskpaper.vim'
-NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'confluencewiki.vim'
 NeoBundle 'chase/vim-ansible-yaml'
 
@@ -388,19 +386,11 @@ NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'matchit.zip'
 
-" PHP
-NeoBundle 'git@github.com:bthemad/php-doc.vim'
-
 " Python
 NeoBundle 'alfredodeza/pytest.vim'
 NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'lambacck/python_matchit'
 NeoBundle 'davidhalter/jedi-vim'
-
-" C/C++/Objective-C completion with clang
-" NeoBundle 'Valloric/YouCompleteMe'
-" NeoBundle 'git@github.com:bthemad/c.vim.git'
-" NeoBundle 'git@github.com:bthemad/a.vim'
 
 " Installation check.
 NeoBundleCheck
