@@ -10,8 +10,6 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-
-
 " Some clear Vim settings
 set nocompatible                " For more sugar
 set relativenumber              " Show relative line numbers
@@ -37,6 +35,7 @@ set mouse=a                     " Let's use a mouse, just for split moving
 set cpoptions+=y                " We want the "." to repeat yanking of text
 set splitright                  " Open splits on the right
 set history=10000               " Save more command history
+set clipboard=unnamed           " Copy/pasted with system buffer by default
 
 " Set tabs to spaces
 set tabstop=4                   " Number of spaces in tab
