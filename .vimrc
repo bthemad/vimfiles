@@ -1,5 +1,5 @@
-
 scriptencoding utf-8
+
 " ### Settings ###
 let mapleader = ","
 let maplocalleader = ","
@@ -35,7 +35,7 @@ set mouse=a                     " Let's use a mouse, just for split moving
 set cpoptions+=y                " We want the "." to repeat yanking of text
 set splitright                  " Open splits on the right
 set history=10000               " Save more command history
-set clipboard=unnamed           " Copy/pasted with system buffer by default
+" set clipboard=unnamed           " Copy/pasted with system buffer by default
 
 " Set tabs to spaces
 set tabstop=4                   " Number of spaces in tab
@@ -340,13 +340,24 @@ function! ReloadRc()
     source $MYGVIMRC
 endfunction
 
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
+
+if has('vim_starting')
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
+
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+" Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
+" Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
-
-" Required for NeoBundle
-NeoBundle 'Shougo/vimproc', {'build': {'unix': 'make'}}
 
 " My Bundles here:
 NeoBundle 'bling/vim-airline'
@@ -391,7 +402,11 @@ NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'lambacck/python_matchit'
 NeoBundle 'davidhalter/jedi-vim'
 
-" Installation check.
-NeoBundleCheck
-
 call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
