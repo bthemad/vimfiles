@@ -102,7 +102,7 @@ set foldopen=block,insert,jump,hor,mark,percent,quickfix,search,tag,undo
 " ruby and yaml files are indented by two
 autocmd FileType ruby,rdoc,cucumber,yaml set softtabstop=2 tabstop=2 shiftwidth=2
 autocmd FileType scala set softtabstop=2 tabstop=2 shiftwidth=2
-autocmd FileType gitcommit set tw=68 spell
+autocmd FileType gitcommit set tw=72 spell
 
 " Filetyps based on extension
 autocmd BufNewFile,BufRead *.cm set filetype=confluencewiki
