@@ -204,7 +204,7 @@ nnoremap gk k
 nnoremap gj j
 
 " Run current file as python script
-map ,rp :!python %
+map ,rp :!clear;python %<CR>
 let python_highlight_all = 1
 
 inoremap <D-Enter> <C-O>o
