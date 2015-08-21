@@ -226,6 +226,7 @@ let g:tagbar_compact = 1
 " ### NerdTree
 map <silent> ,tt :NERDTreeToggle<CR>
 let g:NERDTreeChDirMode = 1
+let g:NERDTreeIgnore = ['\.pyc$']
 
 " ### NerdCommenter
 let NERDCreateDefaultMappings=0 " disable default mappings
@@ -243,7 +244,7 @@ let g:ctrlp_by_filename = 1
 let g:ctrlp_cache_dir = $HOME . '/.vim/ctrlp_cache'
 let g:ctrlp_max_files = 10000
 let g:ctrlp_max_depth = 40
-set wildignore+=*.o,*.obj,.git,*.d
+set wildignore+=*.o,*.obj,.git,*.d,*.pyc
 
 
 " ### Syntastic
