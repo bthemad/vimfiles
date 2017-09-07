@@ -4,11 +4,74 @@ scriptencoding utf-8
 let mapleader = ","
 let maplocalleader = ","
 
-if has('vim_starting')
+"dein Scripts-----------------------------
+if &compatible
   set nocompatible               " Be iMproved
-  " Required for NeoBundle
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
+
+" Required:
+set runtimepath+=/home/ubuntu/.vim/plugins/repos/github.com/Shougo/dein.vim
+
+" Required:
+if dein#load_state('/home/ubuntu/.vim/plugins')
+  call dein#begin('/home/ubuntu/.vim/plugins')
+
+  " Let dein manage dein
+  " Required:
+  call dein#add('/home/ubuntu/.vim/plugins/repos/github.com/Shougo/dein.vim')
+
+  " Add or remove your plugins here:
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
+
+call dein#add('bling/vim-airline')
+call dein#add('scrooloose/nerdtree')
+call dein#add('maxbrunsfeld/vim-yankstack')
+call dein#add('mileszs/ack.vim')
+call dein#add('godlygeek/csapprox')
+call dein#add('sjl/gundo.vim')
+call dein#add('bkad/CamelCaseMotion')
+call dein#add('vim-scripts/argtextobj.vim')
+call dein#add('tpope/vim-unimpaired')
+call dein#add('ervandew/supertab')
+call dein#add('kien/ctrlp.vim')
+call dein#add('bronson/vim-closebuffer')
+call dein#add('bthemad/ZoomWin')
+call dein#add('benmills/vimux')
+call dein#add('chase/vim-ansible-yaml')
+call dein#add('MarcWeber/vim-addon-mw-utils')
+call dein#add('tomtom/tlib_vim')
+call dein#add('bthemad/snipmate-snippets')
+call dein#add('garbas/vim-snipmate')
+call dein#add('tpope/vim-fugitive')
+call dein#add('mhinz/vim-signify')
+call dein#add('tpope/vim-surround')
+call dein#add('tpope/vim-repeat')
+call dein#add('scrooloose/nerdcommenter')
+call dein#add('majutsushi/tagbar')
+call dein#add('Raimondi/delimitMate')
+call dein#add('scrooloose/syntastic')
+call dein#add('tmhedberg/matchit')
+call dein#add('alfredodeza/pytest.vim')
+call dein#add('hynek/vim-python-pep8-indent')
+call dein#add('lambacck/python_matchit')
+call dein#add('davidhalter/jedi-vim')
+
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+
+"End dein Scripts-------------------------
 
 " Some clear Vim settings
 set nocompatible                " For more sugar
@@ -103,9 +166,6 @@ set foldopen=block,insert,jump,hor,mark,percent,quickfix,search,tag,undo
 autocmd FileType ruby,rdoc,cucumber,yaml set softtabstop=2 tabstop=2 shiftwidth=2
 autocmd FileType scala set softtabstop=2 tabstop=2 shiftwidth=2
 autocmd FileType gitcommit set tw=72 spell
-
-" Filetyps based on extension
-autocmd BufNewFile,BufRead *.cm set filetype=confluencewiki
 
 " ## Hotkeys
 " Enable Home/End in command line
@@ -341,74 +401,3 @@ function! ReloadRc()
     source $MYVIMRC
     source $MYGVIMRC
 endfunction
-
-" Note: Skip initialization for vim-tiny or vim-small.
-if 0 | endif
-
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" My Bundles here:
-NeoBundle 'bling/vim-airline'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'maxbrunsfeld/vim-yankstack'
-NeoBundle 'mileszs/ack.vim'
-NeoBundle 'godlygeek/csapprox'
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 'bkad/CamelCaseMotion'
-NeoBundle 'argtextobj.vim'
-NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'ervandew/supertab'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'bronson/vim-closebuffer'
-NeoBundle 'git@github.com:bthemad/ZoomWin'
-NeoBundle 'benmills/vimux'
-
-" Syntax
-NeoBundle 'confluencewiki.vim'
-NeoBundle 'chase/vim-ansible-yaml'
-
-" Snipmate
-NeoBundle 'MarcWeber/vim-addon-mw-utils'
-NeoBundle 'tomtom/tlib_vim'
-NeoBundle 'git@github.com:bthemad/snipmate-snippets'
-NeoBundle 'garbas/vim-snipmate'
-
-" Programming general
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'mhinz/vim-signify'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'matchit.zip'
-
-" Python
-NeoBundle 'alfredodeza/pytest.vim'
-NeoBundle 'hynek/vim-python-pep8-indent'
-NeoBundle 'lambacck/python_matchit'
-NeoBundle 'davidhalter/jedi-vim'
-
-call neobundle#end()
-
-" Required:
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
