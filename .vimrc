@@ -61,6 +61,7 @@ if dein#load_state('~/.vim/dein')
   " call dein#add('lambacck/python_matchit')
   " call dein#add('davidhalter/jedi-vim')
 
+
   " Required:
   call dein#end()
   call dein#save_state()
@@ -170,9 +171,6 @@ set foldopen=block,insert,jump,hor,mark,percent,quickfix,search,tag,undo
 autocmd FileType ruby,rdoc,cucumber,yaml set softtabstop=2 tabstop=2 shiftwidth=2
 autocmd FileType scala set softtabstop=2 tabstop=2 shiftwidth=2
 autocmd FileType gitcommit set tw=72 spell
-
-" Filetyps based on extension
-autocmd BufNewFile,BufRead *.cm set filetype=confluencewiki
 
 " ## Hotkeys
 " Enable Home/End in command line
@@ -305,12 +303,13 @@ map <leader>cu <plug>NERDCommenterUncomment
 map <leader>cC <plug>NERDCommenterSexy
 
 " ### CtrlP
-let g:ctrlp_map = '<leader>tf'
+let g:ctrlp_map = '<leader>ff'
 let g:ctrlp_open_multiple_files = '1vjvr'
 let g:ctrlp_by_filename = 1
 let g:ctrlp_cache_dir = $HOME . '/.vim/ctrlp_cache'
 let g:ctrlp_max_files = 10000
 let g:ctrlp_max_depth = 40
+let g:ctrlp_working_path_mode = 0
 set wildignore+=*.o,*.obj,.git,*.d,*.pyc
 
 
