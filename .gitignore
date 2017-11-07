@@ -2,6 +2,7 @@ autoload
 backup/*
 tmp/*
 bundle/*
+dein/*
 .netrwhist
 undofiles/*
 ctrlp_cache/*
