@@ -189,7 +189,7 @@ map ,gv :vsp $MYGVIMRC<CR>
 map ,V :call ReloadRc()<CR>
 
 " Edit snippets. Because you can't expand variable easy way.
-let s:python_snippets = $HOME . '/.vim/bundle/snipmate-snippets/snippets/python.snippets'
+let s:python_snippets = $HOME . '~/.vim/dein/repos/github.com/bthemad/snipmate-snippets/snippets/python.snippets'
 execute "map ,vp :vsp " . s:python_snippets . "<CR>"
 let snips_author = 'Alex Kudryashov <alex.kudryashov@gmail.com>'
 
@@ -371,21 +371,6 @@ let g:SuperTabCrMapping = 0
 " ### Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-
-" ### Vimux
-let g:VimuxPromptString = "> "
-function! VimuxSlime()
-    call VimuxSendText(@v)
-    call VimuxSendKeys("Enter")
-endfunction
-map <Leader>vl :VimuxRunLastCommand<CR>
-map <Leader>vr :VimuxPromptCommand<CR>
-
-" ### pdv
-let g:pdv_cfg_Author = "Alexander Kudryashov <alex.kudryashov@gmail.com>"
-inoremap <Leader>pp <ESC>:call PhpDocSingle()<CR>i
-nnoremap <Leader>pp :call PhpDocSingle()<CR>
-vnoremap <Leader>pp :call PhpDocRange()<CR>
 
 " # Help Functions
 " Preserve state of cursor after executing a command
