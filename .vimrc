@@ -243,7 +243,7 @@ nmap \w :set wrap! list!<CR>
 nmap \s :set spell!<CR>
 
 " Insert first dictionary occurrence
-nmap <silent> ,sr 1z=
+nmap <silent> ,sp 1z=
 " Change directory to current file's directory
 map <silent> ,cd :lcd %:h<CR>
 " Strip trailing spaces
