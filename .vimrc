@@ -33,7 +33,6 @@ if dein#load_state('~/.vim/dein')
   call dein#add('kien/ctrlp.vim')
   call dein#add('bronson/vim-closebuffer')
   call dein#add('git@github.com:bthemad/ZoomWin')
-  call dein#add('benmills/vimux')
 
   " Syntax
   call dein#add('chase/vim-ansible-yaml')
@@ -188,6 +187,8 @@ map ,vv :vsp $MYVIMRC<CR>
 map ,gv :vsp $MYGVIMRC<CR>
 map ,V :call ReloadRc()<CR>
 
+" Use the new parser
+let g:snipMate = { 'snippet_version' : 1 }
 " Edit snippets. Because you can't expand variable easy way.
 let s:python_snippets = $HOME . '~/.vim/dein/repos/github.com/bthemad/snipmate-snippets/snippets/python.snippets'
 execute "map ,vp :vsp " . s:python_snippets . "<CR>"
